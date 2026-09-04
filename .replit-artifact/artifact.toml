@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "WhatsWare Homepage"
+description = "A polished SaaS landing page for WhatsWare — a WhatsApp Business automation platform. Features navbar, animated hero with video background, stats, feature cards, business scenarios, how-it-works, AI+Human section, trusted logos, CTA, and footer."
+version = "1.0.0"
+id = "artifacts/whatsware-homepage"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24773
+
+[services.development]
+run = "pnpm --filter @workspace/whatsware-homepage run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/whatsware-homepage", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/whatsware-homepage/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24773"
+BASE_PATH = "/"
