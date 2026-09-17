@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Toaster } from "@/components/ui/toaster";
-
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import {
@@ -16,128 +15,103 @@ import {
 /* =========================================================
    MAIN PAGES
 ========================================================= */
+
 import NotFound from "@/pages/not-found";
-
 import Home from "@/pages/Home";
-
 import Aira from "@/pages/Aira";
-
 import Products from "@/pages/Products";
-
 import Solutions from "@/pages/Solutions";
-
 import Pricing from "@/pages/Pricing";
-
 import Partnership from "@/pages/Partnership";
-
 import Resources from "@/pages/Resources";
-
 import About from "@/pages/About";
-
 import Login from "@/pages/Login";
-
 import SignUp from "@/pages/SignUp";
-
 import BookDemo from "@/pages/BookDemo";
 
 /* =========================================================
    LEGAL / INFORMATION PAGES
 ========================================================= */
+
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
-
 import TermsConditions from "@/pages/TermsConditions";
-
-import WhyWhatsware from "@/pages/WhyWhatsware";
+import WhyWhatsWare from "@/pages/WhyWhatsWare";
 
 /* =========================================================
    PRODUCT HUBS
 ========================================================= */
-import MarketingHub from "@/pages/MarketingHub";
 
+import MarketingHub from "@/pages/MarketingHub";
 import SupportHub from "@/pages/SupportHub";
 
 /* =========================================================
    PRODUCT PAGES
 ========================================================= */
+
 import ProductSolution from "@/pages/ProductSolution";
-
 import ProductFeatures from "@/pages/ProductFeatures";
-
 import WhatsAppAIAgents from "@/pages/WhatsAppAIAgents";
-
 import WhatsAppAutomation from "@/pages/WhatsAppAutomation";
-
 import WhatsAppBroadcast from "@/pages/WhatsAppBroadcast";
-
 import WhatsAppChatbots from "@/pages/WhatsAppChatbots";
-
 import WhatsAppChatWidget from "@/pages/WhatsAppChatWidget";
-
 import WhatsAppForms from "@/pages/WhatsAppForms";
-
 import WhatsAppLinkGenerator from "@/pages/WhatsAppLinkGenerator";
-
 import WhatsAppPayments from "@/pages/WhatsAppPayments";
-
 import WhatsAppQRCode from "@/pages/WhatsAppQRCode";
-
 import WhatsAppSales from "@/pages/WhatsAppSales";
-
 import ClickToWhatsAppAds from "@/pages/ClickToWhatsAppAds";
-
 import SharedTeamInbox from "@/pages/SharedTeamInbox";
-
 import WorkflowBuilder from "@/pages/WorkflowBuilder";
-
 import Analytics from "@/pages/Analytics";
-
 import AutomatedFollowups from "@/pages/AutomatedFollowups";
-
 import AILeadQualification from "@/pages/AILeadQualification";
-
 import AIAgents from "@/pages/AIAgents";
-
 import InstagramAutomation from "@/pages/InstagramAutomation";
 
 /* =========================================================
    SOLUTION PAGES
 ========================================================= */
+
 import WhatsAppSolution from "@/pages/WhatsAppSolution";
-
 import ChannelSolution from "@/pages/ChannelSolution";
-
 import IndustrySolution from "@/pages/IndustrySolution";
 
 /* =========================================================
    INTEGRATIONS
 ========================================================= */
+
 import PlugAndPlay from "@/pages/PlugAndPlay";
 
 /* =========================================================
    RCS + VOICE
 ========================================================= */
-import RCS from "@/pages/RCS";
 
+import RCS from "@/pages/RCS";
 import Voice from "@/pages/Voice";
 
 /* =========================================================
    LANGUAGE
 ========================================================= */
+
 import { LanguageProvider } from "@/context/LanguageContext";
 
 /* =========================================================
    GLOBAL CHATBOT
 ========================================================= */
+
 import Chatbot from "@/components/Chatbot";
 
 /* =========================================================
    QUERY CLIENT
 ========================================================= */
+
 const queryClient = new QueryClient();
 
 /* =========================================================
    GLOBAL SCROLL RESET
 ========================================================= */
+
 function ScrollToTop() {
   const [location] = useLocation();
 
@@ -149,8 +123,8 @@ function ScrollToTop() {
       behavior: "auto",
     });
 
-    // Also reset the document/body scroll position for layouts
-    // where the browser preserves the previous scroll position.
+    // Also reset document/body scroll position
+    // for layouts where the browser preserves scroll.
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [location]);
@@ -161,6 +135,7 @@ function ScrollToTop() {
 /* =========================================================
    ROUTER
 ========================================================= */
+
 function Router() {
   return (
     <Switch>
@@ -237,42 +212,42 @@ function Router() {
 
       <Route
         path="/why-whatsware"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-aisensy"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-bitespeed"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-delightchat"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-limechat"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-businessonbot"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-wati"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       <Route
         path="/why-whatsware/vs-qontak"
-        component={WhyWhatsware}
+        component={WhyWhatsWare}
       />
 
       {/* =====================================================
@@ -494,7 +469,6 @@ function Router() {
       />
 
       {/* Old URL compatibility */}
-
       <Route
         path="/solutions/channel/:channel"
         component={ChannelSolution}
@@ -529,7 +503,7 @@ function Router() {
           These are the routes used by BusinessScenarios.tsx.
 
           IMPORTANT:
-          This route MUST come before the final NotFound.
+          This route must come before the final NotFound.
       ===================================================== */}
 
       <Route
@@ -549,6 +523,7 @@ function Router() {
 /* =========================================================
    APP
 ========================================================= */
+
 function App() {
   return (
     <LanguageProvider>
