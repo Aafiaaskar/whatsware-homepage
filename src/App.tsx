@@ -35,7 +35,7 @@ import BookDemo from "@/pages/BookDemo";
 
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
-import WhyWhatsWare from "@/pages/WhyWhatsWare";
+import WhyWhatsWare from "@/pages/WhyWhatsware";
 
 /* =========================================================
    PRODUCT HUBS
