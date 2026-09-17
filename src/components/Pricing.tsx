@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, type SVGProps } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+/* =========================================================
+   TYPES
+========================================================= */
+
 type CategoryKey = "marketing" | "aiAgents";
+
 type PlanKey = "spark" | "boost" | "titan" | "customizable";
 
 interface Plan {
@@ -29,1138 +34,1460 @@ interface FeatureSection {
   rows: FeatureRow[];
 }
 
-const plans: Record<PlanKey, Plan> = {
-  spark: {
-    name: "Spark",
-    description: "Perfect for getting started",
-    price: "$300",
-    priceNote: "per year + taxes",
-    color: "#159447",
-    button: "Get Started",
-    icon: "✦",
-  },
+type BrandLogo = (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-  boost: {
-    name: "Boost",
-    description: "Grow your business faster",
-    price: "$600",
-    priceNote: "per year + taxes",
-    color: "#E5A000",
-    button: "Get Started Now!",
-    icon: "⚡",
-  },
+interface Integration {
+  name: string;
+  Logo: BrandLogo;
+  color: string;
+}
 
-  titan: {
-    name: "Titan",
-    description: "For scaling businesses",
-    price: "$2,000",
-    priceNote: "per year + taxes",
-    color: "#7B4DFF",
-    popular: true,
-    button: "Get Started",
-    icon: "◆",
-  },
+/* =========================================================
+   INLINE BRAND LOGOS
+   No external URLs
+   No react-icons
+========================================================= */
 
-  customizable: {
-    name: "Customizable",
-    description: "Built around your business",
-    price: "Custom",
-    priceNote: "Talk to our sales team",
-    color: "#8B5A2B",
-    button: "Get In Touch",
-    icon: "⚙",
-  },
-};
+const WhatsAppLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" fill="none" {...props}>
+    <circle cx="24" cy="24" r="22" fill="#25D366" />
+    <path
+      d="M14.5 35.5L16.7 29.2C15.3 27 14.7 24.4 15.1 21.8C15.8 17.3 19.4 13.8 23.9 13.1C29.9 12.2 35.5 16.1 36.6 22C37.8 28.7 32.7 34.8 26.1 34.8C23.8 34.8 21.6 34.2 19.8 33.1L14.5 35.5Z"
+      fill="white"
+    />
+    <path
+      d="M20.2 18.7C20.6 18.1 21.1 18.1 21.6 18.2L23 21.4C23.2 21.8 23.1 22.2 22.8 22.5L21.7 23.5C22.6 25.4 24.1 26.8 26 27.7L27 26.6C27.3 26.3 27.7 26.2 28.1 26.4L31.3 27.8C31.7 28 31.8 28.5 31.6 28.9C31.1 30 30.1 30.6 29 30.6C24.2 30.1 18.8 24.7 18.3 19.9C18.3 19.4 19 18.9 20.2 18.7Z"
+      fill="#25D366"
+    />
+  </svg>
+);
 
-const categories: {
-  key: CategoryKey;
-  label: string;
-  description: string;
-}[] = [
+const InstagramLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <defs>
+      <linearGradient id="instagramGradientPricing" x1="5" y1="43" x2="43" y2="5">
+        <stop offset="0" stopColor="#FFDC80" />
+        <stop offset=".35" stopColor="#F77737" />
+        <stop offset=".65" stopColor="#E1306C" />
+        <stop offset="1" stopColor="#833AB4" />
+      </linearGradient>
+    </defs>
+
+    <rect
+      x="4"
+      y="4"
+      width="40"
+      height="40"
+      rx="11"
+      fill="url(#instagramGradientPricing)"
+    />
+
+    <rect
+      x="13"
+      y="13"
+      width="22"
+      height="22"
+      rx="7"
+      fill="none"
+      stroke="white"
+      strokeWidth="3"
+    />
+
+    <circle
+      cx="24"
+      cy="24"
+      r="5"
+      fill="none"
+      stroke="white"
+      strokeWidth="3"
+    />
+
+    <circle cx="33.5" cy="14.8" r="2" fill="white" />
+  </svg>
+);
+
+const ShopifyLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <path
+      d="M13 14.5L16.5 11H32L35 14.5L38 17V39H10V17L13 14.5Z"
+      fill="#95BF47"
+    />
+
+    <path
+      d="M17 14C17 10.7 19.7 8 23 8H25C28.3 8 31 10.7 31 14"
+      fill="none"
+      stroke="#5E8E3E"
+      strokeWidth="2.5"
+    />
+
+    <text
+      x="24"
+      y="31"
+      textAnchor="middle"
+      fontSize="14"
+      fontWeight="800"
+      fill="white"
+      fontFamily="Arial"
+    >
+      S
+    </text>
+  </svg>
+);
+
+const SalesforceLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <path
+      d="M15 34C10.6 34 7 30.8 7 26.7C7 23 9.8 20 13.6 19.5C14.9 15.3 18.8 12 23.4 12C27.1 12 30.3 14.1 31.9 17.2C32.5 17.1 33.1 17 33.8 17C38 17 41.5 20.4 41.5 24.5C41.5 28.5 38.4 31.7 34.4 32C33.3 35.1 30.4 37 27.1 37C24.9 37 22.9 36.1 21.5 34.6C19.8 35.5 17.5 36 15 34Z"
+      fill="#00A1E0"
+    />
+
+    <text
+      x="24"
+      y="29"
+      textAnchor="middle"
+      fontSize="6.5"
+      fontWeight="800"
+      fill="white"
+      fontFamily="Arial"
+    >
+      salesforce
+    </text>
+  </svg>
+);
+
+const GoogleSheetsLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <path d="M10 5H29L38 14V43H10V5Z" fill="#34A853" />
+
+    <path d="M29 5V14H38" fill="#A8DAB5" />
+
+    <path
+      d="M16 20H32M16 26H32M16 32H32M16 38H32M16 20V38M24 20V38M32 20V38"
+      stroke="white"
+      strokeWidth="1.8"
+    />
+  </svg>
+);
+
+const ZapierLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <g fill="#FF4A00">
+      <rect x="21" y="5" width="6" height="14" rx="1" />
+      <rect x="21" y="29" width="6" height="14" rx="1" />
+      <rect x="5" y="21" width="14" height="6" rx="1" />
+      <rect x="29" y="21" width="14" height="6" rx="1" />
+      <rect
+        x="11"
+        y="11"
+        width="6"
+        height="14"
+        rx="1"
+        transform="rotate(-45 14 18)"
+      />
+      <rect
+        x="31"
+        y="23"
+        width="6"
+        height="14"
+        rx="1"
+        transform="rotate(-45 34 30)"
+      />
+      <rect
+        x="31"
+        y="11"
+        width="6"
+        height="14"
+        rx="1"
+        transform="rotate(45 34 18)"
+      />
+      <rect
+        x="11"
+        y="23"
+        width="6"
+        height="14"
+        rx="1"
+        transform="rotate(45 14 30)"
+      />
+    </g>
+  </svg>
+);
+
+const WooCommerceLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="24" r="21" fill="#96588A" />
+
+    <path
+      d="M10 18C12 18 13 19 14 22L16 29L20 20C20.5 18.8 21.5 18 23 18C24.5 18 25.5 19 26 20L29 29L33 20C34 18 35 18 37 18"
+      fill="none"
+      stroke="white"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const StripeLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <rect x="4" y="8" width="40" height="32" rx="7" fill="#635BFF" />
+
+    <text
+      x="24"
+      y="29"
+      textAnchor="middle"
+      fontSize="15"
+      fontWeight="800"
+      fontStyle="italic"
+      fill="white"
+      fontFamily="Arial"
+    >
+      stripe
+    </text>
+  </svg>
+);
+
+const GoogleAnalyticsLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <rect
+      x="9"
+      y="24"
+      width="7"
+      height="17"
+      rx="3.5"
+      fill="#F9AB00"
+    />
+
+    <rect
+      x="21"
+      y="15"
+      width="7"
+      height="26"
+      rx="3.5"
+      fill="#E37400"
+    />
+
+    <rect
+      x="33"
+      y="7"
+      width="7"
+      height="34"
+      rx="3.5"
+      fill="#F9AB00"
+    />
+  </svg>
+);
+
+const PostmanLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="24" r="21" fill="#FF6C37" />
+
+    <circle
+      cx="24"
+      cy="24"
+      r="13"
+      fill="none"
+      stroke="white"
+      strokeWidth="2.5"
+    />
+
+    <path
+      d="M18 30L30 18M23 18H30V25"
+      stroke="white"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const SwaggerLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <path
+      d="M24 3L42 13V35L24 45L6 35V13L24 3Z"
+      fill="#85EA2D"
+    />
+
+    <text
+      x="24"
+      y="29"
+      textAnchor="middle"
+      fontSize="11"
+      fontWeight="900"
+      fill="#173B0A"
+      fontFamily="Arial"
+    >
+      S
+    </text>
+  </svg>
+);
+
+const HubSpotLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="26" r="7" fill="#FF7A59" />
+    <circle cx="10" cy="12" r="5" fill="#FF7A59" />
+    <circle cx="38" cy="12" r="5" fill="#FF7A59" />
+    <circle cx="39" cy="39" r="5" fill="#FF7A59" />
+
+    <path
+      d="M14 15L19 21M29 21L34 15M29 30L35 36"
+      stroke="#FF7A59"
+      strokeWidth="4"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+const MailchimpLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <rect x="4" y="7" width="40" height="34" rx="8" fill="#FFE01B" />
+
+    <path
+      d="M12 29C10 26 11 22 14 20C17 18 20 19 22 21C24 18 28 18 30 21C34 19 38 22 37 26C39 29 36 33 33 33H15C12 33 10 31 12 29Z"
+      fill="#241C15"
+    />
+
+    <circle cx="20" cy="25" r="2" fill="#FFE01B" />
+    <circle cx="29" cy="25" r="2" fill="#FFE01B" />
+  </svg>
+);
+
+const WordPressLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="24" r="21" fill="#21759B" />
+
+    <text
+      x="24"
+      y="32"
+      textAnchor="middle"
+      fontSize="27"
+      fontWeight="900"
+      fontFamily="Georgia"
+      fill="white"
+    >
+      W
+    </text>
+  </svg>
+);
+
+const FacebookLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="24" r="21" fill="#1877F2" />
+
+    <text
+      x="27"
+      y="37"
+      textAnchor="middle"
+      fontSize="31"
+      fontWeight="900"
+      fontFamily="Arial"
+      fill="white"
+    >
+      f
+    </text>
+  </svg>
+);
+
+const GoogleLogo: BrandLogo = (props) => (
+  <svg viewBox="0 0 48 48" {...props}>
+    <text
+      x="24"
+      y="35"
+      textAnchor="middle"
+      fontSize="31"
+      fontWeight="700"
+      fontFamily="Arial"
+      fill="#4285F4"
+    >
+      G
+    </text>
+  </svg>
+);
+
+/* =========================================================
+   INTEGRATIONS
+========================================================= */
+
+const integrations: Integration[] = [
   {
-    key: "marketing",
-    label: "Marketing & Support Hub",
-    description:
-      "Powerful WhatsApp marketing, customer support and automation tools for growing businesses.",
+    name: "WhatsApp Business",
+    Logo: WhatsAppLogo,
+    color: "#25D366",
   },
   {
-    key: "aiAgents",
-    label: "WhatsApp AI Agents",
-    description:
-      "Intelligent AI-powered conversations that help your business engage customers automatically.",
+    name: "Instagram",
+    Logo: InstagramLogo,
+    color: "#E4405F",
+  },
+  {
+    name: "Shopify",
+    Logo: ShopifyLogo,
+    color: "#95BF47",
+  },
+  {
+    name: "Salesforce",
+    Logo: SalesforceLogo,
+    color: "#00A1E0",
+  },
+  {
+    name: "Google Sheets",
+    Logo: GoogleSheetsLogo,
+    color: "#34A853",
+  },
+  {
+    name: "Zapier",
+    Logo: ZapierLogo,
+    color: "#FF4A00",
+  },
+  {
+    name: "WooCommerce",
+    Logo: WooCommerceLogo,
+    color: "#96588A",
+  },
+  {
+    name: "Stripe",
+    Logo: StripeLogo,
+    color: "#635BFF",
+  },
+  {
+    name: "Google Analytics",
+    Logo: GoogleAnalyticsLogo,
+    color: "#E37400",
+  },
+  {
+    name: "Postman",
+    Logo: PostmanLogo,
+    color: "#FF6C37",
+  },
+  {
+    name: "Swagger",
+    Logo: SwaggerLogo,
+    color: "#85EA2D",
+  },
+  {
+    name: "HubSpot",
+    Logo: HubSpotLogo,
+    color: "#FF7A59",
+  },
+  {
+    name: "Mailchimp",
+    Logo: MailchimpLogo,
+    color: "#FFE01B",
+  },
+  {
+    name: "WordPress",
+    Logo: WordPressLogo,
+    color: "#21759B",
+  },
+  {
+    name: "Facebook",
+    Logo: FacebookLogo,
+    color: "#1877F2",
+  },
+  {
+    name: "Google",
+    Logo: GoogleLogo,
+    color: "#4285F4",
   },
 ];
 
-const featureSections: Record<CategoryKey, FeatureSection[]> = {
+/* =========================================================
+   PLANS
+========================================================= */
+
+const plans: Record<CategoryKey, Plan[]> = {
   marketing: [
     {
-      title: "Marketing & Campaigns",
-      rows: [
-        {
-          feature: "WhatsApp Campaigns",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Bulk Messaging",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Campaign Scheduling",
-          spark: "Basic",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "Audience Segmentation",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Campaign Analytics",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Spark",
+      description: "Essential WhatsApp marketing automation for growing businesses.",
+      price: "$300",
+      priceNote: "per year",
+      color: "#159447",
+      button: "Get Spark",
+      icon: "✦",
     },
-
     {
-      title: "Customer Support",
-      rows: [
-        {
-          feature: "Shared Team Inbox",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Customer Conversations",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Greeting Automation",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Out-of-Office Automation",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "FAQ Automation",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "Chat Assignment",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Boost",
+      description: "Complete marketing automation with setup and campaign support.",
+      price: "$600",
+      priceNote: "per year",
+      color: "#075E54",
+      popular: true,
+      button: "Choose Boost",
+      icon: "⚡",
     },
-
     {
-      title: "Automation",
-      rows: [
-        {
-          feature: "Workflow Automation",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Follow-up Automation",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Conditional Workflows",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "Advanced Triggers",
-          spark: "—",
-          boost: "Basic",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Webhook Automation",
-          spark: "—",
-          boost: "Basic",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Titan",
+      description: "Advanced automation, notifications, integrations and optimization.",
+      price: "$2,000",
+      priceNote: "per year",
+      color: "#111827",
+      button: "Choose Titan",
+      icon: "♛",
     },
-
     {
-      title: "Commerce & Channels",
-      rows: [
-        {
-          feature: "WhatsApp",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Instagram",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Product Catalog",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "WhatsApp Commerce",
-          spark: "—",
-          boost: "Basic",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Customizable",
+      description: "A tailored WhatsApp solution designed around your business.",
+      price: "Custom",
+      priceNote: "Let's talk",
+      color: "#7C3AED",
+      button: "Contact Us",
+      icon: "◆",
     },
   ],
 
   aiAgents: [
     {
-      title: "AI Conversations",
-      rows: [
-        {
-          feature: "AI Conversations",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "AI Agent Creation",
-          spark: "1 Agent",
-          boost: "3 Agents",
-          titan: "Unlimited",
-          customizable: "Custom",
-        },
-        {
-          feature: "AI FAQ Handling",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Human Handoff",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "AI Lead Qualification",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-      ],
+      name: "Spark",
+      description: "Start automating customer conversations with WhatsApp AI.",
+      price: "$300",
+      priceNote: "per year",
+      color: "#159447",
+      button: "Get Spark",
+      icon: "✦",
     },
-
     {
-      title: "AI Automation",
-      rows: [
-        {
-          feature: "Automated Replies",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Intent Detection",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "Conversation Routing",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "AI Workflow Actions",
-          spark: "—",
-          boost: "Basic",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "API Actions",
-          spark: "—",
-          boost: "—",
-          titan: "✓",
-          customizable: "Custom",
-        },
-      ],
+      name: "Boost",
+      description: "Powerful AI automation for faster customer engagement.",
+      price: "$600",
+      priceNote: "per year",
+      color: "#075E54",
+      popular: true,
+      button: "Choose Boost",
+      icon: "⚡",
     },
-
     {
-      title: "AI Knowledge",
-      rows: [
-        {
-          feature: "FAQ Knowledge Base",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Business Information",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Custom Instructions",
-          spark: "—",
-          boost: "✓",
-          titan: "✓",
-          customizable: "Custom",
-        },
-        {
-          feature: "AI Agent Training",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Titan",
+      description: "Enterprise-grade AI agents with advanced automation.",
+      price: "$2,000",
+      priceNote: "per year",
+      color: "#111827",
+      button: "Choose Titan",
+      icon: "♛",
     },
-
     {
-      title: "AI Controls",
-      rows: [
-        {
-          feature: "Human Takeover",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "Agent Assignment",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-        {
-          feature: "Conversation History",
-          spark: "✓",
-          boost: "✓",
-          titan: "✓",
-          customizable: "✓",
-        },
-        {
-          feature: "AI Analytics",
-          spark: "Basic",
-          boost: "Advanced",
-          titan: "Advanced",
-          customizable: "Custom",
-        },
-      ],
+      name: "Customizable",
+      description: "Build an AI automation solution specifically for your workflow.",
+      price: "Custom",
+      priceNote: "Let's talk",
+      color: "#7C3AED",
+      button: "Contact Us",
+      icon: "◆",
     },
   ],
 };
 
-const capacityRows = [
+/* =========================================================
+   FEATURE DATA
+========================================================= */
+
+const marketingFeatures: FeatureSection[] = [
   {
-    feature: "WhatsApp Numbers",
-    spark: "1",
-    boost: "3",
-    titan: "10",
-    customizable: "Custom",
+    title: "Marketing & Support",
+    rows: [
+      {
+        feature: "WhatsApp Business Setup",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "✓",
+      },
+      {
+        feature: "Bulk Broadcast",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Festival Campaigns",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Click-to-WhatsApp Ads",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Lead Capture",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Welcome Messages",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Keyword Auto-Reply",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Auto Follow-ups",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+    ],
   },
+
   {
-    feature: "Messages",
-    spark: "Unlimited*",
-    boost: "Unlimited*",
-    titan: "Unlimited*",
-    customizable: "Custom",
-  },
-  {
-    feature: "Contacts",
-    spark: "Unlimited",
-    boost: "Unlimited",
-    titan: "Unlimited",
-    customizable: "Custom",
-  },
-  {
-    feature: "Team Members",
-    spark: "2",
-    boost: "5",
-    titan: "Unlimited",
-    customizable: "Custom",
-  },
-  {
-    feature: "Custom Fields",
-    spark: "15",
-    boost: "25",
-    titan: "50",
-    customizable: "Unlimited",
-  },
-  {
-    feature: "Custom Tags",
-    spark: "15",
-    boost: "30",
-    titan: "50",
-    customizable: "Unlimited",
+    title: "Business API & Setup",
+    rows: [
+      {
+        feature: "Business API Setup",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "✓",
+      },
+      {
+        feature: "Facebook Verification",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "✓",
+      },
+      {
+        feature: "Number Registration",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "✓",
+      },
+      {
+        feature: "Panel Access",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "✓",
+      },
+    ],
   },
 ];
 
-const integrations = [
-  "WhatsApp Business",
-  "Instagram",
-  "Shopify",
-  "CRM",
-  "Webhooks",
-  "Public APIs",
-  "Google Sheets",
-  "Zapier",
-  "E-commerce",
-  "Payments",
-  "Analytics",
-  "Custom Integrations",
+const aiAgentFeatures: FeatureSection[] = [
+  {
+    title: "WhatsApp AI Agents",
+    rows: [
+      {
+        feature: "AI Customer Conversations",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "AI Lead Qualification",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "AI FAQs",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "24/7 Automated Replies",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Conversation Routing",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Human Handoff",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Advanced AI Workflows",
+        spark: "—",
+        boost: "—",
+        titan: "✓",
+        customizable: "Custom",
+      },
+    ],
+  },
+
+  {
+    title: "Automation",
+    rows: [
+      {
+        feature: "Workflow Automation",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Automated Follow-ups",
+        spark: "✓",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "Lead Routing",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+      {
+        feature: "CRM Integration",
+        spark: "—",
+        boost: "✓",
+        titan: "✓",
+        customizable: "Custom",
+      },
+    ],
+  },
 ];
 
-const planVisuals: Record<PlanKey, string> = {
-  spark: "✨",
-  boost: "⚡",
-  titan: "🚀",
-  customizable: "🛠️",
+const capacityRows: FeatureRow[] = [
+  {
+    feature: "Campaign Management",
+    spark: "Basic",
+    boost: "Advanced",
+    titan: "Advanced",
+    customizable: "Custom",
+  },
+  {
+    feature: "Automation",
+    spark: "Basic",
+    boost: "Advanced",
+    titan: "Advanced",
+    customizable: "Custom",
+  },
+  {
+    feature: "Integrations",
+    spark: "Limited",
+    boost: "Multiple",
+    titan: "Advanced",
+    customizable: "Custom",
+  },
+  {
+    feature: "Support",
+    spark: "Standard",
+    boost: "Priority",
+    titan: "Premium",
+    customizable: "Dedicated",
+  },
+];
+
+/* =========================================================
+   ADD-ONS
+========================================================= */
+
+const addOns = {
+  spark: [
+    "Chatbot Setup",
+    "Campaign Setup",
+    "Lead Funnel",
+    "API Integration",
+    "CRM Integration",
+    "Payment Integration",
+    "Green Tick Assistance",
+  ],
+
+  boost: [
+    "API & Setup",
+    "Business API Setup",
+    "FB Verification",
+    "Number Registration",
+    "Panel Access",
+    "Bulk Broadcast",
+    "Festival Campaigns",
+    "Click-to-WA Ads",
+    "Lead Capture",
+    "Welcome Messages",
+    "Keyword Auto-Reply",
+    "Auto Follow-ups",
+  ],
+
+  titan: [
+    "Appointment Reminders",
+    "Order Confirmation",
+    "Delivery Updates",
+    "Renewal Reminders",
+    "Website & Landing Page",
+    "Google Sheets",
+    "Google Ads / Meta Ads",
+    "Payment Gateway",
+    "Technical Support",
+    "Campaign Support",
+    "Monthly Optimization",
+  ],
 };
 
-const addOnIcons = ["🤖", "📱", "📊", "🔗", "🎧", "⚙️"];
+/* =========================================================
+   SMALL ICON
+========================================================= */
+
+function CheckIcon() {
+  return (
+    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-green-100 text-sm font-black text-[#159447]">
+      ✓
+    </span>
+  );
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 export default function Pricing() {
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryKey>("marketing");
+  const [category, setCategory] = useState<CategoryKey>("marketing");
 
-  const currentCategory = categories.find(
-    (category) => category.key === activeCategory
-  );
+  const activePlans = plans[category];
 
-  const planKeys = Object.keys(plans) as PlanKey[];
+  const activeFeatures =
+    category === "marketing" ? marketingFeatures : aiAgentFeatures;
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#FFFDF5] text-gray-900">
+    <div className="min-h-screen overflow-x-hidden bg-[#FFFDF5] text-slate-900">
       <Navbar />
 
-      {/* ========================================================= */}
-      {/* HERO */}
-      {/* ========================================================= */}
-      <section className="relative overflow-hidden pt-32 pb-24">
-        {/* Background decorative shapes */}
-        <div className="pointer-events-none absolute left-[8%] top-20 h-72 w-72 rounded-full bg-green-300/20 blur-3xl" />
-        <div className="pointer-events-none absolute right-[5%] top-32 h-80 w-80 rounded-full bg-purple-300/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-yellow-200/20 blur-3xl" />
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
-        {/* Decorative floating elements */}
-        <div className="pointer-events-none absolute left-[7%] top-48 hidden animate-[bounce_5s_ease-in-out_infinite] lg:block">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-green-200 bg-white text-2xl shadow-xl shadow-green-900/10">
-            💬
-          </div>
-        </div>
+      <section className="relative overflow-hidden px-6 pb-20 pt-28">
+        <div className="absolute left-1/2 top-10 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-green-100/50 blur-3xl" />
 
-        <div className="pointer-events-none absolute right-[8%] top-56 hidden animate-[bounce_6s_ease-in-out_infinite] lg:block">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-purple-200 bg-white text-2xl shadow-xl shadow-purple-900/10">
-            🤖
-          </div>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-5 py-2 text-sm font-bold text-green-700 shadow-sm">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-            Whatsware Pricing
+        <div className="relative mx-auto max-w-6xl text-center">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-5 py-2 text-sm font-bold text-[#159447]">
+            <span className="text-lg">✦</span>
+            Simple & Transparent Pricing
           </div>
 
-          <h1 className="mx-auto mt-7 max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
-            Powerful Automation.
-            <span className="mt-2 block bg-gradient-to-r from-[#159447] via-[#159447] to-[#7B4DFF] bg-clip-text text-transparent">
-              Simple Pricing.
+          <h1 className="text-5xl font-black tracking-tight text-slate-950 md:text-7xl">
+            Choose the plan that
+            <span className="block text-[#159447]">
+              grows with your business.
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
-            Choose the Whatsware solution that fits your business and scale
-            your marketing, customer support, AI automation and sales.
+          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+            Powerful WhatsApp automation, AI agents, marketing and customer
+            support tools — without complicated pricing.
           </p>
 
-          {/* Hero visual */}
-          <div className="relative mx-auto mt-12 max-w-4xl">
-            <div className="relative rounded-[2rem] border border-green-100 bg-white/80 p-3 shadow-2xl shadow-green-900/10 backdrop-blur-xl">
-              <div className="rounded-[1.5rem] bg-gradient-to-br from-[#0F5132] via-[#126C42] to-[#159447] p-8 sm:p-10">
-                <div className="grid gap-5 sm:grid-cols-3">
-                  {[
-                    {
-                      icon: "💬",
-                      title: "Engage",
-                      text: "Connect with customers",
-                    },
-                    {
-                      icon: "🤖",
-                      title: "Automate",
-                      text: "Let AI handle conversations",
-                    },
-                    {
-                      icon: "📈",
-                      title: "Grow",
-                      text: "Turn conversations into sales",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="group rounded-2xl border border-white/15 bg-white/10 p-5 text-left backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white/15"
-                    >
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-2xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                        {item.icon}
-                      </div>
-
-                      <h3 className="font-extrabold text-white">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-1 text-sm text-white/65">
-                        {item.text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="rounded-full border border-green-200 bg-white px-5 py-3 text-sm font-semibold shadow-sm">
+              ✓ Yearly plans
             </div>
 
-            {/* floating mini cards */}
-            <div className="absolute -left-5 bottom-10 hidden rounded-2xl border border-green-100 bg-white px-4 py-3 shadow-xl sm:block">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-green-100">
-                  ✓
-                </span>
-
-                <div className="text-left">
-                  <p className="text-xs font-bold text-gray-900">
-                    Automation Active
-                  </p>
-                  <p className="text-[10px] text-gray-500">
-                    Your business is working smarter
-                  </p>
-                </div>
-              </div>
+            <div className="rounded-full border border-green-200 bg-white px-5 py-3 text-sm font-semibold shadow-sm">
+              ✓ Business automation
             </div>
 
-            <div className="absolute -right-5 top-8 hidden rounded-2xl border border-purple-100 bg-white px-4 py-3 shadow-xl sm:block">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-purple-100">
-                  ✦
-                </span>
-
-                <div className="text-left">
-                  <p className="text-xs font-bold text-gray-900">
-                    AI Agent Online
-                  </p>
-                  <p className="text-[10px] text-gray-500">
-                    Responding automatically
-                  </p>
-                </div>
-              </div>
+            <div className="rounded-full border border-green-200 bg-white px-5 py-3 text-sm font-semibold shadow-sm">
+              ✓ WhatsApp-first
             </div>
-          </div>
-
-          {/* Yearly plans */}
-          <div className="mt-12 inline-flex items-center gap-3 rounded-full border border-green-200 bg-white px-6 py-3 shadow-lg shadow-green-900/5">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-100">
-              <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
-            </span>
-
-            <span className="font-bold text-gray-800">
-              Yearly Plans
-            </span>
-
-            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-700">
-              SAVE MORE
-            </span>
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* CATEGORY NAVIGATION */}
-      {/* ========================================================= */}
-      <section className="sticky top-0 z-30 border-y border-gray-200/80 bg-[#FFFDF5]/90 py-4 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-3 md:grid-cols-2">
-            {categories.map((category) => {
-              const isActive = activeCategory === category.key;
+      {/* =====================================================
+          CATEGORY SWITCHER
+      ===================================================== */}
 
-              return (
-                <button
-                  key={category.key}
-                  onClick={() => setActiveCategory(category.key)}
-                  className={`group relative overflow-hidden rounded-2xl px-5 py-4 text-left transition-all duration-300 ${
-                    isActive
-                      ? "bg-[#159447] text-white shadow-xl shadow-green-700/20"
-                      : "border border-gray-200 bg-white text-gray-700 hover:-translate-y-0.5 hover:border-green-300 hover:shadow-lg"
-                  }`}
-                >
-                  {isActive && (
-                    <div className="absolute right-0 top-0 h-20 w-20 rounded-full bg-white/10 blur-2xl" />
-                  )}
+      <section className="sticky top-0 z-30 border-y border-slate-200/70 bg-[#FFFDF5]/95 px-4 py-4 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-4xl justify-center">
+          <div className="grid w-full max-w-2xl grid-cols-2 rounded-2xl border border-slate-200 bg-white p-1.5 shadow-lg">
+            <button
+              type="button"
+              onClick={() => setCategory("marketing")}
+              className={`rounded-xl px-4 py-4 text-sm font-bold transition-all md:text-base ${
+                category === "marketing"
+                  ? "bg-[#075E54] text-white shadow-lg"
+                  : "text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              Marketing & Support Hub
+            </button>
 
-                  <div className="relative">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-extrabold sm:text-base">
-                        {category.label}
-                      </span>
-
-                      <span
-                        className={`text-lg transition-transform duration-300 group-hover:translate-x-1 ${
-                          isActive ? "text-white" : "text-green-600"
-                        }`}
-                      >
-                        →
-                      </span>
-                    </div>
-
-                    <p
-                      className={`mt-1 text-xs ${
-                        isActive
-                          ? "text-white/75"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      {category.description}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
+            <button
+              type="button"
+              onClick={() => setCategory("aiAgents")}
+              className={`rounded-xl px-4 py-4 text-sm font-bold transition-all md:text-base ${
+                category === "aiAgents"
+                  ? "bg-[#075E54] text-white shadow-lg"
+                  : "text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              WhatsApp AI Agents
+            </button>
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* SELECTED CATEGORY + PRICING */}
-      {/* ========================================================= */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* =====================================================
+          PRICING CARDS
+      ===================================================== */}
+
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-green-600">
-              Choose your plan
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
+              {category === "marketing"
+                ? "Marketing & Support"
+                : "AI Automation"}
             </span>
 
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              {currentCategory?.label}
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">
+              Plans built for every stage
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              {currentCategory?.description}
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+              Start small, scale quickly and add advanced automation whenever
+              your business needs it.
             </p>
           </div>
 
-          {/* PRICING CARDS */}
           <div className="grid gap-6 lg:grid-cols-4">
-            {planKeys.map((key) => {
-              const plan = plans[key];
+            {activePlans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`relative flex flex-col overflow-hidden rounded-[28px] border bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                  plan.popular
+                    ? "border-[#159447] shadow-xl shadow-green-100"
+                    : "border-slate-200 shadow-sm"
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute right-5 top-5 rounded-full bg-[#159447] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white">
+                    Most Popular
+                  </div>
+                )}
 
-              return (
-                <div
-                  key={key}
-                  className={`group relative flex flex-col overflow-hidden rounded-[2rem] border bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl ${
-                    plan.popular
-                      ? "border-purple-300 shadow-purple-100"
-                      : "border-gray-200"
-                  }`}
-                >
-                  {/* decorative glow */}
+                <div className="p-7">
                   <div
-                    className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity duration-500 group-hover:opacity-30"
+                    className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
+                    style={{
+                      backgroundColor: `${plan.color}15`,
+                      color: plan.color,
+                    }}
+                  >
+                    {plan.icon}
+                  </div>
+
+                  <h3 className="text-2xl font-black">{plan.name}</h3>
+
+                  <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-500">
+                    {plan.description}
+                  </p>
+
+                  <div className="mt-7">
+                    <div
+                      className="text-4xl font-black"
+                      style={{ color: plan.color }}
+                    >
+                      {plan.price}
+                    </div>
+
+                    <div className="mt-1 text-sm font-medium text-slate-500">
+                      {plan.priceNote}
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="mt-7 w-full rounded-xl px-5 py-3.5 text-sm font-bold transition-all hover:scale-[1.02]"
                     style={{
                       backgroundColor: plan.color,
+                      color: "white",
                     }}
-                  />
-
-                  {/* top gradient */}
-                  <div
-                    className="absolute left-0 right-0 top-0 h-1.5"
-                    style={{
-                      background: `linear-gradient(90deg, ${plan.color}, transparent)`,
-                    }}
-                  />
-
-                  {plan.popular && (
-                    <div className="absolute right-5 top-5">
-                      <span className="rounded-full bg-gradient-to-r from-[#7B4DFF] to-purple-600 px-3 py-1.5 text-[10px] font-extrabold tracking-wider text-white shadow-lg shadow-purple-500/20">
-                        MOST POPULAR
-                      </span>
-                    </div>
-                  )}
-
-                  <div className="relative">
-                    {/* Plan icon */}
-                    <div
-                      className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
-                      style={{
-                        backgroundColor: `${plan.color}15`,
-                        color: plan.color,
-                      }}
-                    >
-                      {planVisuals[key]}
-                    </div>
-
-                    <div
-                      className="mb-5 h-1.5 w-12 rounded-full transition-all duration-300 group-hover:w-20"
-                      style={{ backgroundColor: plan.color }}
-                    />
-
-                    <h3 className="text-2xl font-extrabold">
-                      {plan.name}
-                    </h3>
-
-                    <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-500">
-                      {plan.description}
-                    </p>
-
-                    <div className="mt-7">
-                      <div
-                        className="text-4xl font-extrabold tracking-tight"
-                        style={{
-                          color:
-                            key === "customizable"
-                              ? "#8B5A2B"
-                              : plan.color,
-                        }}
-                      >
-                        {plan.price}
-                      </div>
-
-                      <p className="mt-2 text-xs font-medium text-gray-500">
-                        {plan.priceNote}
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="mt-7 w-full rounded-xl px-5 py-3.5 text-sm font-extrabold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                      style={{
-                        backgroundColor: plan.color,
-                      }}
-                    >
-                      {plan.button}
-                    </button>
-
-                    <div className="mt-7 border-t border-gray-100 pt-6">
-                      <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.15em] text-gray-400">
-                        Includes
-                      </p>
-
-                      <ul className="space-y-3.5 text-sm text-gray-600">
-                        {[
-                          "WhatsApp Business",
-                          "Team Inbox",
-                          "Automation Tools",
-                          "Analytics",
-                        ].map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-center gap-3"
-                          >
-                            <span
-                              className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white"
-                              style={{
-                                backgroundColor: plan.color,
-                              }}
-                            >
-                              ✓
-                            </span>
-
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-xs text-gray-500">
-              All plans are billed annually. Taxes and applicable
-              WhatsApp messaging charges may apply.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* COMPARISON */}
-      {/* ========================================================= */}
-      <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-green-600">
-              Detailed Comparison
-            </span>
-
-            <h2 className="mt-3 text-3xl font-extrabold">
-              Compare Plans
-            </h2>
-
-            <p className="mt-2 text-gray-600">
-              See what each Whatsware plan includes for{" "}
-              {currentCategory?.label}.
-            </p>
-          </div>
-
-          <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-gray-900/5">
-            <div className="overflow-x-auto">
-              <div className="min-w-[950px]">
-                <div className="grid grid-cols-[2fr_repeat(4,1fr)] bg-gray-50">
-                  <div className="p-6 text-sm font-extrabold text-gray-700">
-                    Features
-                  </div>
-
-                  {planKeys.map((key) => (
-                    <div
-                      key={key}
-                      className={`border-l border-gray-200 p-6 text-center ${
-                        key === "titan"
-                          ? "bg-purple-50/50"
-                          : ""
-                      }`}
-                    >
-                      <div className="font-extrabold">
-                        {plans[key].name}
-                      </div>
-
-                      <div
-                        className="mx-auto mt-2 h-1 w-10 rounded-full"
-                        style={{
-                          backgroundColor: plans[key].color,
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {featureSections[activeCategory].map((section) => (
-                  <div key={section.title}>
-                    <div className="grid grid-cols-[2fr_repeat(4,1fr)] bg-green-50/70">
-                      <div className="col-span-5 px-6 py-4 text-sm font-extrabold text-green-900">
-                        {section.title}
-                      </div>
-                    </div>
-
-                    {section.rows.map((row) => (
-                      <div
-                        key={row.feature}
-                        className="grid grid-cols-[2fr_repeat(4,1fr)] border-t border-gray-100 transition-colors hover:bg-gray-50"
-                      >
-                        <div className="p-5 text-sm font-medium text-gray-700">
-                          {row.feature}
-                        </div>
-
-                        {planKeys.map((key) => {
-                          const value = row[key];
-
-                          return (
-                            <div
-                              key={key}
-                              className={`border-l border-gray-100 p-5 text-center text-sm ${
-                                key === "titan"
-                                  ? "bg-purple-50/30"
-                                  : ""
-                              }`}
-                            >
-                              {value === "✓" ? (
-                                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-green-100 font-extrabold text-green-600">
-                                  ✓
-                                </span>
-                              ) : value === "—" ? (
-                                <span className="text-gray-300">
-                                  —
-                                </span>
-                              ) : (
-                                <span className="font-medium text-gray-600">
-                                  {value}
-                                </span>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* FEATURES & CAPACITY */}
-      {/* ========================================================= */}
-      <section className="border-y border-gray-200 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-green-600">
-              Plan Details
-            </span>
-
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-              Features & Capacity
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Everything you need to understand what's included in
-              each Whatsware plan.
-            </p>
-          </div>
-
-          <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-gray-900/5">
-            <div className="overflow-x-auto">
-              <div className="min-w-[950px]">
-                <div className="grid grid-cols-[2fr_repeat(4,1fr)] bg-gray-50">
-                  <div className="p-6 text-sm font-extrabold">
-                    Business Capacity
-                  </div>
-
-                  {planKeys.map((key) => (
-                    <div
-                      key={key}
-                      className={`border-l border-gray-200 p-6 text-center ${
-                        key === "titan"
-                          ? "bg-purple-50/50"
-                          : ""
-                      }`}
-                    >
-                      <div className="font-extrabold">
-                        {plans[key].name}
-                      </div>
-
-                      <div
-                        className="mx-auto mt-2 h-1 w-10 rounded-full"
-                        style={{
-                          backgroundColor: plans[key].color,
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {capacityRows.map((row) => (
-                  <div
-                    key={row.feature}
-                    className="grid grid-cols-[2fr_repeat(4,1fr)] border-t border-gray-100 hover:bg-gray-50"
                   >
-                    <div className="p-5 text-sm font-medium text-gray-700">
-                      {row.feature}
-                    </div>
+                    {plan.button}
+                  </button>
+                </div>
 
-                    {planKeys.map((key) => (
+                <div className="mt-auto border-t border-slate-100 bg-slate-50/70 p-7">
+                  <p className="mb-4 text-xs font-black uppercase tracking-wider text-slate-400">
+                    What's included
+                  </p>
+
+                  <div className="space-y-3">
+                    {[
+                      "WhatsApp Business",
+                      "Automation",
+                      "Business Support",
+                      category === "marketing"
+                        ? "Marketing Tools"
+                        : "AI Automation",
+                    ].map((item) => (
                       <div
-                        key={key}
-                        className={`border-l border-gray-100 p-5 text-center text-sm ${
-                          key === "titan"
-                            ? "bg-purple-50/30"
-                            : ""
-                        }`}
+                        key={item}
+                        className="flex items-center gap-3 text-sm font-medium"
                       >
-                        {row[key]}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <p className="mt-5 text-center text-xs text-gray-500">
-            * Final usage limits and messaging policies will be
-            confirmed when Whatsware pricing is finalized.
-          </p>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* ADD-ONS */}
-      {/* ========================================================= */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0F5132] via-[#126C42] to-[#159447] p-8 text-white shadow-2xl sm:p-12">
-            <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-
-            <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-green-300/10 blur-3xl" />
-
-            <div className="relative grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm">
-                  Optional Add-ons
-                </span>
-
-                <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
-                  Extend Whatsware around your business
-                </h2>
-
-                <p className="mt-5 max-w-xl leading-7 text-white/75">
-                  Add advanced capabilities whenever your business
-                  needs them. Add-on pricing can be defined
-                  separately.
-                </p>
-
-                <button
-                  type="button"
-                  className="mt-7 rounded-xl bg-white px-6 py-3 font-extrabold text-[#0F5132] shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
-                >
-                  Explore Add-ons →
-                </button>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  "WhatsApp AI Agents",
-                  "Additional WhatsApp Numbers",
-                  "Advanced Analytics",
-                  "Custom Integrations",
-                  "Dedicated Support",
-                  "Enterprise APIs",
-                ].map((item, index) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/15"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15 text-lg">
-                        {addOnIcons[index]}
-                      </div>
-
-                      <span className="text-sm font-semibold">
+                        <CheckIcon />
                         {item}
-                      </span>
-                    </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* INTEGRATIONS */}
-      {/* ========================================================= */}
-      <section className="border-t border-gray-200 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-green-600">
-            Integrations
-          </span>
-
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Connect Whatsware with your existing tools
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-            Bring your tools together with integrations, APIs and
-            automation workflows.
-          </p>
-
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {integrations.map((integration) => (
-              <div
-                key={integration}
-                className="group rounded-2xl border border-gray-200 bg-[#FFFDF5] px-4 py-5 text-sm font-bold text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-300 hover:bg-green-50 hover:text-green-700 hover:shadow-lg"
-              >
-                <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-green-100 text-sm font-extrabold text-green-600 transition-transform duration-300 group-hover:scale-110">
-                  ✓
                 </div>
-
-                {integration}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* FINAL CTA */}
-      {/* ========================================================= */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2rem] border border-green-100 bg-gradient-to-br from-green-50 via-white to-purple-50 p-8 text-center shadow-xl sm:p-14">
-            <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-green-200/30 blur-3xl" />
+      {/* =====================================================
+          COMPARISON
+      ===================================================== */}
 
-            <div className="relative">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl shadow-sm">
-                💬
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
+              Compare Plans
+            </span>
+
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">
+              Everything side by side
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+              See exactly what each WhatsWare plan includes.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+            <div className="min-w-[900px]">
+              <div className="grid grid-cols-[2fr_repeat(4,1fr)] border-b border-slate-200 bg-slate-50">
+                <div className="p-5 text-sm font-black text-slate-700">
+                  Features
+                </div>
+
+                {activePlans.map((plan) => (
+                  <div
+                    key={plan.name}
+                    className="p-5 text-center text-sm font-black"
+                  >
+                    {plan.name}
+                  </div>
+                ))}
               </div>
 
-              <span className="mt-5 inline-flex rounded-full bg-green-100 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-green-700">
-                Need help choosing?
-              </span>
+              {activeFeatures.map((section) => (
+                <div key={section.title}>
+                  <div className="grid grid-cols-[2fr_repeat(4,1fr)] bg-green-50/60">
+                    <div className="col-span-5 px-5 py-4 text-sm font-black text-[#075E54]">
+                      {section.title}
+                    </div>
+                  </div>
 
-              <h2 className="mt-5 text-3xl font-extrabold sm:text-4xl">
-                Not sure which plan is right for you?
-              </h2>
+                  {section.rows.map((row) => (
+                    <div
+                      key={row.feature}
+                      className="grid grid-cols-[2fr_repeat(4,1fr)] border-t border-slate-100"
+                    >
+                      <div className="p-5 text-sm font-medium text-slate-700">
+                        {row.feature}
+                      </div>
 
-              <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
-                Talk to the Whatsware team and find the right
-                solution for your business.
-              </p>
+                      <div className="p-5 text-center text-sm font-semibold">
+                        {row.spark}
+                      </div>
+
+                      <div className="p-5 text-center text-sm font-semibold">
+                        {row.boost}
+                      </div>
+
+                      <div className="p-5 text-center text-sm font-semibold">
+                        {row.titan}
+                      </div>
+
+                      <div className="p-5 text-center text-sm font-semibold">
+                        {row.customizable}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CAPACITY
+      ===================================================== */}
+
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10">
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
+              Plan Capabilities
+            </span>
+
+            <h2 className="mt-3 text-4xl font-black">
+              Built to scale with you
+            </h2>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="min-w-[850px]">
+              <div className="grid grid-cols-[2fr_repeat(4,1fr)] bg-[#075E54] text-white">
+                <div className="p-5 text-sm font-bold">Capability</div>
+                <div className="p-5 text-center text-sm font-bold">Spark</div>
+                <div className="p-5 text-center text-sm font-bold">Boost</div>
+                <div className="p-5 text-center text-sm font-bold">Titan</div>
+                <div className="p-5 text-center text-sm font-bold">
+                  Customizable
+                </div>
+              </div>
+
+              {capacityRows.map((row) => (
+                <div
+                  key={row.feature}
+                  className="grid grid-cols-[2fr_repeat(4,1fr)] border-t border-slate-100"
+                >
+                  <div className="p-5 text-sm font-semibold">
+                    {row.feature}
+                  </div>
+
+                  <div className="p-5 text-center text-sm text-slate-600">
+                    {row.spark}
+                  </div>
+
+                  <div className="p-5 text-center text-sm text-slate-600">
+                    {row.boost}
+                  </div>
+
+                  <div className="p-5 text-center text-sm text-slate-600">
+                    {row.titan}
+                  </div>
+
+                  <div className="p-5 text-center text-sm text-slate-600">
+                    {row.customizable}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          ADD-ONS
+      ===================================================== */}
+
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-14 text-center">
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
+              Services
+            </span>
+
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">
+              Add more power when you need it
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+              Expand your WhatsWare setup with implementation, marketing,
+              automation and support services.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {/* SPARK */}
+            <div className="rounded-3xl border border-green-100 bg-green-50/50 p-7">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-wider text-[#159447]">
+                    Spark
+                  </p>
+
+                  <h3 className="mt-1 text-2xl font-black">
+                    Add-on Services
+                  </h3>
+                </div>
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-xl shadow-sm">
+                  ✦
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {addOns.spark.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-medium shadow-sm"
+                  >
+                    <span className="text-[#159447]">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* BOOST */}
+            <div className="rounded-3xl border border-orange-100 bg-orange-50/50 p-7">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-wider text-orange-600">
+                    Boost
+                  </p>
+
+                  <h3 className="mt-1 text-2xl font-black">
+                    Complete Services
+                  </h3>
+                </div>
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-xl shadow-sm">
+                  ⚡
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {addOns.boost.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-medium shadow-sm"
+                  >
+                    <span className="text-orange-500">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* TITAN */}
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-wider text-slate-500">
+                    Titan
+                  </p>
+
+                  <h3 className="mt-1 text-2xl font-black">
+                    Enterprise Services
+                  </h3>
+                </div>
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-xl shadow-sm">
+                  ♛
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {addOns.titan.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-medium shadow-sm"
+                  >
+                    <span className="text-slate-700">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          INTEGRATIONS
+      ===================================================== */}
+
+      <section className="relative overflow-hidden bg-[#FFFDF5] py-24">
+        <div className="mx-auto mb-14 max-w-4xl px-6 text-center">
+          <span className="mb-4 inline-flex items-center rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-bold text-[#159447]">
+            30+ Powerful Integrations
+          </span>
+
+          <h2 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
+            Connect Everything.
+            <span className="block text-[#159447]">
+              Automate Anything.
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+            Connect WhatsWare with the tools your business already uses and
+            create one powerful automation ecosystem.
+          </p>
+        </div>
+
+        {/* Moving track */}
+        <div className="relative overflow-hidden">
+          <div
+            className="flex w-max gap-6"
+            style={{
+              animation: "pricingLogoMove 35s linear infinite",
+            }}
+          >
+            {[...integrations, ...integrations].map(
+              (integration, index) => (
+                <div
+                  key={`${integration.name}-${index}`}
+                  className="group flex w-[190px] shrink-0 flex-col items-center justify-center rounded-3xl border border-slate-200 bg-white px-5 py-6 transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl"
+                >
+                  <div
+                    className="mb-4 flex h-[76px] w-[76px] items-center justify-center rounded-2xl bg-white shadow-sm transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      boxShadow: `0 8px 25px ${integration.color}18`,
+                    }}
+                  >
+                    <integration.Logo
+                      width={54}
+                      height={54}
+                      aria-label={integration.name}
+                    />
+                  </div>
+
+                  <p className="text-center text-sm font-bold text-slate-800">
+                    {integration.name}
+                  </p>
+
+                  <div
+                    className="mt-2 h-1 w-6 rounded-full transition-all duration-300 group-hover:w-10"
+                    style={{
+                      backgroundColor: integration.color,
+                    }}
+                  />
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+
+        {/* Left fade */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#FFFDF5] to-transparent" />
+
+        {/* Right fade */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#FFFDF5] to-transparent" />
+
+        <style>{`
+          @keyframes pricingLogoMove {
+            0% {
+              transform: translateX(-50%);
+            }
+
+            100% {
+              transform: translateX(0%);
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* =====================================================
+          INTEGRATION DESCRIPTION
+      ===================================================== */}
+
+      <section className="px-6 pb-24">
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-xl">
+              🔗
+            </div>
+
+            <h3 className="text-xl font-black">
+              Connect your stack
+            </h3>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Bring your existing CRM, ecommerce, analytics and marketing
+              tools into one automation ecosystem.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-xl">
+              ⚙️
+            </div>
+
+            <h3 className="text-xl font-black">
+              Automate repetitive work
+            </h3>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Build workflows that move customer data and conversations
+              between your favorite business tools.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-xl">
+              📈
+            </div>
+
+            <h3 className="text-xl font-black">
+              Grow faster
+            </h3>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Turn conversations into leads, sales and long-term customer
+              relationships.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
+
+      <section className="px-6 pb-24">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[40px] bg-[#075E54] px-7 py-16 text-center text-white shadow-2xl md:px-16 md:py-20">
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-green-400/20 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-emerald-300/10 blur-3xl" />
+
+          <div className="relative">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-3xl backdrop-blur">
+              ✦
+            </div>
+
+            <h2 className="text-4xl font-black md:text-5xl">
+              Ready to automate your business?
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-green-50/80 md:text-lg">
+              Start with WhatsWare and turn WhatsApp conversations into a
+              powerful growth engine for your business.
+            </p>
+
+            <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+              <button
+                type="button"
+                className="rounded-xl bg-white px-7 py-4 text-sm font-black text-[#075E54] shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                Get Started
+              </button>
 
               <button
                 type="button"
-                className="mt-8 rounded-xl bg-[#159447] px-8 py-4 font-extrabold text-white shadow-lg shadow-green-600/20 transition-all duration-300 hover:-translate-y-1 hover:bg-green-700 hover:shadow-xl"
+                className="rounded-xl border border-white/30 bg-white/10 px-7 py-4 text-sm font-black text-white backdrop-blur transition-all hover:bg-white/20"
               >
-                Talk to Whatsware →
+                Book a Demo
               </button>
             </div>
           </div>

@@ -34,18 +34,34 @@ import {
   Rocket,
   Layers3,
 } from "lucide-react";
+
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 
-/* ============================================================
-   ABOUT PAGE
-============================================================ */
-
 export default function About() {
   const { language } = useLanguage();
   const tamil = language === "TA";
+
+  /*
+  ============================================================
+  WHATSWARE BRAND ASSET
+  ============================================================
+
+  This is the ONLY image used on this page.
+
+  File location:
+  public/whatsware-logo.png
+
+  Browser path:
+  /whatsware-logo.png
+
+  No external Unsplash images are used anywhere.
+  ============================================================
+  */
+
+  const logo = "/whatsware-logo.png";
 
   /* ============================================================
      PLATFORM FEATURES
@@ -75,9 +91,12 @@ export default function About() {
       iconBg: "bg-[#E8F8E8]",
       iconColor: "text-[#159447]",
     },
+
     {
       icon: Megaphone,
-      title: tamil ? "Bulk Messaging & Broadcasts" : "Bulk Messaging & Broadcasts",
+      title: tamil
+        ? "Bulk Messaging & Broadcasts"
+        : "Bulk Messaging & Broadcasts",
       description: tamil
         ? "ஆயிரக்கணக்கான வாடிக்கையாளர்களை targeted WhatsApp campaigns மூலம் சென்றடையுங்கள்."
         : "Reach thousands of customers with targeted WhatsApp campaigns while keeping your communication organized and relevant.",
@@ -98,6 +117,7 @@ export default function About() {
       iconBg: "bg-[#FFF4D9]",
       iconColor: "text-[#D99100]",
     },
+
     {
       icon: Bot,
       title: tamil ? "AI Agents & Chatbots" : "AI Agents & Chatbots",
@@ -121,9 +141,12 @@ export default function About() {
       iconBg: "bg-[#F0EAFE]",
       iconColor: "text-[#7B4DFF]",
     },
+
     {
       icon: Target,
-      title: tamil ? "Lead Capture & Qualification" : "Lead Capture & Qualification",
+      title: tamil
+        ? "Lead Capture & Qualification"
+        : "Lead Capture & Qualification",
       description: tamil
         ? "வாடிக்கையாளர் தகவல்களை சேகரித்து high-intent leads-ஐ தானாக அடையாளம் காணுங்கள்."
         : "Turn conversations into qualified opportunities by capturing customer information and automatically identifying high-intent leads.",
@@ -144,6 +167,7 @@ export default function About() {
       iconBg: "bg-[#E7F5FF]",
       iconColor: "text-[#1687D9]",
     },
+
     {
       icon: Zap,
       title: tamil ? "Automated Follow-ups" : "Automated Follow-ups",
@@ -163,10 +187,11 @@ export default function About() {
             "Reminder automation",
             "Customer re-engagement",
           ],
-      href: "/products/automated-follow-ups",
+      href: "/products/automated-followups",
       iconBg: "bg-[#FFF0F3]",
       iconColor: "text-[#E94B70]",
     },
+
     {
       icon: Users,
       title: tamil ? "Shared Team Inbox" : "Shared Team Inbox",
@@ -190,6 +215,7 @@ export default function About() {
       iconBg: "bg-[#EAF7F3]",
       iconColor: "text-[#0E9F6E]",
     },
+
     {
       icon: Workflow,
       title: tamil ? "Workflow Builder" : "Workflow Builder",
@@ -213,9 +239,12 @@ export default function About() {
       iconBg: "bg-[#F3EDFF]",
       iconColor: "text-[#805AD5]",
     },
+
     {
       icon: CreditCard,
-      title: tamil ? "WhatsApp Sales & Payments" : "WhatsApp Sales & Payments",
+      title: tamil
+        ? "WhatsApp Sales & Payments"
+        : "WhatsApp Sales & Payments",
       description: tamil
         ? "WhatsApp-based sales மற்றும் payment workflows மூலம் conversation-ஐ conversion ஆக மாற்றுங்கள்."
         : "Move customers from conversation to conversion with WhatsApp-based sales experiences and payment workflows.",
@@ -236,6 +265,7 @@ export default function About() {
       iconBg: "bg-[#EAF8EA]",
       iconColor: "text-[#159447]",
     },
+
     {
       icon: BarChart3,
       title: tamil ? "Analytics & Insights" : "Analytics & Insights",
@@ -259,6 +289,7 @@ export default function About() {
       iconBg: "bg-[#FFF3E8]",
       iconColor: "text-[#E97816]",
     },
+
     {
       icon: QrCode,
       title: tamil ? "WhatsApp QR Codes" : "WhatsApp QR Codes",
@@ -282,9 +313,12 @@ export default function About() {
       iconBg: "bg-[#EEFBE8]",
       iconColor: "text-[#159447]",
     },
+
     {
       icon: Link2,
-      title: tamil ? "WhatsApp Links & Chat Widgets" : "WhatsApp Links & Chat Widgets",
+      title: tamil
+        ? "WhatsApp Links & Chat Widgets"
+        : "WhatsApp Links & Chat Widgets",
       description: tamil
         ? "Simple WhatsApp links மற்றும் website chat experiences மூலம் visitors-ஐ conversations ஆக மாற்றுங்கள்."
         : "Convert website visitors into WhatsApp conversations with simple WhatsApp links and website chat experiences.",
@@ -305,6 +339,7 @@ export default function About() {
       iconBg: "bg-[#EAF4FF]",
       iconColor: "text-[#2779BD]",
     },
+
     {
       icon: Headphones,
       title: tamil ? "Customer Support" : "Customer Support",
@@ -338,11 +373,14 @@ export default function About() {
     {
       icon: Sparkles,
       number: "01",
-      title: tamil ? "நவீன வணிகங்களுக்காக உருவாக்கப்பட்டது" : "Built for Modern Businesses",
+      title: tamil
+        ? "நவீன வணிகங்களுக்காக உருவாக்கப்பட்டது"
+        : "Built for Modern Businesses",
       description: tamil
         ? "Marketing, sales மற்றும் customer support-ஐ WhatsApp மூலம் ஒரே இடத்தில் இணைக்கவும்."
         : "Bring marketing, sales and customer support together through WhatsApp.",
     },
+
     {
       icon: ShieldCheck,
       number: "02",
@@ -351,6 +389,7 @@ export default function About() {
         ? "Organized conversations மற்றும் automation மூலம் consistent customer experiences உருவாக்குங்கள்."
         : "Create consistent customer experiences with organized conversations and automation.",
     },
+
     {
       icon: TrendingUp,
       number: "03",
@@ -372,55 +411,78 @@ export default function About() {
       text: tamil
         ? "WhatsApp automation, broadcasts மற்றும் support மூலம் product conversations-ஐ sales ஆக மாற்றுங்கள்."
         : "Turn product conversations into sales with WhatsApp automation, broadcasts and support.",
+      href: "/solutions/industry/e-commerce",
+      bg: "from-[#EAF8EA] to-[#F8FFF6]",
     },
+
     {
       Icon: GraduationCap,
       title: tamil ? "கல்வி" : "Education",
       text: tamil
         ? "Instant answers, admissions support மற்றும் reminders மூலம் students மற்றும் parents-ஐ engage செய்யுங்கள்."
         : "Engage students and parents with instant answers, admissions support and reminders.",
+      href: "/solutions/industry/edutech",
+      bg: "from-[#EEF5FF] to-[#F9FBFF]",
     },
+
     {
       Icon: HeartPulse,
       title: tamil ? "சுகாதாரம்" : "Healthcare",
       text: tamil
         ? "Appointments, reminders மற்றும் patient support-ஐ எளிதாக நிர்வகிக்கவும்."
         : "Simplify appointment communication, reminders and patient support.",
+      href: "/solutions/industry/health-wellness",
+      bg: "from-[#FFF0F3] to-[#FFF9FA]",
     },
+
     {
       Icon: Home,
       title: tamil ? "Home Decor" : "Home Decor",
       text: tamil
         ? "Products-ஐ showcase செய்து enquiries-ஐ customers ஆக மாற்றுங்கள்."
         : "Showcase products, answer questions and convert enquiries into customers.",
+      href: "/solutions/industry/home-decor",
+      bg: "from-[#FFF6E8] to-[#FFFCF6]",
     },
+
     {
       Icon: Utensils,
       title: tamil ? "உணவகங்கள்" : "Restaurants",
       text: tamil
         ? "Orders, enquiries, promotions மற்றும் customer communication-ஐ ஒரே இடத்தில் நிர்வகிக்கவும்."
         : "Manage orders, enquiries, promotions and customer communication in one place.",
+      href: "/solutions/industry/restaurant-food",
+      bg: "from-[#FFF1E8] to-[#FFFBF8]",
     },
+
     {
       Icon: Building2,
       title: tamil ? "ரியல் எஸ்டேட்" : "Real Estate",
       text: tamil
         ? "Property enquiries-ஐ capture செய்து leads-ஐ qualify செய்து follow-ups-ஐ automate செய்யுங்கள்."
         : "Capture property enquiries, qualify leads and automate follow-ups.",
+      href: "/solutions/industry/real-estate",
+      bg: "from-[#F0EAFE] to-[#FAF8FF]",
     },
+
     {
       Icon: Plane,
       title: tamil ? "பயணம்" : "Travel",
       text: tamil
         ? "Instant responses, reminders மற்றும் updates மூலம் travellers-ஐ informed ஆக வைத்திருங்கள்."
         : "Keep travellers informed with instant responses, reminders and updates.",
+      href: "/solutions/industry/travel-tourism",
+      bg: "from-[#EAF6FF] to-[#F8FCFF]",
     },
+
     {
       Icon: Store,
       title: tamil ? "சில்லறை விற்பனை" : "Retail",
       text: tamil
         ? "Campaigns, conversations மற்றும் customer support-ஐ WhatsApp மூலம் இணைக்கவும்."
         : "Connect campaigns, conversations and customer support through WhatsApp.",
+      href: "/solutions/industry/e-commerce",
+      bg: "from-[#EEFBE8] to-[#FAFFF8]",
     },
   ];
 
@@ -432,31 +494,31 @@ export default function About() {
     {
       number: "01",
       title: tamil ? "ஈர்க்கவும்" : "Attract",
-      text: tamil ? "Click-to-WhatsApp Ads" : "Click-to-WhatsApp Ads",
+      text: "Click-to-WhatsApp Ads",
       icon: Megaphone,
     },
     {
       number: "02",
       title: tamil ? "சேகரிக்கவும்" : "Capture",
-      text: tamil ? "Forms & QR Codes" : "Forms & QR Codes",
+      text: "Forms & QR Codes",
       icon: QrCode,
     },
     {
       number: "03",
       title: tamil ? "தகுதி பார்க்கவும்" : "Qualify",
-      text: tamil ? "AI Agents" : "AI Agents",
+      text: "AI Agents",
       icon: Bot,
     },
     {
       number: "04",
       title: tamil ? "மாற்றவும்" : "Convert",
-      text: tamil ? "Sales & Payments" : "Sales & Payments",
+      text: "Sales & Payments",
       icon: CreditCard,
     },
     {
       number: "05",
       title: tamil ? "தக்கவைக்கவும்" : "Retain",
-      text: tamil ? "Support & Follow-ups" : "Support & Follow-ups",
+      text: "Support & Follow-ups",
       icon: Headphones,
     },
   ];
@@ -469,21 +531,26 @@ export default function About() {
     {
       icon: MessageCircle,
       value: "WhatsApp",
-      label: tamil ? "வாடிக்கையாளர் உரையாடல்கள்" : "Customer conversations",
+      label: tamil
+        ? "வாடிக்கையாளர் உரையாடல்கள்"
+        : "Customer conversations",
     },
+
     {
       icon: Bot,
       value: "AI",
       label: tamil ? "நுண்ணறிவு உதவி" : "Intelligent assistance",
     },
+
     {
       icon: Workflow,
-      value: tamil ? "Automation" : "Automation",
+      value: "Automation",
       label: tamil ? "சிறந்த workflows" : "Smarter workflows",
     },
+
     {
       icon: TrendingUp,
-      value: tamil ? "Growth" : "Growth",
+      value: "Growth",
       label: tamil ? "வணிக முடிவுகள்" : "Business outcomes",
     },
   ];
@@ -494,12 +561,13 @@ export default function About() {
 
       {/* ========================================================
           HERO
-      ========================================================= */}
+      ======================================================== */}
 
       <section className="relative overflow-hidden bg-[#FFFDF5] pt-28 pb-20 md:pt-36 md:pb-28">
-
         <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#DDF7D7] blur-3xl opacity-70" />
+
         <div className="absolute top-20 -right-40 h-[550px] w-[550px] rounded-full bg-[#EAF7E5] blur-3xl opacity-80" />
+
         <div className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#F3EEDC] blur-3xl opacity-50" />
 
         <div className="absolute inset-0 opacity-[0.035]">
@@ -514,9 +582,7 @@ export default function About() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="max-w-5xl mx-auto text-center">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -565,6 +631,7 @@ export default function About() {
               <Link href="/signup">
                 <button className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#159447] px-7 py-3.5 text-white font-bold shadow-lg shadow-[#159447]/20 hover:bg-[#117C3B] hover:-translate-y-0.5 transition-all">
                   {tamil ? "தொடங்குங்கள்" : "Get Started"}
+
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
@@ -572,6 +639,7 @@ export default function About() {
               <Link href="/products">
                 <button className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#CFE8C8] bg-white px-7 py-3.5 font-bold text-[#159447] hover:bg-[#F4FBF1] hover:-translate-y-0.5 transition-all">
                   {tamil ? "தளத்தை ஆராயுங்கள்" : "Explore Platform"}
+
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
@@ -579,7 +647,188 @@ export default function About() {
           </div>
 
           {/* ====================================================
-              HERO VISUAL DASHBOARD
+              HERO BRAND VISUAL
+              NO EXTERNAL IMAGE
+          ==================================================== */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative max-w-5xl mx-auto mt-12"
+          >
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#DCEBD7] bg-white shadow-2xl shadow-[#159447]/10">
+              <div className="grid md:grid-cols-[0.8fr_1.2fr] items-stretch">
+
+                {/* LEFT */}
+                <div className="relative flex flex-col justify-center p-7 md:p-10 bg-gradient-to-br from-[#F4FFF1] via-white to-[#EAF8E5]">
+                  <div className="absolute -top-16 -left-16 w-40 h-40 rounded-full bg-[#159447]/10 blur-2xl" />
+
+                  <div className="relative">
+                    <div className="inline-flex items-center gap-3 rounded-2xl border border-[#D7EED0] bg-white/90 px-4 py-3 shadow-sm">
+                      <img
+                        src={logo}
+                        alt="WhatsWare logo"
+                        className="w-12 h-12 object-contain"
+                      />
+
+                      <div>
+                        <div className="font-extrabold text-slate-900 text-lg">
+                          WhatsWare
+                        </div>
+
+                        <div className="text-xs font-semibold text-[#159447]">
+                          Smart WhatsApp Business Platform
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="mt-5 text-sm md:text-base text-slate-600 leading-relaxed">
+                      {tamil
+                        ? "Marketing, AI, automation, sales மற்றும் support — அனைத்தையும் ஒரே connected experience-ல் இணைக்கவும்."
+                        : "Marketing, AI, automation, sales and support — connected in one powerful business experience."}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {["AI", "Automation", "Marketing", "Sales"].map(
+                        (item) => (
+                          <span
+                            key={item}
+                            className="rounded-full bg-[#EEFBE8] px-3 py-1.5 text-xs font-bold text-[#159447]"
+                          >
+                            {item}
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT — CSS VISUAL INSTEAD OF BROKEN IMAGE */}
+                <div className="relative min-h-[300px] md:min-h-[360px] overflow-hidden bg-gradient-to-br from-[#075E54] via-[#159447] to-[#0B7A4B]">
+
+                  <div className="absolute inset-0 opacity-10">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+                        backgroundSize: "38px 38px",
+                      }}
+                    />
+                  </div>
+
+                  <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
+
+                  <div className="absolute -bottom-28 -left-20 w-80 h-80 rounded-full bg-[#BCE9AE]/20 blur-3xl" />
+
+                  <div className="relative z-10 h-full flex items-center justify-center p-8">
+
+                    <motion.div
+                      animate={{
+                        y: [0, -8, 0],
+                        rotate: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="w-full max-w-sm rounded-[2rem] border border-white/20 bg-white/10 backdrop-blur-xl p-6 shadow-2xl"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 rounded-2xl bg-white p-3 shadow-xl">
+                          <img
+                            src={logo}
+                            alt="WhatsWare logo"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="text-white text-2xl font-extrabold">
+                            WhatsWare
+                          </div>
+
+                          <div className="text-white/70 text-sm">
+                            Business platform
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-7 grid grid-cols-2 gap-3">
+                        {[
+                          ["AI Agents", Bot],
+                          ["Automation", Workflow],
+                          ["Broadcasts", Send],
+                          ["Sales", TrendingUp],
+                        ].map(([label, Icon], index) => {
+                          const IconComponent =
+                            Icon as typeof MessageCircle;
+
+                          return (
+                            <motion.div
+                              key={String(label)}
+                              animate={{
+                                y: [0, index % 2 === 0 ? -4 : 4, 0],
+                              }}
+                              transition={{
+                                duration: 3 + index * 0.3,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                              className="rounded-2xl bg-white/95 p-4 shadow-lg"
+                            >
+                              <div className="w-9 h-9 rounded-xl bg-[#EEFBE8] text-[#159447] flex items-center justify-center">
+                                <IconComponent className="w-4 h-4" />
+                              </div>
+
+                              <div className="mt-3 text-xs font-bold text-slate-900">
+                                {String(label)}
+                              </div>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute left-5 bottom-5 rounded-2xl border border-white/20 bg-white/95 backdrop-blur-md px-4 py-3 shadow-xl"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={logo}
+                        alt="WhatsWare"
+                        className="w-9 h-9 object-contain"
+                      />
+
+                      <div>
+                        <div className="text-sm font-extrabold text-slate-900">
+                          WhatsWare AI
+                        </div>
+
+                        <div className="text-[11px] text-[#159447] font-semibold">
+                          {tamil
+                            ? "இப்போது செயல்பாட்டில்"
+                            : "AI agent active"}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ====================================================
+              HERO DASHBOARD
           ==================================================== */}
 
           <motion.div
@@ -609,11 +858,15 @@ export default function About() {
 
               <div className="grid lg:grid-cols-[220px_1fr] min-h-[320px]">
 
+                {/* SIDEBAR */}
+
                 <div className="hidden lg:block border-r border-slate-100 p-5">
                   <div className="flex items-center gap-2 mb-8">
-                    <div className="w-8 h-8 rounded-xl bg-[#159447] flex items-center justify-center">
-                      <MessageCircle className="w-4 h-4 text-white" />
-                    </div>
+                    <img
+                      src={logo}
+                      alt="WhatsWare"
+                      className="w-8 h-8 object-contain"
+                    />
 
                     <span className="font-extrabold">
                       WhatsWare
@@ -622,37 +875,62 @@ export default function About() {
 
                   <div className="space-y-2">
                     {[
-                      [tamil ? "Overview" : "Overview", Layers3],
-                      [tamil ? "Messages" : "Messages", MessageCircle],
-                      [tamil ? "Automation" : "Automation", Workflow],
-                      [tamil ? "AI Agents" : "AI Agents", Bot],
-                      [tamil ? "Analytics" : "Analytics", BarChart3],
-                    ].map(([label, Icon], index) => {
-                      const IconComponent = Icon as typeof MessageCircle;
+                      {
+                        label: "Overview",
+                        icon: Layers3,
+                        href: "/products",
+                      },
+                      {
+                        label: "Messages",
+                        icon: MessageCircle,
+                        href: "/products/shared-team-inbox",
+                      },
+                      {
+                        label: "Automation",
+                        icon: Workflow,
+                        href: "/products/workflow-builder",
+                      },
+                      {
+                        label: "AI Agents",
+                        icon: Bot,
+                        href: "/products/ai-agents",
+                      },
+                      {
+                        label: "Analytics",
+                        icon: BarChart3,
+                        href: "/products/analytics",
+                      },
+                    ].map((item, index) => {
+                      const IconComponent = item.icon;
 
                       return (
-                        <div
-                          key={String(label)}
-                          className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium ${
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium cursor-pointer transition-all duration-200 ${
                             index === 0
                               ? "bg-[#EEFBE8] text-[#159447]"
-                              : "text-slate-500"
+                              : "text-slate-500 hover:bg-[#F4FBF1] hover:text-[#159447]"
                           }`}
                         >
-                          <IconComponent className="w-4 h-4" />
-                          {String(label)}
-                        </div>
+                          <IconComponent className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+
+                          <span>{item.label}</span>
+                        </Link>
                       );
                     })}
                   </div>
                 </div>
 
-                <div className="p-5 md:p-7 bg-[#FCFEFB]">
+                {/* DASHBOARD */}
 
+                <div className="p-5 md:p-7 bg-[#FCFEFB]">
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <p className="text-xs uppercase tracking-wider font-bold text-[#159447]">
-                        {tamil ? "வணிக மேலோட்டம்" : "Business Overview"}
+                        {tamil
+                          ? "வணிக மேலோட்டம்"
+                          : "Business Overview"}
                       </p>
 
                       <h3 className="text-xl md:text-2xl font-extrabold mt-1">
@@ -664,19 +942,35 @@ export default function About() {
 
                     <div className="hidden sm:flex items-center gap-2 rounded-xl bg-white border border-slate-100 px-3 py-2 text-xs font-semibold">
                       <span className="w-2 h-2 rounded-full bg-[#159447]" />
-                      {tamil ? "Live" : "Live"}
+                      Live
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-
                     {[
-                      ["12.8K", tamil ? "உரையாடல்கள்" : "Conversations", MessageCircle],
-                      ["4.2K", tamil ? "Qualified Leads" : "Qualified Leads", Target],
-                      ["87%", tamil ? "பதில் விகிதம்" : "Response Rate", Zap],
-                      ["3.4X", tamil ? "வளர்ச்சி" : "Growth", TrendingUp],
+                      [
+                        "12.8K",
+                        tamil ? "உரையாடல்கள்" : "Conversations",
+                        MessageCircle,
+                      ],
+                      [
+                        "4.2K",
+                        tamil ? "Qualified Leads" : "Qualified Leads",
+                        Target,
+                      ],
+                      [
+                        "87%",
+                        tamil ? "பதில் விகிதம்" : "Response Rate",
+                        Zap,
+                      ],
+                      [
+                        "3.4X",
+                        tamil ? "வளர்ச்சி" : "Growth",
+                        TrendingUp,
+                      ],
                     ].map(([value, label, Icon]) => {
-                      const IconComponent = Icon as typeof MessageCircle;
+                      const IconComponent =
+                        Icon as typeof MessageCircle;
 
                       return (
                         <motion.div
@@ -728,7 +1022,7 @@ export default function About() {
                               }}
                               className="flex-1 rounded-t-md bg-gradient-to-t from-[#159447] to-[#BCE9AE]"
                             />
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -759,18 +1053,22 @@ export default function About() {
 
                         <div className="mt-3 flex items-center gap-2 text-xs text-white/70">
                           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                          {tamil ? "AI agent செயல்பாட்டில் உள்ளது" : "AI agent active"}
+
+                          {tamil
+                            ? "AI agent செயல்பாட்டில் உள்ளது"
+                            : "AI agent active"}
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Hero capability cards */}
+          {/* ====================================================
+              HERO CAPABILITY CARDS
+          ==================================================== */}
 
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {heroStats.map((item, index) => {
@@ -823,6 +1121,7 @@ export default function About() {
             >
               <div className="inline-flex items-center gap-2 text-[#159447] font-bold text-sm uppercase tracking-wider mb-4">
                 <MessageCircle className="w-4 h-4" />
+
                 {tamil ? "WhatsWare பற்றி" : "About WhatsWare"}
               </div>
 
@@ -876,12 +1175,20 @@ export default function About() {
               <div className="mt-8">
                 <Link href="/products">
                   <button className="inline-flex items-center gap-2 font-bold text-[#159447] hover:gap-3 transition-all">
-                    {tamil ? "WhatsWare-ஐ ஆராயுங்கள்" : "Explore WhatsWare"}
+                    {tamil
+                      ? "WhatsWare-ஐ ஆராயுங்கள்"
+                      : "Explore WhatsWare"}
+
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </Link>
               </div>
             </motion.div>
+
+            {/* ====================================================
+                WHATSWARE VISUAL
+                NO BROKEN IMAGE
+            ==================================================== */}
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
@@ -890,19 +1197,87 @@ export default function About() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="rounded-[2rem] bg-[#EEFBE8] border border-[#DDF3D7] p-7 md:p-10">
+              <div className="rounded-[2rem] bg-[#EEFBE8] border border-[#DDF3D7] p-5 md:p-7">
+
+                <div className="relative overflow-hidden rounded-[1.5rem] mb-5 h-52 md:h-60 bg-gradient-to-br from-[#075E54] via-[#159447] to-[#0B7A4B]">
+
+                  <div className="absolute inset-0 opacity-10">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+                        backgroundSize: "30px 30px",
+                      }}
+                    />
+                  </div>
+
+                  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-white/10 blur-2xl" />
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      animate={{ scale: [1, 1.04, 1] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="text-center"
+                    >
+                      <div className="mx-auto w-20 h-20 rounded-3xl bg-white p-4 shadow-2xl">
+                        <img
+                          src={logo}
+                          alt="WhatsWare logo"
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+
+                      <div className="mt-4 text-white font-extrabold text-2xl">
+                        WhatsWare
+                      </div>
+
+                      <div className="text-white/75 text-xs mt-1">
+                        {tamil
+                          ? "உங்கள் connected business platform"
+                          : "Your connected business platform"}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <div className="absolute left-5 bottom-5 flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-white p-2 shadow-xl">
+                      <img
+                        src={logo}
+                        alt="WhatsWare logo"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="text-white font-extrabold text-lg">
+                        WhatsWare
+                      </div>
+
+                      <div className="text-white/75 text-xs">
+                        {tamil
+                          ? "Smart business platform"
+                          : "Smart business platform"}
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
-
                   {[
-                    [tamil ? "WhatsApp" : "WhatsApp", MessageCircle],
-                    [tamil ? "AI Agents" : "AI Agents", Bot],
-                    [tamil ? "Broadcasts" : "Broadcasts", Send],
-                    [tamil ? "Automation" : "Automation", Workflow],
-                    [tamil ? "Sales" : "Sales", TrendingUp],
-                    [tamil ? "Analytics" : "Analytics", BarChart3],
+                    ["WhatsApp", MessageCircle],
+                    ["AI Agents", Bot],
+                    ["Broadcasts", Send],
+                    ["Automation", Workflow],
+                    ["Sales", TrendingUp],
+                    ["Analytics", BarChart3],
                   ].map(([label, Icon], index) => {
-                    const IconComponent = Icon as typeof MessageCircle;
+                    const IconComponent =
+                      Icon as typeof MessageCircle;
 
                     return (
                       <motion.div
@@ -924,7 +1299,6 @@ export default function About() {
                       </motion.div>
                     );
                   })}
-
                 </div>
               </div>
 
@@ -944,19 +1318,16 @@ export default function About() {
 
                   <div>
                     <div className="text-xl font-extrabold text-[#159447]">
-                      {tamil ? "All-in-one" : "All-in-one"}
+                      All-in-one
                     </div>
 
                     <div className="text-xs text-slate-500">
-                      {tamil
-                        ? "WhatsApp business platform"
-                        : "WhatsApp business platform"}
+                      WhatsApp business platform
                     </div>
                   </div>
                 </div>
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -969,7 +1340,6 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-
             <div className="text-[#159447] font-bold text-sm uppercase tracking-wider">
               {tamil ? "ஏன் WhatsWare?" : "Why WhatsWare"}
             </div>
@@ -989,11 +1359,9 @@ export default function About() {
                 ? "Businesses வேகமாக communicate செய்யவும், சிறப்பாக automate செய்யவும், meaningful customer conversations மூலம் வளரவும் அனைத்தும் வடிவமைக்கப்பட்டுள்ளது."
                 : "Everything is designed around helping businesses communicate faster, automate better and grow through meaningful customer conversations."}
             </p>
-
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
 
@@ -1034,7 +1402,6 @@ export default function About() {
                 </motion.div>
               );
             })}
-
           </div>
         </div>
       </section>
@@ -1047,9 +1414,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-16">
-
             <div className="inline-flex items-center gap-2 text-[#159447] font-bold text-sm uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
+
               {tamil ? "WhatsWare தளம்" : "WhatsWare Platform"}
             </div>
 
@@ -1070,11 +1437,9 @@ export default function About() {
                 ? "முதல் lead உருவாக்குவது முதல் sale close செய்வது மற்றும் customers-ஐ support செய்வது வரை WhatsWare அனைத்தையும் நிர்வகிக்க உதவுகிறது."
                 : "From generating your first lead to closing a sale and supporting your customers, WhatsWare gives your team the tools to manage it all."}
             </p>
-
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
             {features.map((feature, index) => {
               const Icon = feature.icon;
 
@@ -1091,9 +1456,8 @@ export default function About() {
                   whileHover={{ y: -7 }}
                   className="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-[#BFE7B6] hover:shadow-xl transition-all duration-300"
                 >
-
                   <div
-                    className={`w-13 h-13 rounded-2xl ${feature.iconBg} ${feature.iconColor} flex items-center justify-center mb-5`}
+                    className={`w-12 h-12 rounded-2xl ${feature.iconBg} ${feature.iconColor} flex items-center justify-center mb-5`}
                   >
                     <Icon className="w-6 h-6" />
                   </div>
@@ -1120,15 +1484,16 @@ export default function About() {
 
                   <Link href={feature.href}>
                     <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#159447] group-hover:gap-3 transition-all cursor-pointer">
-                      {tamil ? "Feature-ஐ ஆராயுங்கள்" : "Explore feature"}
+                      {tamil
+                        ? "Feature-ஐ ஆராயுங்கள்"
+                        : "Explore feature"}
+
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </Link>
-
                 </motion.div>
               );
             })}
-
           </div>
         </div>
       </section>
@@ -1138,19 +1503,17 @@ export default function About() {
       ======================================================== */}
 
       <section className="py-20 md:py-28 bg-[#EEFBE8]">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-
             <div className="text-[#159447] font-bold text-sm uppercase tracking-wider">
-              {tamil ? "ஒருங்கிணைந்த பயணம்" : "One Connected Journey"}
+              {tamil
+                ? "ஒருங்கிணைந்த பயணம்"
+                : "One Connected Journey"}
             </div>
 
             <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">
-              {tamil
-                ? "முதல் message முதல்"
-                : "From first message to"}
+              {tamil ? "முதல் message முதல்" : "From first message to"}
 
               <span className="text-[#159447]">
                 {tamil ? " loyal customer" : " loyal customer"}
@@ -1162,11 +1525,9 @@ export default function About() {
                 ? "WhatsWare உங்கள் customer journey-யின் ஒவ்வொரு முக்கிய நிலையையும் இணைக்கிறது."
                 : "WhatsWare connects every important stage of your customer journey."}
             </p>
-
           </div>
 
           <div className="grid md:grid-cols-5 gap-4">
-
             {journey.map((item, index) => {
               const Icon = item.icon;
 
@@ -1182,7 +1543,6 @@ export default function About() {
                   whileHover={{ y: -6 }}
                   className="relative rounded-3xl bg-white p-6 border border-[#D8EBD3] shadow-sm"
                 >
-
                   <div className="text-sm font-extrabold text-[#159447]">
                     {item.number}
                   </div>
@@ -1202,21 +1562,19 @@ export default function About() {
                   {index < journey.length - 1 && (
                     <ArrowRight className="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#159447] z-10" />
                   )}
-
                 </motion.div>
               );
             })}
-
           </div>
         </div>
       </section>
 
       {/* ========================================================
           INDUSTRIES
+          NO IMAGES
       ======================================================== */}
 
       <section className="py-20 md:py-28 bg-white">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-start">
@@ -1226,17 +1584,21 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-
               <div className="inline-flex items-center gap-2 text-[#159447] font-bold text-sm uppercase tracking-wider">
                 <Globe2 className="w-4 h-4" />
-                {tamil ? "அனைத்து தொழில்களுக்கும்" : "Built for Every Industry"}
+
+                {tamil
+                  ? "அனைத்து தொழில்களுக்கும்"
+                  : "Built for Every Industry"}
               </div>
 
               <h2 className="mt-4 text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
                 {tamil ? "ஒரே தளம்." : "One platform."}
 
                 <span className="block text-[#159447]">
-                  {tamil ? "எண்ணற்ற வாய்ப்புகள்." : "Endless possibilities."}
+                  {tamil
+                    ? "எண்ணற்ற வாய்ப்புகள்."
+                    : "Endless possibilities."}
                 </span>
               </h2>
 
@@ -1247,9 +1609,7 @@ export default function About() {
               </p>
 
               <div className="mt-7 rounded-3xl bg-[#EEFBE8] border border-[#D8EBD3] p-6">
-
                 <div className="flex items-center gap-4">
-
                   <div className="w-12 h-12 rounded-2xl bg-[#159447] flex items-center justify-center">
                     <Smartphone className="w-6 h-6 text-white" />
                   </div>
@@ -1267,77 +1627,101 @@ export default function About() {
                         : "Connect customers wherever they are."}
                     </div>
                   </div>
-
                 </div>
-
               </div>
-
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5">
+            {/* INDUSTRY CARDS */}
 
-              {industries.map(({ Icon, title, text }, index) => {
-
-                const IconComponent = Icon;
-
-                return (
-                  <motion.div
+            <div className="grid sm:grid-cols-2 gap-5">
+              {industries.map(
+                ({ Icon, title, text, href, bg }, index) => (
+                  <Link
                     key={title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.06,
+                    href={href}
+                    className="block h-full"
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "instant",
+                      });
                     }}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.01,
-                    }}
-                    className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:border-[#BFE7B6] transition-all duration-300"
                   >
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.06,
+                      }}
+                      whileHover={{
+                        y: -6,
+                        scale: 1.01,
+                      }}
+                      className="group h-full rounded-3xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-xl hover:border-[#BFE7B6] transition-all duration-300 cursor-pointer"
+                    >
+                      {/* CSS VISUAL — NO IMAGE */}
+                      <div
+                        className={`mb-4 h-28 overflow-hidden rounded-2xl relative bg-gradient-to-br ${bg}`}
+                      >
+                        <div className="absolute inset-0 opacity-30">
+                          <div
+                            className="absolute inset-0"
+                            style={{
+                              backgroundImage:
+                                "linear-gradient(#159447 1px, transparent 1px), linear-gradient(90deg, #159447 1px, transparent 1px)",
+                              backgroundSize: "24px 24px",
+                            }}
+                          />
+                        </div>
 
-                    <div className="flex items-center justify-between">
+                        <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/70 blur-2xl" />
 
-                      <div className="w-12 h-12 rounded-2xl bg-[#EEFBE8] text-[#159447] flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-6 h-6" />
+                        <div className="relative h-full flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center text-[#159447] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <Icon className="w-8 h-8" />
+                          </div>
+                        </div>
                       </div>
 
-                      <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-[#159447] group-hover:translate-x-1 transition-all" />
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-[#EEFBE8] text-[#159447] flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Icon className="w-6 h-6" />
+                        </div>
 
-                    </div>
+                        <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-[#159447] group-hover:translate-x-1 transition-all" />
+                      </div>
 
-                    <h3 className="mt-5 text-xl font-bold text-slate-900">
-                      {title}
-                    </h3>
+                      <h3 className="mt-5 text-xl font-bold text-slate-900">
+                        {title}
+                      </h3>
 
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {text}
-                    </p>
-
-                  </motion.div>
-                );
-
-              })}
-
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        {text}
+                      </p>
+                    </motion.div>
+                  </Link>
+                ),
+              )}
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* ========================================================
-          VIDEO / VISUAL STORY
+          VISUAL STORY
+          NO IMAGE
       ======================================================== */}
 
       <section className="py-20 md:py-28 bg-[#FFFDF5]">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 min-h-[420px]">
 
             <div className="absolute -top-32 -right-20 w-96 h-96 rounded-full bg-[#159447]/20 blur-3xl" />
+
             <div className="absolute -bottom-32 -left-20 w-96 h-96 rounded-full bg-[#159447]/20 blur-3xl" />
 
             <div className="relative grid lg:grid-cols-2 gap-10 items-center p-8 md:p-14 lg:p-16">
@@ -1347,9 +1731,9 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-[#8FE080]">
                   <Play className="w-4 h-4 fill-current" />
+
                   {tamil
                     ? "WhatsWare அனுபவம்"
                     : "The WhatsWare experience"}
@@ -1359,7 +1743,9 @@ export default function About() {
                   {tamil ? "உரையாடல்கள்" : "Conversations become"}
 
                   <span className="block text-[#75D467]">
-                    {tamil ? "வாய்ப்புகளாக மாறுகின்றன." : "opportunities."}
+                    {tamil
+                      ? "வாய்ப்புகளாக மாறுகின்றன."
+                      : "opportunities."}
                   </span>
                 </h2>
 
@@ -1370,11 +1756,13 @@ export default function About() {
                 </p>
 
                 <div className="mt-7 flex flex-wrap gap-3">
-
-                  {(tamil
-                    ? ["Marketing", "Automation", "AI", "Sales", "Support"]
-                    : ["Marketing", "Automation", "AI", "Sales", "Support"]
-                  ).map((item) => (
+                  {[
+                    "Marketing",
+                    "Automation",
+                    "AI",
+                    "Sales",
+                    "Support",
+                  ].map((item) => (
                     <span
                       key={item}
                       className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80"
@@ -1382,10 +1770,10 @@ export default function About() {
                       {item}
                     </span>
                   ))}
-
                 </div>
-
               </motion.div>
+
+              {/* CHAT UI */}
 
               <motion.div
                 initial={{ opacity: 0, x: 25, scale: 0.95 }}
@@ -1394,13 +1782,49 @@ export default function About() {
                 transition={{ duration: 0.7 }}
                 className="relative"
               >
-
                 <div className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-2xl">
 
                   <div className="rounded-[1.5rem] bg-[#F8FFF6] p-5 min-h-[280px]">
 
-                    <div className="flex items-center gap-3 pb-4 border-b border-slate-200">
+                    {/* HEADER */}
 
+                    <div className="mb-4 h-20 overflow-hidden rounded-xl relative bg-gradient-to-r from-[#075E54] to-[#159447]">
+
+                      <div className="absolute inset-0 opacity-10">
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+                            backgroundSize: "20px 20px",
+                          }}
+                        />
+                      </div>
+
+                      <div className="absolute inset-0 flex items-center gap-2 px-4">
+                        <div className="w-10 h-10 rounded-xl bg-white p-1 shadow-md">
+                          <img
+                            src={logo}
+                            alt="WhatsWare"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="text-white font-extrabold text-sm">
+                            WhatsWare Business Chat
+                          </div>
+
+                          <div className="text-white/70 text-[10px]">
+                            AI powered customer engagement
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* AGENT */}
+
+                    <div className="flex items-center gap-3 pb-4 border-b border-slate-200">
                       <div className="w-10 h-10 rounded-xl bg-[#159447] flex items-center justify-center">
                         <MessageCircle className="w-5 h-5 text-white" />
                       </div>
@@ -1414,8 +1838,9 @@ export default function About() {
                           {tamil ? "இப்போது Online" : "Online now"}
                         </div>
                       </div>
-
                     </div>
+
+                    {/* MESSAGES */}
 
                     <div className="mt-5 space-y-3">
 
@@ -1442,23 +1867,22 @@ export default function About() {
                             : "Absolutely. Let me help you with that."}
                         </div>
                       </div>
-
                     </div>
 
-                    <div className="mt-5 flex items-center gap-2">
+                    {/* INPUT */}
 
+                    <div className="mt-5 flex items-center gap-2">
                       <div className="flex-1 rounded-xl bg-white border border-slate-200 px-4 py-3 text-xs text-slate-400">
-                        {tamil ? "ஒரு message type செய்யுங்கள்..." : "Type a message..."}
+                        {tamil
+                          ? "ஒரு message type செய்யுங்கள்..."
+                          : "Type a message..."}
                       </div>
 
                       <div className="w-11 h-11 rounded-xl bg-[#159447] flex items-center justify-center">
                         <Send className="w-4 h-4 text-white" />
                       </div>
-
                     </div>
-
                   </div>
-
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 flex items-center gap-2 rounded-xl bg-white px-4 py-3 shadow-xl">
@@ -1468,7 +1892,7 @@ export default function About() {
 
                   <div className="text-xs">
                     <div className="font-bold text-slate-900">
-                      {tamil ? "Customer engaged" : "Customer engaged"}
+                      Customer engaged
                     </div>
 
                     <div className="text-slate-500">
@@ -1476,11 +1900,8 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-
               </motion.div>
-
             </div>
-
           </div>
         </div>
       </section>
@@ -1490,13 +1911,12 @@ export default function About() {
       ======================================================== */}
 
       <section className="py-20 bg-white">
-
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center">
-
             <div className="inline-flex items-center gap-2 text-[#159447] font-bold text-sm uppercase tracking-wider">
               <Star className="w-4 h-4 fill-current" />
+
               {tamil
                 ? "வளரும் வணிகங்களுக்காக"
                 : "Made for growing businesses"}
@@ -1513,11 +1933,9 @@ export default function About() {
                 ? "WhatsWare அந்த conversations-ஐ relationships, leads, sales மற்றும் long-term growth ஆக மாற்ற businesses-க்கு உதவுகிறது."
                 : "WhatsWare helps businesses turn those conversations into relationships, leads, sales and long-term growth."}
             </p>
-
           </div>
 
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
             {(tamil
               ? [
                   {
@@ -1564,7 +1982,6 @@ export default function About() {
                   },
                 ]
             ).map((item, index) => {
-
               const Icon = item.icon;
 
               return (
@@ -1579,7 +1996,6 @@ export default function About() {
                   whileHover={{ y: -6 }}
                   className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-all"
                 >
-
                   <div className="w-12 h-12 rounded-2xl bg-[#EEFBE8] text-[#159447] flex items-center justify-center">
                     <Icon className="w-6 h-6" />
                   </div>
@@ -1591,12 +2007,9 @@ export default function About() {
                   <p className="mt-2 text-sm text-slate-600 leading-relaxed">
                     {item.text}
                   </p>
-
                 </motion.div>
               );
-
             })}
-
           </div>
         </div>
       </section>
@@ -1606,7 +2019,6 @@ export default function About() {
       ======================================================== */}
 
       <section className="py-20 md:py-28 bg-white">
-
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <motion.div
@@ -1615,7 +2027,6 @@ export default function About() {
             viewport={{ once: true }}
             className="relative overflow-hidden rounded-[2rem] bg-[#159447] px-7 py-14 md:px-14 md:py-16 text-center text-white"
           >
-
             <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/10 blur-3xl" />
 
             <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-white/10 blur-3xl" />
@@ -1624,7 +2035,13 @@ export default function About() {
 
             <div className="relative">
 
-              <Sparkles className="w-8 h-8 mx-auto mb-5 text-white/90" />
+              <div className="mx-auto mb-5 w-16 h-16 rounded-2xl bg-white p-3 shadow-xl shadow-black/10">
+                <img
+                  src={logo}
+                  alt="WhatsWare logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
                 {tamil
@@ -1649,28 +2066,26 @@ export default function About() {
                 <Link href="/signup">
                   <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-[#159447] hover:bg-[#F3FFF0] transition-colors">
                     {tamil ? "தொடங்குங்கள்" : "Get Started"}
+
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </Link>
 
                 <Link href="/pricing">
                   <button className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-7 py-3.5 font-bold text-white hover:bg-white/20 transition-colors">
-                    {tamil ? "விலை விவரங்களை பார்க்க" : "View Pricing"}
+                    {tamil
+                      ? "விலை விவரங்களை பார்க்க"
+                      : "View Pricing"}
                   </button>
                 </Link>
 
               </div>
-
             </div>
-
           </motion.div>
-
         </div>
-
       </section>
 
       <Footer />
-
     </div>
   );
 }

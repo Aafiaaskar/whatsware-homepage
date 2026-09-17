@@ -45,7 +45,6 @@ import {
   Handshake,
   Users,
   Laptop,
-  Link as LinkIcon,
 
   // Resources
   FileText,
@@ -80,7 +79,7 @@ const NAV_LINKS: NavLink[] = [
     name: "Home",
     href: "/",
   },
-  
+
   {
     name: "About",
     href: "/about",
@@ -247,6 +246,7 @@ const WHATSAPP_SOLUTIONS = [
 ============================================================ */
 
 const CHANNEL_ROUTES: Record<string, string> = {
+  WhatsApp: "/solutions/channels/whatsapp",
   Instagram: "/solutions/channels/instagram",
   RCS: "/solutions/rcs",
   Voice: "/solutions/voice",
@@ -325,31 +325,51 @@ const SOLUTION_DESCRIPTIONS: Record<string, string> = {
 ============================================================ */
 
 const TAMIL_SOLUTION_DESCRIPTIONS: Record<string, string> = {
-  WhatsApp: "WhatsApp மூலம் வாடிக்கையாளர்களுடன் இணைந்து ஈடுபடுங்கள்",
-  Instagram: "Instagram உரையாடல்களை வணிக வாய்ப்புகளாக மாற்றுங்கள்",
-  RCS: "சிறப்பான மற்றும் ஊடாடும் வாடிக்கையாளர் செய்திகளை வழங்குங்கள்",
-  Voice: "குரல் மூலம் வாடிக்கையாளர்களுடன் இணையுங்கள்",
+  WhatsApp:
+    "WhatsApp மூலம் வாடிக்கையாளர்களுடன் இணைந்து ஈடுபடுங்கள்",
 
-  "B2B Sales": "மேலும் வணிக லீட்களை உருவாக்கி தகுதி பெறச் செய்யுங்கள்",
-  "Travel & Tourism": "பயண விசாரணைகளை முன்பதிவுகளாக மாற்றுங்கள்",
+  Instagram:
+    "Instagram உரையாடல்களை வணிக வாய்ப்புகளாக மாற்றுங்கள்",
+
+  RCS:
+    "சிறப்பான மற்றும் ஊடாடும் வாடிக்கையாளர் செய்திகளை வழங்குங்கள்",
+
+  Voice:
+    "குரல் மூலம் வாடிக்கையாளர்களுடன் இணையுங்கள்",
+
+  "B2B Sales":
+    "மேலும் வணிக லீட்களை உருவாக்கி தகுதி பெறச் செய்யுங்கள்",
+
+  "Travel & Tourism":
+    "பயண விசாரணைகளை முன்பதிவுகளாக மாற்றுங்கள்",
+
   "Restaurant & Food Business":
     "ஆர்டர்கள் மற்றும் வாடிக்கையாளர் ஈடுபாட்டை அதிகரிக்கவும்",
+
   "Spas & Salons":
     "அப்பாயின்ட்மென்ட்கள் மற்றும் மீண்டும் வரும் வாடிக்கையாளர்களை அதிகரிக்கவும்",
+
   "Health & Wellness Brands":
     "வாடிக்கையாளர்களுடன் வலுவான உறவுகளை உருவாக்குங்கள்",
+
   "Beauty & Cosmetic Brands":
     "உரையாடல்களை அழகு சாதன விற்பனையாக மாற்றுங்கள்",
+
   Edutech:
     "மாணவர்களுடன் ஈடுபட்டு சேர்க்கை செயல்முறையை தானியங்குபடுத்துங்கள்",
+
   "Automotive Industry":
     "வாகனத் துறை லீட்களைப் பெற்று வளர்த்தெடுக்கவும்",
+
   "Home Decor & Furnishing":
     "விசாரணைகளை வீட்டு விற்பனையாக மாற்றுங்கள்",
+
   "Marketing Agency":
     "பிரச்சாரங்கள் மற்றும் வாடிக்கையாளர் உரையாடல்களை அளவிடுங்கள்",
+
   "Real Estate":
     "சொத்து லீட்களைப் பெற்று தகுதி பெறச் செய்யுங்கள்",
+
   "Freelancers & Consultants":
     "விசாரணைகள் மற்றும் வாடிக்கையாளர் பின்தொடர்வுகளை தானியங்குபடுத்துங்கள்",
 };
@@ -439,13 +459,11 @@ const PRODUCT_ICONS: Record<string, any> = {
 ============================================================ */
 
 const REGULAR_ICONS: Record<string, any> = {
-  // Partnership
   "Become a Partner": Handshake,
   "Agency Partners": Users,
   "Technology Partners": Laptop,
-  "Affiliate Program": LinkIcon,
+  "Affiliate Program": Link2,
 
-  // Resources
   Blog: FileText,
   Guides: BookOpen,
   FAQs: CircleHelp,
@@ -618,8 +636,7 @@ const TRANSLATIONS = {
 
       "B2B Sales": "B2B Sales",
       "Travel & Tourism": "Travel & Tourism",
-      "Restaurant & Food Business":
-        "Restaurant & Food Business",
+      "Restaurant & Food Business": "Restaurant & Food Business",
       "Spas & Salons": "Spas & Salons",
       "Health & Wellness Brands":
         "Health & Wellness Brands",
@@ -689,7 +706,8 @@ const TRANSLATIONS = {
 
     groups: {
       "Capture Leads": "லீட்களைப் பெறுங்கள்",
-      "Qualify Leads": "லீட்களைத் தகுதி பெறச் செய்யுங்கள்",
+      "Qualify Leads":
+        "லீட்களைத் தகுதி பெறச் செய்யுங்கள்",
       "Nurture Leads": "லீட்களை வளர்த்தெடுங்கள்",
       "Close Deals": "ஒப்பந்தங்களை முடிக்கவும்",
       Channels: "சேனல்கள்",
@@ -734,7 +752,8 @@ const TRANSLATIONS = {
         "WhatsApp விற்பனை",
       "WhatsApp Payments":
         "WhatsApp பணப்பரிவர்த்தனைகள்",
-      Analytics: "பகுப்பாய்வு",
+      Analytics:
+        "பகுப்பாய்வு",
     },
 
     solutions: {
@@ -744,64 +763,90 @@ const TRANSLATIONS = {
       Voice: "குரல்",
 
       "B2B Sales": "B2B விற்பனை",
-      "Travel & Tourism": "பயணம் மற்றும் சுற்றுலா",
+      "Travel & Tourism":
+        "பயணம் மற்றும் சுற்றுலா",
       "Restaurant & Food Business":
         "உணவகம் மற்றும் உணவு வணிகம்",
-      "Spas & Salons": "ஸ்பா மற்றும் சலூன்கள்",
+      "Spas & Salons":
+        "ஸ்பா மற்றும் சலூன்கள்",
       "Health & Wellness Brands":
         "ஆரோக்கியம் மற்றும் நலன் பிராண்டுகள்",
       "Beauty & Cosmetic Brands":
         "அழகு மற்றும் அழகுசாதன பிராண்டுகள்",
-      Edutech: "கல்வித் தொழில்நுட்பம்",
+      Edutech:
+        "கல்வித் தொழில்நுட்பம்",
       "Automotive Industry":
         "வாகனத் தொழில்",
       "Home Decor & Furnishing":
         "வீட்டு அலங்காரம் மற்றும் பொருட்கள்",
       "Marketing Agency":
         "மார்க்கெட்டிங் ஏஜென்சி",
-      "Real Estate": "ரியல் எஸ்டேட்",
+      "Real Estate":
+        "ரியல் எஸ்டேட்",
       "Freelancers & Consultants":
         "ஃப்ரீலான்சர்கள் மற்றும் ஆலோசகர்கள்",
     },
 
     regular: {
-      "Become a Partner": "கூட்டாளராகுங்கள்",
-      "Agency Partners": "ஏஜென்சி கூட்டாளர்கள்",
-      "Technology Partners": "தொழில்நுட்ப கூட்டாளர்கள்",
-      "Affiliate Program": "அஃபிலியேட் திட்டம்",
-      Blog: "வலைப்பதிவு",
-      Guides: "வழிகாட்டிகள்",
-      FAQs: "அடிக்கடி கேட்கப்படும் கேள்விகள்",
-      "Help Center": "உதவி மையம்",
+      "Become a Partner":
+        "கூட்டாளராகுங்கள்",
+      "Agency Partners":
+        "ஏஜென்சி கூட்டாளர்கள்",
+      "Technology Partners":
+        "தொழில்நுட்ப கூட்டாளர்கள்",
+      "Affiliate Program":
+        "அஃபிலியேட் திட்டம்",
+      Blog:
+        "வலைப்பதிவு",
+      Guides:
+        "வழிகாட்டிகள்",
+      FAQs:
+        "அடிக்கடி கேட்கப்படும் கேள்விகள்",
+      "Help Center":
+        "உதவி மையம்",
     },
 
     whatsapp: {
-      title: "WhatsApp தீர்வுகள்",
+      title:
+        "WhatsApp தீர்வுகள்",
       description:
         "உங்கள் வணிகத்திற்கான சக்திவாய்ந்த WhatsApp கருவிகள்",
     },
 
     buttons: {
-      explore: "அனைத்து தயாரிப்புகளையும் பார்க்கவும்",
-      signIn: "உள்நுழைக",
-      demo: "டெமோ பதிவு செய்யுங்கள்",
-      language: "மொழி",
+      explore:
+        "அனைத்து தயாரிப்புகளையும் பார்க்கவும்",
+      signIn:
+        "உள்நுழைக",
+      demo:
+        "டெமோ பதிவு செய்யுங்கள்",
+      language:
+        "மொழி",
     },
 
     popup: {
-      title: "தொடங்க தயாரா?",
+      title:
+        "தொடங்க தயாரா?",
       description:
         "உங்கள் விவரங்களை நிரப்புங்கள். எங்கள் குழு 48 மணி நேரத்திற்குள் உங்களைத் தொடர்புகொள்ளும்.",
-      industry: "தொழில்துறை",
-      company: "நிறுவனத்தின் பெயர்",
-      name: "பெயர்",
-      email: "மின்னஞ்சல் முகவரி",
-      phone: "தொலைபேசி எண்",
-      robot: "நான் ரோபோட் அல்ல",
+      industry:
+        "தொழில்துறை",
+      company:
+        "நிறுவனத்தின் பெயர்",
+      name:
+        "பெயர்",
+      email:
+        "மின்னஞ்சல் முகவரி",
+      phone:
+        "தொலைபேசி எண்",
+      robot:
+        "நான் ரோபோட் அல்ல",
       terms:
         "விதிமுறைகள் மற்றும் நிபந்தனைகளை ஏற்கிறேன்",
-      cancel: "ரத்து செய்",
-      submit: "சமர்ப்பிக்கவும்",
+      cancel:
+        "ரத்து செய்",
+      submit:
+        "சமர்ப்பிக்கவும்",
     },
   },
 };
@@ -825,7 +870,9 @@ export default function Navbar() {
     useState<string | null>(null);
 
   const [hoveredProduct, setHoveredProduct] =
-    useState<string | null>("WhatsApp AI Agents");
+    useState<string | null>(
+      "WhatsApp AI Agents"
+    );
 
   const [whatsappOpen, setWhatsappOpen] =
     useState(false);
@@ -833,19 +880,28 @@ export default function Navbar() {
   const [languageOpen, setLanguageOpen] =
     useState(false);
 
+  /* ============================================================
+     ONLY INDUSTRY POPUP STATE
+
+     Partnership popup has been completely removed
+     from Navbar.
+  ============================================================ */
+
   const [industryPopup, setIndustryPopup] =
     useState<string | null>(null);
 
-  const [popupForm, setPopupForm] = useState({
-    companyName: "",
-    name: "",
-    email: "",
-    phone: "",
-    captchaChecked: false,
-    termsAccepted: false,
-  });
+  const [popupForm, setPopupForm] =
+    useState({
+      companyName: "",
+      name: "",
+      email: "",
+      phone: "",
+      captchaChecked: false,
+      termsAccepted: false,
+    });
 
-  const [location, navigate] = useLocation();
+  const [location, navigate] =
+    useLocation();
 
   const dropdownRef =
     useRef<HTMLDivElement | null>(null);
@@ -876,7 +932,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(
+        window.scrollY > 10
+      );
     };
 
     window.addEventListener(
@@ -893,6 +951,68 @@ export default function Navbar() {
   }, []);
 
   /* ============================================================
+     INDUSTRY POPUP TIMER ONLY
+  ============================================================ */
+
+  useEffect(() => {
+    const currentPath =
+      String(location);
+
+    if (
+      currentPath === "/partnership"
+    ) {
+      setIndustryPopup(null);
+      return;
+    }
+
+    setIndustryPopup(null);
+
+    const isSolutionsPage =
+      currentPath.startsWith(
+        "/solutions/"
+      );
+
+    if (!isSolutionsPage) {
+      return;
+    }
+
+    const currentIndustry =
+      Object.keys(
+        INDUSTRY_ROUTES
+      ).find(
+        (key) =>
+          `/solutions/${INDUSTRY_ROUTES[key]}` ===
+          currentPath
+      );
+
+    if (!currentIndustry) {
+      return;
+    }
+
+    const timer =
+      window.setTimeout(() => {
+        setPopupForm({
+          companyName: "",
+          name: "",
+          email: "",
+          phone: "",
+          captchaChecked: false,
+          termsAccepted: false,
+        });
+
+        setIndustryPopup(
+          currentIndustry
+        );
+      }, 5000);
+
+    return () => {
+      window.clearTimeout(
+        timer
+      );
+    };
+  }, [location]);
+
+  /* ============================================================
      CLICK OUTSIDE
   ============================================================ */
 
@@ -905,7 +1025,9 @@ export default function Navbar() {
 
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(target)
+        !dropdownRef.current.contains(
+          target
+        )
       ) {
         setActiveDropdown(null);
         setWhatsappOpen(false);
@@ -913,7 +1035,9 @@ export default function Navbar() {
 
       if (
         languageRef.current &&
-        !languageRef.current.contains(target)
+        !languageRef.current.contains(
+          target
+        )
       ) {
         setLanguageOpen(false);
       }
@@ -938,7 +1062,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (
+        window.innerWidth >= 768
+      ) {
         setMobileMenuOpen(false);
       }
     };
@@ -970,7 +1096,9 @@ export default function Navbar() {
           : name
     );
 
-    if (name !== "Solutions") {
+    if (
+      name !== "Solutions"
+    ) {
       setWhatsappOpen(false);
     }
   };
@@ -1001,14 +1129,19 @@ export default function Navbar() {
      TEXT HELPERS
   ============================================================ */
 
-  const getNavText = (name: string) => {
+  const getNavText = (
+    name: string
+  ) => {
     return (
-      t.nav[name as keyof typeof t.nav] ||
-      name
+      t.nav[
+        name as keyof typeof t.nav
+      ] || name
     );
   };
 
-  const getGroupText = (name: string) => {
+  const getGroupText = (
+    name: string
+  ) => {
     return (
       t.groups[
         name as keyof typeof t.groups
@@ -1016,7 +1149,9 @@ export default function Navbar() {
     );
   };
 
-  const getProductText = (item: string) => {
+  const getProductText = (
+    item: string
+  ) => {
     return (
       t.products[
         item as keyof typeof t.products
@@ -1024,7 +1159,9 @@ export default function Navbar() {
     );
   };
 
-  const getSolutionText = (item: string) => {
+  const getSolutionText = (
+    item: string
+  ) => {
     return (
       t.solutions[
         item as keyof typeof t.solutions
@@ -1032,7 +1169,9 @@ export default function Navbar() {
     );
   };
 
-  const getRegularText = (item: string) => {
+  const getRegularText = (
+    item: string
+  ) => {
     return (
       t.regular[
         item as keyof typeof t.regular
@@ -1044,18 +1183,60 @@ export default function Navbar() {
     item: string
   ) => {
     return language === "TA"
-      ? TAMIL_PRODUCT_DESCRIPTIONS[item] ||
-          PRODUCT_DESCRIPTIONS[item]
-      : PRODUCT_DESCRIPTIONS[item];
+      ? TAMIL_PRODUCT_DESCRIPTIONS[
+          item
+        ] ||
+          PRODUCT_DESCRIPTIONS[
+            item
+          ]
+      : PRODUCT_DESCRIPTIONS[
+          item
+        ];
   };
 
   const getSolutionDescription = (
     item: string
   ) => {
     return language === "TA"
-      ? TAMIL_SOLUTION_DESCRIPTIONS[item] ||
-          SOLUTION_DESCRIPTIONS[item]
-      : SOLUTION_DESCRIPTIONS[item];
+      ? TAMIL_SOLUTION_DESCRIPTIONS[
+          item
+        ] ||
+          SOLUTION_DESCRIPTIONS[
+            item
+          ]
+      : SOLUTION_DESCRIPTIONS[
+          item
+        ];
+  };
+
+  /* ============================================================
+     CHANNEL NAVIGATION
+
+     IMPORTANT:
+     Explicit route selection is used here instead of relying
+     only on CHANNEL_ROUTES[item].
+  ============================================================ */
+
+  const handleChannelNavigation = (
+    item: string
+  ) => {
+    let route = "/solutions";
+
+    if (item === "WhatsApp") {
+      route =
+        "/solutions/channels/whatsapp";
+    } else if (item === "Instagram") {
+      route =
+        "/solutions/channels/instagram";
+    } else if (item === "RCS") {
+      route = "/solutions/rcs";
+    } else if (item === "Voice") {
+      route = "/solutions/voice";
+    }
+
+    closeMenus();
+
+    navigate(route);
   };
 
   /* ============================================================
@@ -1066,25 +1247,105 @@ export default function Navbar() {
     item: string,
     parent: string
   ) => {
+    setActiveDropdown(null);
+    setWhatsappOpen(false);
+    setMobileMenuOpen(false);
+    setLanguageOpen(false);
+
     if (
-      parent === "Solutions" &&
-      item === "WhatsApp"
+      parent === "Products"
     ) {
-      setWhatsappOpen(
-        (current) => !current
+      navigate(
+        PRODUCT_ROUTES[
+          item
+        ] ||
+          "/products"
       );
 
       return;
     }
 
     if (
-      parent === "Solutions" &&
-      INDUSTRY_ROUTES[item]
+      parent === "Solutions"
     ) {
-      setActiveDropdown(null);
-      setWhatsappOpen(false);
-      setMobileMenuOpen(false);
-      setLanguageOpen(false);
+      if (
+        INDUSTRY_ROUTES[
+          item
+        ]
+      ) {
+        navigate(
+          `/solutions/${INDUSTRY_ROUTES[item]}`
+        );
+
+        return;
+      }
+
+      if (
+        CHANNEL_ROUTES[
+          item
+        ]
+      ) {
+        handleChannelNavigation(
+          item
+        );
+
+        return;
+      }
+
+      navigate(
+        "/solutions"
+      );
+
+      return;
+    }
+
+    if (
+      parent === "Integrations"
+    ) {
+      navigate(
+        "/integrations"
+      );
+      return;
+    }
+
+    if (
+      parent === "Partnership"
+    ) {
+      navigate(
+        "/partnership"
+      );
+      return;
+    }
+
+    if (
+      parent === "Resources"
+    ) {
+      navigate(
+        "/resources"
+      );
+      return;
+    }
+
+    navigate("/");
+  };
+
+  /* ============================================================
+     INDUSTRY POPUP NAVIGATION
+  ============================================================ */
+
+  const goToSelectedIndustry =
+    () => {
+      if (
+        !industryPopup
+      )
+        return;
+
+      const route =
+        INDUSTRY_ROUTES[
+          industryPopup
+        ];
+
+      setIndustryPopup(null);
 
       setPopupForm({
         companyName: "",
@@ -1095,111 +1356,58 @@ export default function Navbar() {
         termsAccepted: false,
       });
 
-      setIndustryPopup(item);
+      closeMenus();
 
-      return;
-    }
-
-    setActiveDropdown(null);
-    setWhatsappOpen(false);
-    setMobileMenuOpen(false);
-
-    if (parent === "Products") {
-      navigate(
-        PRODUCT_ROUTES[item] ||
-          "/products"
-      );
-
-      return;
-    }
-
-    if (parent === "Solutions") {
-      if (INDUSTRY_ROUTES[item]) {
+      if (route) {
         navigate(
-          `/solutions/${INDUSTRY_ROUTES[item]}`
+          `/solutions/${route}`
         );
-
-        return;
       }
-
-      if (CHANNEL_ROUTES[item]) {
-        navigate(
-          CHANNEL_ROUTES[item]
-        );
-
-        return;
-      }
-
-      navigate("/solutions");
-
-      return;
-    }
-
-    if (parent === "Integrations") {
-      navigate("/integrations");
-      return;
-    }
-
-    if (parent === "Partnership") {
-      navigate("/partnership");
-      return;
-    }
-
-    if (parent === "Resources") {
-      navigate("/resources");
-      return;
-    }
-
-    navigate("/");
-  };
+    };
 
   /* ============================================================
-     INDUSTRY POPUP
+     CLOSE INDUSTRY POPUP
   ============================================================ */
 
-  const goToSelectedIndustry = () => {
-    if (!industryPopup) return;
+  const closeIndustryPopup =
+    () => {
+      setIndustryPopup(null);
 
-    const route =
-      INDUSTRY_ROUTES[industryPopup];
-
-    setIndustryPopup(null);
-
-    setPopupForm({
-      companyName: "",
-      name: "",
-      email: "",
-      phone: "",
-      captchaChecked: false,
-      termsAccepted: false,
-    });
-
-    closeMenus();
-
-    if (route) {
-      navigate(
-        `/solutions/${route}`
-      );
-    }
-  };
+      setPopupForm({
+        companyName: "",
+        name: "",
+        email: "",
+        phone: "",
+        captchaChecked: false,
+        termsAccepted: false,
+      });
+    };
 
   /* ============================================================
      POPUP ESCAPE + SCROLL LOCK
   ============================================================ */
 
   useEffect(() => {
-    if (!industryPopup) return;
+    const popupOpen =
+      !!industryPopup;
+
+    if (!popupOpen)
+      return;
 
     const handleKeyDown = (
       event: KeyboardEvent
     ) => {
-      if (event.key === "Escape") {
-        goToSelectedIndustry();
+      if (
+        event.key ===
+        "Escape"
+      ) {
+        closeIndustryPopup();
       }
     };
 
     const previousOverflow =
-      document.body.style.overflow;
+      document.body.style
+        .overflow;
 
     document.body.style.overflow =
       "hidden";
@@ -1224,15 +1432,14 @@ export default function Navbar() {
      WHATSAPP SOLUTION
   ============================================================ */
 
-  const handleWhatsAppSolution = (
-    route: string
-  ) => {
-    setActiveDropdown(null);
-    setWhatsappOpen(false);
-    setMobileMenuOpen(false);
+  const handleWhatsAppSolution =
+    (route: string) => {
+      setActiveDropdown(null);
+      setWhatsappOpen(false);
+      setMobileMenuOpen(false);
 
-    navigate(route);
-  };
+      navigate(route);
+    };
 
   /* ============================================================
      SOLUTION ICON
@@ -1244,7 +1451,9 @@ export default function Navbar() {
     item: string;
   }) => {
     const Icon =
-      SOLUTION_ICONS[item] ||
+      SOLUTION_ICONS[
+        item
+      ] ||
       MessageCircle;
 
     return (
@@ -1267,7 +1476,9 @@ export default function Navbar() {
     item: string;
   }) => {
     const Icon =
-      PRODUCT_ICONS[item] ||
+      PRODUCT_ICONS[
+        item
+      ] ||
       MessageSquare;
 
     return (
@@ -1288,9 +1499,12 @@ export default function Navbar() {
     item: string;
   }) => {
     const Icon =
-      REGULAR_ICONS[item];
+      REGULAR_ICONS[
+        item
+      ];
 
-    if (!Icon) return null;
+    if (!Icon)
+      return null;
 
     return (
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D9F8ED] text-[#08A878] transition-all duration-200 group-hover:bg-[#075E54] group-hover:text-white">
@@ -1322,7 +1536,9 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex shrink-0 items-center"
-            onClick={closeMenus}
+            onClick={
+              closeMenus
+            }
           >
             <img
               src="/whatsware-logo.png"
@@ -1336,82 +1552,56 @@ export default function Navbar() {
           ================================================== */}
 
           <nav
-            ref={dropdownRef}
-             className="hidden min-w-0 flex-1 items-center justify-center gap-3 lg:gap-4 xl:gap-5 md:flex"
+            ref={
+              dropdownRef
+            }
+            className="hidden min-w-0 flex-1 items-center justify-center gap-3 md:flex lg:gap-4 xl:gap-5"
           >
-            {NAV_LINKS.map((link) => {
-              const hasDropdown =
-                !!link.dropdown ||
-                !!link.dropdownGroups;
+            {NAV_LINKS.map(
+              (link) => {
+                const hasDropdown =
+                  !!link.dropdown ||
+                  !!link.dropdownGroups;
 
-              const isActive =
-                activeDropdown ===
-                link.name;
+                const isActive =
+                  activeDropdown ===
+                  link.name;
 
-              return (
-                <div
-                  key={link.name}
-                  className="relative"
-                >
+                return (
+                  <div
+                    key={
+                      link.name
+                    }
+                    className="relative"
+                  >
 
-                  {/* MAIN NAV ITEM */}
+                    {/* MAIN NAV ITEM */}
 
-                  {hasDropdown ? (
-                    <div className="flex items-center">
+                    {hasDropdown ? (
+                      <div className="flex items-center">
 
-                      {link.name === "Products" ||
-                      link.name === "Solutions" ||
-                      !link.href ? (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            toggleDropdown(
-                              link.name
-                            )
-                          }
-                          className={`flex items-center gap-1 px-1 py-2 text-sm font-medium transition-colors ${
-                            isActive
-                              ? "text-green-200"
-                              : "text-white hover:text-green-200"
-                          }`}
-                        >
-                          {getNavText(link.name)}
-
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform duration-200 ${
-                              isActive
-                                ? "rotate-180"
-                                : ""
-                            }`}
-                          />
-                        </button>
-                      ) : (
-                        <>
-                          <Link
-                            href={link.href}
-                            className={`px-1 py-2 text-sm font-medium transition-colors ${
-                              location ===
-                              link.href
-                                ? "text-green-200"
-                                : "text-white hover:text-green-200"
-                            }`}
-                            onClick={closeMenus}
-                          >
-                            {getNavText(link.name)}
-                          </Link>
-
+                        {link.name ===
+                          "Products" ||
+                        link.name ===
+                          "Solutions" ||
+                        !link.href ? (
                           <button
                             type="button"
-                            aria-label={`Open ${getNavText(
-                              link.name
-                            )} menu`}
                             onClick={() =>
                               toggleDropdown(
                                 link.name
                               )
                             }
-                            className="flex items-center px-1 py-2 text-white transition-colors hover:text-green-200"
+                            className={`flex items-center gap-1 px-1 py-2 text-sm font-medium transition-colors ${
+                              isActive
+                                ? "text-green-200"
+                                : "text-white hover:text-green-200"
+                            }`}
                           >
+                            {getNavText(
+                              link.name
+                            )}
+
                             <ChevronDown
                               className={`h-4 w-4 transition-transform duration-200 ${
                                 isActive
@@ -1420,378 +1610,627 @@ export default function Navbar() {
                               }`}
                             />
                           </button>
-                        </>
-                      )}
+                        ) : (
+                          <>
+                            <Link
+                              href={
+                                link.href
+                              }
+                              className={`px-1 py-2 text-sm font-medium transition-colors ${
+                                location ===
+                                link.href
+                                  ? "text-green-200"
+                                  : "text-white hover:text-green-200"
+                              }`}
+                              onClick={
+                                closeMenus
+                              }
+                            >
+                              {getNavText(
+                                link.name
+                              )}
+                            </Link>
 
-                    </div>
-                  ) : (
-                    <Link
-                      href={
-                        link.href || "/"
-                      }
-                      className={`flex items-center px-1 py-2 text-sm font-medium transition-colors ${
-                        location ===
-                        link.href
-                          ? "text-green-200"
-                          : "text-white hover:text-green-200"
-                      }`}
-                      onClick={closeMenus}
-                    >
-                      {getNavText(link.name)}
-                    </Link>
-                  )}
-
-                  {/* =================================================
-                      PREMIUM PRODUCTS MEGA MENU
-                  ================================================= */}
-
-                  {link.name === "Products" &&
-                    link.dropdownGroups &&
-                    isActive && (
-                      <AnimatePresence>
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            y: -10,
-                            scale: 0.985,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            y: 0,
-                            scale: 1,
-                          }}
-                          exit={{
-                            opacity: 0,
-                            y: -8,
-                            scale: 0.985,
-                          }}
-                          transition={{
-                            duration: 0.2,
-                            ease: [0.22, 1, 0.36, 1],
-                          }}
-                          className="fixed left-1/2 top-[84px] z-[60] w-[1180px] max-w-[calc(100vw-32px)] -translate-x-1/2 overflow-hidden rounded-[24px] border border-[#E6ECE9] bg-white shadow-[0_30px_90px_rgba(7,94,84,0.18)]"
-                        >
-                          <div className="h-[3px] w-full bg-gradient-to-r from-[#075E54] via-[#08A878] to-[#25D366]" />
-
-                          <div className="grid grid-cols-4 gap-0">
-                            {link.dropdownGroups.map(
-                              (group, groupIndex) => (
-                                <div
-                                  key={group.title}
-                                  className={`relative px-5 pb-6 pt-6 ${
-                                    groupIndex !==
-                                    link.dropdownGroups!.length - 1
-                                      ? "border-r border-[#EEF2F0]"
-                                      : ""
-                                  }`}
-                                >
-                                  <div className="mb-5 px-1">
-                                    <div className="flex items-center gap-2">
-                                      <span className="h-1.5 w-1.5 rounded-full bg-[#08A878] shadow-[0_0_10px_rgba(8,168,120,0.55)]" />
-                                      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#526176]">
-                                        {getGroupText(group.title)}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  <div className="space-y-1">
-                                    {group.items.map((item) => {
-                                      const isHovered =
-                                        hoveredProduct === item;
-
-                                      return (
-                                        <motion.button
-                                          key={item}
-                                          type="button"
-                                          onMouseEnter={() =>
-                                            setHoveredProduct(item)
-                                          }
-                                          onFocus={() =>
-                                            setHoveredProduct(item)
-                                          }
-                                          onClick={() =>
-                                            handleDropdownItem(
-                                              item,
-                                              "Products"
-                                            )
-                                          }
-                                          whileHover={{ x: 3 }}
-                                          whileTap={{ scale: 0.985 }}
-                                          transition={{
-                                            type: "spring",
-                                            stiffness: 400,
-                                            damping: 28,
-                                          }}
-                                          className={`group relative flex w-full items-start gap-3 rounded-[15px] px-2.5 py-2.5 text-left transition-all duration-200 ${
-                                            isHovered
-                                              ? "bg-[#F0FBF6]"
-                                              : "bg-transparent hover:bg-[#F7FBF9]"
-                                          }`}
-                                        >
-                                          <motion.span
-                                            initial={false}
-                                            animate={{
-                                              opacity: isHovered ? 1 : 0,
-                                              scaleY: isHovered ? 1 : 0.5,
-                                            }}
-                                            transition={{ duration: 0.16 }}
-                                            className="absolute left-0 top-2.5 h-9 w-[3px] origin-center rounded-full bg-[#08A878]"
-                                          />
-
-                                          <motion.div
-                                            animate={{
-                                              scale: isHovered ? 1.08 : 1,
-                                              rotate: isHovered ? -2 : 0,
-                                            }}
-                                            transition={{
-                                              type: "spring",
-                                              stiffness: 400,
-                                              damping: 20,
-                                            }}
-                                            className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] transition-all duration-200 ${
-                                              isHovered
-                                                ? "bg-[#075E54] text-white shadow-[0_7px_18px_rgba(7,94,84,0.22)]"
-                                                : "bg-[#F0F5F3] text-[#075E54]"
-                                            }`}
-                                          >
-                                            <ProductIcon item={item} />
-                                          </motion.div>
-
-                                          <div className="min-w-0 flex-1 pt-0.5">
-                                            <div className="flex items-center gap-1">
-                                              <span
-                                                className={`text-[13px] font-semibold leading-[18px] transition-colors duration-200 ${
-                                                  isHovered
-                                                    ? "text-[#075E54]"
-                                                    : "text-[#151A19]"
-                                                }`}
-                                              >
-                                                {getProductText(item)}
-                                              </span>
-
-                                              <motion.span
-                                                initial={false}
-                                                animate={{
-                                                  opacity: isHovered ? 1 : 0,
-                                                  x: isHovered ? 0 : -4,
-                                                }}
-                                                className="shrink-0 text-[#08A878]"
-                                              >
-                                                <ArrowRight className="h-3.5 w-3.5" />
-                                              </motion.span>
-                                            </div>
-
-                                            <p
-                                              className={`mt-1 text-[10.5px] leading-[15px] transition-colors duration-200 ${
-                                                isHovered
-                                                  ? "text-[#55746B]"
-                                                  : "text-[#7B8582]"
-                                              }`}
-                                            >
-                                              {getProductDescription(item)}
-                                            </p>
-                                          </div>
-                                        </motion.button>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              )
-                            )}
-                          </div>
-
-                          <div className="relative overflow-hidden border-t border-[#E9EFEC] bg-[#F8FCFA]">
-                            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#25D366]/10 blur-3xl" />
-                            <div className="pointer-events-none absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-[#075E54]/10 blur-3xl" />
-
-                            <div className="relative grid grid-cols-[1fr_360px] items-center gap-8 px-7 py-5">
-                              <div>
-                                <div className="mb-2 flex items-center gap-2">
-                                  <motion.span
-                                    animate={{
-                                      scale: [1, 1.2, 1],
-                                      opacity: [0.6, 1, 0.6],
-                                    }}
-                                    transition={{
-                                      duration: 1.8,
-                                      repeat: Infinity,
-                                      ease: "easeInOut",
-                                    }}
-                                    className="h-2 w-2 rounded-full bg-[#25D366] shadow-[0_0_12px_rgba(37,211,102,0.7)]"
-                                  />
-
-                                  <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#08A878]">
-                                    WhatsWare Product Suite
-                                  </span>
-                                </div>
-
-                                <AnimatePresence mode="wait">
-                                  <motion.div
-                                    key={
-                                      hoveredProduct ||
-                                      "WhatsApp AI Agents"
-                                    }
-                                    initial={{
-                                      opacity: 0,
-                                      y: 6,
-                                    }}
-                                    animate={{
-                                      opacity: 1,
-                                      y: 0,
-                                    }}
-                                    exit={{
-                                      opacity: 0,
-                                      y: -6,
-                                    }}
-                                    transition={{ duration: 0.18 }}
-                                  >
-                                    <h3 className="text-[18px] font-bold tracking-[-0.02em] text-[#10211D]">
-                                      {getProductText(
-                                        hoveredProduct ||
-                                          "WhatsApp AI Agents"
-                                      )}
-                                    </h3>
-
-                                    <p className="mt-1 max-w-[600px] text-[11px] leading-5 text-[#66736F]">
-                                      {getProductDescription(
-                                        hoveredProduct ||
-                                          "WhatsApp AI Agents"
-                                      )}
-                                    </p>
-                                  </motion.div>
-                                </AnimatePresence>
-
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    navigate("/products");
-                                    closeMenus();
-                                  }}
-                                  className="group mt-3 inline-flex items-center gap-2 rounded-full bg-[#075E54] px-4 py-2 text-[11px] font-semibold text-white shadow-[0_7px_20px_rgba(7,94,84,0.2)] transition-all duration-200 hover:bg-[#064C44] hover:shadow-[0_10px_25px_rgba(7,94,84,0.28)]"
-                                >
-                                  {t.buttons.explore}
-
-                                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                                </button>
-                              </div>
-
-                              <div className="relative h-[132px] overflow-hidden rounded-[18px] border border-[#DCEBE5] bg-white shadow-[0_15px_35px_rgba(7,94,84,0.09)]">
-                                <div className="flex h-8 items-center gap-1.5 border-b border-[#EDF2F0] bg-[#FBFDFC] px-3">
-                                  <span className="h-2 w-2 rounded-full bg-[#FF6B6B]" />
-                                  <span className="h-2 w-2 rounded-full bg-[#FFC857]" />
-                                  <span className="h-2 w-2 rounded-full bg-[#25D366]" />
-                                  <div className="ml-3 h-4 flex-1 rounded-full bg-[#F0F4F2]" />
-                                </div>
-
-                                <div className="relative h-[104px] p-3">
-                                  <motion.div
-                                    animate={{ y: [0, -4, 0] }}
-                                    transition={{
-                                      duration: 2.4,
-                                      repeat: Infinity,
-                                      ease: "easeInOut",
-                                    }}
-                                    className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-[#075E54] text-white shadow-[0_8px_18px_rgba(7,94,84,0.25)]"
-                                  >
-                                    <Bot className="h-4 w-4" />
-                                  </motion.div>
-
-                                  <motion.div
-                                    animate={{ x: [0, 2, 0] }}
-                                    transition={{
-                                      duration: 2.2,
-                                      repeat: Infinity,
-                                      ease: "easeInOut",
-                                    }}
-                                    className="absolute left-3 top-7 max-w-[170px] rounded-[10px] rounded-tl-[3px] bg-[#F0F5F3] px-3 py-2"
-                                  >
-                                    <div className="h-1.5 w-24 rounded-full bg-[#B8C7C2]" />
-                                    <div className="mt-1.5 h-1.5 w-32 rounded-full bg-[#D0DAD6]" />
-                                  </motion.div>
-
-                                  <motion.div
-                                    animate={{ y: [0, -3, 0] }}
-                                    transition={{
-                                      duration: 2,
-                                      repeat: Infinity,
-                                      ease: "easeInOut",
-                                      delay: 0.5,
-                                    }}
-                                    className="absolute bottom-4 right-3 max-w-[180px] rounded-[10px] rounded-br-[3px] bg-[#D9F8ED] px-3 py-2"
-                                  >
-                                    <div className="flex items-center gap-1.5">
-                                      <span className="h-1.5 w-1.5 rounded-full bg-[#08A878]" />
-                                      <span className="h-1.5 w-20 rounded-full bg-[#79C9AE]" />
-                                    </div>
-
-                                    <div className="mt-1.5 h-1.5 w-28 rounded-full bg-[#A7DCC8]" />
-                                  </motion.div>
-
-                                  <div className="absolute bottom-5 left-4 flex items-center gap-1">
-                                    {[0, 0.15, 0.3].map((delay) => (
-                                      <motion.span
-                                        key={delay}
-                                        animate={{ y: [0, -3, 0] }}
-                                        transition={{
-                                          duration: 0.8,
-                                          repeat: Infinity,
-                                          delay,
-                                        }}
-                                        className="h-1.5 w-1.5 rounded-full bg-[#08A878]"
-                                      />
-                                    ))}
-                                  </div>
-                                </div>
-
-                                <motion.div
-                                  animate={{ x: ["-100%", "420%"] }}
-                                  transition={{
-                                    duration: 2.8,
-                                    repeat: Infinity,
-                                    ease: "linear",
-                                  }}
-                                  className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-20 bg-gradient-to-r from-transparent via-[#25D366] to-transparent opacity-80"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </AnimatePresence>
+                            <button
+                              type="button"
+                              aria-label={`Open ${getNavText(
+                                link.name
+                              )} menu`}
+                              onClick={() =>
+                                toggleDropdown(
+                                  link.name
+                                )
+                              }
+                              className="flex items-center px-1 py-2 text-white transition-colors hover:text-green-200"
+                            >
+                              <ChevronDown
+                                className={`h-4 w-4 transition-transform duration-200 ${
+                                  isActive
+                                    ? "rotate-180"
+                                    : ""
+                                }`}
+                              />
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        href={
+                          link.href ||
+                          "/"
+                        }
+                        className={`flex items-center px-1 py-2 text-sm font-medium transition-colors ${
+                          location ===
+                          link.href
+                            ? "text-green-200"
+                            : "text-white hover:text-green-200"
+                        }`}
+                        onClick={
+                          closeMenus
+                        }
+                      >
+                        {getNavText(
+                          link.name
+                        )}
+                      </Link>
                     )}
 
-                  {/* =================================================
-                      SOLUTIONS MEGA MENU
-                  ================================================= */}
+                    {/* =================================================
+                        PRODUCTS MEGA MENU
+                    ================================================= */}
 
-                  {link.name === "Solutions" &&
-                    link.dropdownGroups &&
-                    isActive && (
-                      <div className="fixed left-1/2 top-[84px] z-[60] w-[860px] max-w-[calc(100vw-32px)] -translate-x-1/2 overflow-visible rounded-3xl border border-gray-100 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.18)]">
+                    {link.name ===
+                      "Products" &&
+                      link.dropdownGroups &&
+                      isActive && (
+                        <AnimatePresence>
+                          <motion.div
+                            initial={{
+                              opacity: 0,
+                              y: -10,
+                              scale: 0.985,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              y: 0,
+                              scale: 1,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              y: -8,
+                              scale: 0.985,
+                            }}
+                            transition={{
+                              duration: 0.2,
+                              ease: [
+                                0.22,
+                                1,
+                                0.36,
+                                1,
+                              ],
+                            }}
+                            className="fixed left-1/2 top-[84px] z-[60] w-[1180px] max-w-[calc(100vw-32px)] -translate-x-1/2 overflow-hidden rounded-[24px] border border-[#E6ECE9] bg-white shadow-[0_30px_90px_rgba(7,94,84,0.18)]"
+                          >
+                            <div className="h-[3px] w-full bg-gradient-to-r from-[#075E54] via-[#08A878] to-[#25D366]" />
 
-                        <div className="grid grid-cols-[260px_1fr]">
+                            <div className="grid grid-cols-4 gap-0">
+                              {link.dropdownGroups.map(
+                                (
+                                  group,
+                                  groupIndex
+                                ) => (
+                                  <div
+                                    key={
+                                      group.title
+                                    }
+                                    className={`relative px-5 pb-6 pt-6 ${
+                                      groupIndex !==
+                                      link.dropdownGroups!
+                                        .length -
+                                        1
+                                        ? "border-r border-[#EEF2F0]"
+                                        : ""
+                                    }`}
+                                  >
+                                    <div className="mb-5 px-1">
+                                      <div className="flex items-center gap-2">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#08A878] shadow-[0_0_10px_rgba(8,168,120,0.55)]" />
 
-                          {/* CHANNELS */}
+                                        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#526176]">
+                                          {getGroupText(
+                                            group.title
+                                          )}
+                                        </p>
+                                      </div>
+                                    </div>
 
-                          <div className="border-r border-gray-100 bg-[#FAFFFD] p-6">
+                                    <div className="space-y-1">
+                                      {group.items.map(
+                                        (
+                                          item
+                                        ) => {
+                                          const isHovered =
+                                            hoveredProduct ===
+                                            item;
 
-                            <div className="mb-5">
-                              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#08A878]">
-                                {getGroupText("Channels")}
-                              </p>
+                                          return (
+                                            <motion.button
+                                              key={
+                                                item
+                                              }
+                                              type="button"
+                                              onMouseEnter={() =>
+                                                setHoveredProduct(
+                                                  item
+                                                )
+                                              }
+                                              onFocus={() =>
+                                                setHoveredProduct(
+                                                  item
+                                                )
+                                              }
+                                              onClick={() =>
+                                                handleDropdownItem(
+                                                  item,
+                                                  "Products"
+                                                )
+                                              }
+                                              whileHover={{
+                                                x: 3,
+                                              }}
+                                              whileTap={{
+                                                scale: 0.985,
+                                              }}
+                                              transition={{
+                                                type: "spring",
+                                                stiffness: 400,
+                                                damping: 28,
+                                              }}
+                                              className={`group relative flex w-full items-start gap-3 rounded-[15px] px-2.5 py-2.5 text-left transition-all duration-200 ${
+                                                isHovered
+                                                  ? "bg-[#F0FBF6]"
+                                                  : "bg-transparent hover:bg-[#F7FBF9]"
+                                              }`}
+                                            >
+                                              <motion.span
+                                                initial={
+                                                  false
+                                                }
+                                                animate={{
+                                                  opacity:
+                                                    isHovered
+                                                      ? 1
+                                                      : 0,
+                                                  scaleY:
+                                                    isHovered
+                                                      ? 1
+                                                      : 0.5,
+                                                }}
+                                                transition={{
+                                                  duration:
+                                                    0.16,
+                                                }}
+                                                className="absolute left-0 top-2.5 h-9 w-[3px] origin-center rounded-full bg-[#08A878]"
+                                              />
 
-                              <p className="mt-1 text-xs text-gray-400">
-                                {t.groupDescriptions.channels}
-                              </p>
+                                              <motion.div
+                                                animate={{
+                                                  scale:
+                                                    isHovered
+                                                      ? 1.08
+                                                      : 1,
+                                                  rotate:
+                                                    isHovered
+                                                      ? -2
+                                                      : 0,
+                                                }}
+                                                transition={{
+                                                  type: "spring",
+                                                  stiffness: 400,
+                                                  damping: 20,
+                                                }}
+                                                className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] transition-all duration-200 ${
+                                                  isHovered
+                                                    ? "bg-[#075E54] text-white shadow-[0_7px_18px_rgba(7,94,84,0.22)]"
+                                                    : "bg-[#F0F5F3] text-[#075E54]"
+                                                }`}
+                                              >
+                                                <ProductIcon
+                                                  item={
+                                                    item
+                                                  }
+                                                />
+                                              </motion.div>
+
+                                              <div className="min-w-0 flex-1 pt-0.5">
+                                                <div className="flex items-center gap-1">
+                                                  <span
+                                                    className={`text-[13px] font-semibold leading-[18px] transition-colors duration-200 ${
+                                                      isHovered
+                                                        ? "text-[#075E54]"
+                                                        : "text-[#151A19]"
+                                                    }`}
+                                                  >
+                                                    {getProductText(
+                                                      item
+                                                    )}
+                                                  </span>
+
+                                                  <motion.span
+                                                    initial={
+                                                      false
+                                                    }
+                                                    animate={{
+                                                      opacity:
+                                                        isHovered
+                                                          ? 1
+                                                          : 0,
+                                                      x: isHovered
+                                                        ? 0
+                                                        : -4,
+                                                    }}
+                                                    className="shrink-0 text-[#08A878]"
+                                                  >
+                                                    <ArrowRight className="h-3.5 w-3.5" />
+                                                  </motion.span>
+                                                </div>
+
+                                                <p
+                                                  className={`mt-1 text-[10.5px] leading-[15px] transition-colors duration-200 ${
+                                                    isHovered
+                                                      ? "text-[#55746B]"
+                                                      : "text-[#7B8582]"
+                                                  }`}
+                                                >
+                                                  {getProductDescription(
+                                                    item
+                                                  )}
+                                                </p>
+                                              </div>
+                                            </motion.button>
+                                          );
+                                        }
+                                      )}
+                                    </div>
+                                  </div>
+                                )
+                              )}
                             </div>
 
-                            <div className="space-y-2">
-                              {link.dropdownGroups[0].items.map(
-                                (item) => (
-                                  <div
-                                    key={item}
-                                    className="relative"
+                            <div className="relative overflow-hidden border-t border-[#E9EFEC] bg-[#F8FCFA]">
+                              <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#25D366]/10 blur-3xl" />
+
+                              <div className="pointer-events-none absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-[#075E54]/10 blur-3xl" />
+
+                              <div className="relative grid grid-cols-[1fr_360px] items-center gap-8 px-7 py-5">
+                                <div>
+                                  <div className="mb-2 flex items-center gap-2">
+                                    <motion.span
+                                      animate={{
+                                        scale: [
+                                          1,
+                                          1.2,
+                                          1,
+                                        ],
+                                        opacity: [
+                                          0.6,
+                                          1,
+                                          0.6,
+                                        ],
+                                      }}
+                                      transition={{
+                                        duration: 1.8,
+                                        repeat:
+                                          Infinity,
+                                        ease: "easeInOut",
+                                      }}
+                                      className="h-2 w-2 rounded-full bg-[#25D366] shadow-[0_0_12px_rgba(37,211,102,0.7)]"
+                                    />
+
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#08A878]">
+                                      WhatsWare
+                                      Product
+                                      Suite
+                                    </span>
+                                  </div>
+
+                                  <AnimatePresence mode="wait">
+                                    <motion.div
+                                      key={
+                                        hoveredProduct ||
+                                        "WhatsApp AI Agents"
+                                      }
+                                      initial={{
+                                        opacity: 0,
+                                        y: 6,
+                                      }}
+                                      animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                      }}
+                                      exit={{
+                                        opacity: 0,
+                                        y: -6,
+                                      }}
+                                      transition={{
+                                        duration:
+                                          0.18,
+                                      }}
+                                    >
+                                      <h3 className="text-[18px] font-bold tracking-[-0.02em] text-[#10211D]">
+                                        {getProductText(
+                                          hoveredProduct ||
+                                            "WhatsApp AI Agents"
+                                        )}
+                                      </h3>
+
+                                      <p className="mt-1 max-w-[600px] text-[11px] leading-5 text-[#66736F]">
+                                        {getProductDescription(
+                                          hoveredProduct ||
+                                            "WhatsApp AI Agents"
+                                        )}
+                                      </p>
+                                    </motion.div>
+                                  </AnimatePresence>
+
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      navigate(
+                                        "/products"
+                                      );
+                                      closeMenus();
+                                    }}
+                                    className="group mt-3 inline-flex items-center gap-2 rounded-full bg-[#075E54] px-4 py-2 text-[11px] font-semibold text-white shadow-[0_7px_20px_rgba(7,94,84,0.2)] transition-all duration-200 hover:bg-[#064C44] hover:shadow-[0_10px_25px_rgba(7,94,84,0.28)]"
                                   >
+                                    {
+                                      t.buttons
+                                        .explore
+                                    }
+
+                                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                                  </button>
+                                </div>
+
+                                <div className="relative h-[132px] overflow-hidden rounded-[18px] border border-[#DCEBE5] bg-white shadow-[0_15px_35px_rgba(7,94,84,0.09)]">
+                                  <div className="flex h-8 items-center gap-1.5 border-b border-[#EDF2F0] bg-[#FBFDFC] px-3">
+                                    <span className="h-2 w-2 rounded-full bg-[#FF6B6B]" />
+                                    <span className="h-2 w-2 rounded-full bg-[#FFC857]" />
+                                    <span className="h-2 w-2 rounded-full bg-[#25D366]" />
+                                    <div className="ml-3 h-4 flex-1 rounded-full bg-[#F0F4F2]" />
+                                  </div>
+
+                                  <div className="relative h-[104px] p-3">
+                                    <motion.div
+                                      animate={{
+                                        y: [
+                                          0,
+                                          -4,
+                                          0,
+                                        ],
+                                      }}
+                                      transition={{
+                                        duration: 2.4,
+                                        repeat:
+                                          Infinity,
+                                        ease: "easeInOut",
+                                      }}
+                                      className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-[#075E54] text-white shadow-[0_8px_18px_rgba(7,94,84,0.25)]"
+                                    >
+                                      <Bot className="h-4 w-4" />
+                                    </motion.div>
+
+                                    <motion.div
+                                      animate={{
+                                        x: [
+                                          0,
+                                          2,
+                                          0,
+                                        ],
+                                      }}
+                                      transition={{
+                                        duration: 2.2,
+                                        repeat:
+                                          Infinity,
+                                        ease: "easeInOut",
+                                      }}
+                                      className="absolute left-3 top-7 max-w-[170px] rounded-[10px] rounded-tl-[3px] bg-[#F0F5F3] px-3 py-2"
+                                    >
+                                      <div className="h-1.5 w-24 rounded-full bg-[#B8C7C2]" />
+                                      <div className="mt-1.5 h-1.5 w-32 rounded-full bg-[#D0DAD6]" />
+                                    </motion.div>
+
+                                    <motion.div
+                                      animate={{
+                                        y: [
+                                          0,
+                                          -3,
+                                          0,
+                                        ],
+                                      }}
+                                      transition={{
+                                        duration: 2,
+                                        repeat:
+                                          Infinity,
+                                        ease: "easeInOut",
+                                        delay: 0.5,
+                                      }}
+                                      className="absolute bottom-4 right-3 max-w-[180px] rounded-[10px] rounded-br-[3px] bg-[#D9F8ED] px-3 py-2"
+                                    >
+                                      <div className="flex items-center gap-1.5">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#08A878]" />
+                                        <span className="h-1.5 w-20 rounded-full bg-[#79C9AE]" />
+                                      </div>
+
+                                      <div className="mt-1.5 h-1.5 w-28 rounded-full bg-[#A7DCC8]" />
+                                    </motion.div>
+
+                                    <div className="absolute bottom-5 left-4 flex items-center gap-1">
+                                      {[0, 0.15, 0.3].map(
+                                        (
+                                          delay
+                                        ) => (
+                                          <motion.span
+                                            key={
+                                              delay
+                                            }
+                                            animate={{
+                                              y: [
+                                                0,
+                                                -3,
+                                                0,
+                                              ],
+                                            }}
+                                            transition={{
+                                              duration:
+                                                0.8,
+                                              repeat:
+                                                Infinity,
+                                              delay,
+                                            }}
+                                            className="h-1.5 w-1.5 rounded-full bg-[#08A878]"
+                                          />
+                                        )
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  <motion.div
+                                    animate={{
+                                      x: [
+                                        "-100%",
+                                        "420%",
+                                      ],
+                                    }}
+                                    transition={{
+                                      duration: 2.8,
+                                      repeat:
+                                        Infinity,
+                                      ease: "linear",
+                                    }}
+                                    className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-20 bg-gradient-to-r from-transparent via-[#25D366] to-transparent opacity-80"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </AnimatePresence>
+                      )}
+
+                    {/* =================================================
+                        SOLUTIONS MEGA MENU
+                    ================================================= */}
+
+                    {link.name ===
+                      "Solutions" &&
+                      link.dropdownGroups &&
+                      isActive && (
+                        <div className="fixed left-1/2 top-[84px] z-[60] w-[860px] max-w-[calc(100vw-32px)] -translate-x-1/2 overflow-visible rounded-3xl border border-gray-100 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.18)]">
+
+                          <div className="grid grid-cols-[260px_1fr]">
+
+                            {/* CHANNELS */}
+
+                            <div className="border-r border-gray-100 bg-[#FAFFFD] p-6">
+
+                              <div className="mb-5">
+                                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#08A878]">
+                                  {getGroupText(
+                                    "Channels"
+                                  )}
+                                </p>
+
+                                <p className="mt-1 text-xs text-gray-400">
+                                  {
+                                    t
+                                      .groupDescriptions
+                                      .channels
+                                  }
+                                </p>
+                              </div>
+
+                              {/* =================================================
+                                  FIXED CHANNEL NAVIGATION
+                              ================================================= */}
+
+                              <div className="space-y-2">
+                                {link.dropdownGroups[0].items.map(
+                                  (item) => (
                                     <button
+                                      key={
+                                        item
+                                      }
+                                      type="button"
+                                      onClick={(
+                                        event
+                                      ) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+
+                                        handleChannelNavigation(
+                                          item
+                                        );
+                                      }}
+                                      className="group flex w-full items-center gap-3 rounded-2xl p-3 text-left text-gray-700 transition-all hover:bg-[#E7FBF3] hover:text-[#075E54]"
+                                    >
+                                      <SolutionIcon
+                                        item={
+                                          item
+                                        }
+                                      />
+
+                                      <div className="min-w-0 flex-1">
+                                        <div className="flex items-center justify-between gap-2">
+                                          <span className="text-sm font-semibold">
+                                            {getSolutionText(
+                                              item
+                                            )}
+                                          </span>
+
+                                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#08A878] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
+                                        </div>
+
+                                        <p className="mt-0.5 text-[10px] leading-4 text-gray-400">
+                                          {getSolutionDescription(
+                                            item
+                                          )}
+                                        </p>
+                                      </div>
+                                    </button>
+                                  )
+                                )}
+                              </div>
+                            </div>
+
+                            {/* INDUSTRIES */}
+
+                            <div className="p-6">
+                              <div className="mb-5">
+                                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#08A878]">
+                                  {getGroupText(
+                                    "Industries"
+                                  )}
+                                </p>
+
+                                <p className="mt-1 text-xs text-gray-400">
+                                  {
+                                    t
+                                      .groupDescriptions
+                                      .industries
+                                  }
+                                </p>
+                              </div>
+
+                              <div className="grid grid-cols-2 gap-2">
+                                {link.dropdownGroups[1].items.map(
+                                  (
+                                    item
+                                  ) => (
+                                    <button
+                                      key={
+                                        item
+                                      }
                                       type="button"
                                       onClick={() =>
                                         handleDropdownItem(
@@ -1799,196 +2238,90 @@ export default function Navbar() {
                                           link.name
                                         )
                                       }
-                                      className={`group flex w-full items-center gap-3 rounded-2xl p-3 text-left transition-all ${
-                                        item ===
-                                          "WhatsApp" &&
-                                        whatsappOpen
-                                          ? "bg-[#E7FBF3] text-[#075E54]"
-                                          : "text-gray-700 hover:bg-[#E7FBF3] hover:text-[#075E54]"
-                                      }`}
+                                      className="group flex min-h-[72px] items-center gap-3 rounded-2xl p-3 text-left transition-all hover:bg-[#E7FBF3]"
                                     >
                                       <SolutionIcon
-                                        item={item}
+                                        item={
+                                          item
+                                        }
                                       />
 
                                       <div className="min-w-0 flex-1">
                                         <div className="flex items-center justify-between gap-2">
-                                          <span className="text-sm font-semibold">
-                                            {getSolutionText(item)}
+                                          <span className="text-sm font-semibold text-gray-700 transition-colors group-hover:text-[#075E54]">
+                                            {getSolutionText(
+                                              item
+                                            )}
                                           </span>
 
-                                          <ChevronDown
-                                            className={`h-3.5 w-3.5 shrink-0 transition-transform ${
-                                              item ===
-                                                "WhatsApp" &&
-                                              whatsappOpen
-                                                ? "rotate-180"
-                                                : ""
-                                            }`}
-                                          />
+                                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#08A878] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
                                         </div>
 
-                                        <p className="mt-0.5 text-[10px] leading-4 text-gray-400">
-                                          {getSolutionDescription(item)}
+                                        <p className="mt-1 line-clamp-2 text-[10px] leading-4 text-gray-400">
+                                          {getSolutionDescription(
+                                            item
+                                          )}
                                         </p>
                                       </div>
                                     </button>
-
-                                    {/* WHATSAPP SUBMENU */}
-
-                                    {item ===
-                                      "WhatsApp" &&
-                                      whatsappOpen && (
-                                        <div className="absolute left-full top-0 z-[70] ml-3 w-[330px] overflow-hidden rounded-2xl border border-gray-100 bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
-
-                                          <div className="mb-2 border-b border-gray-100 px-3 pb-3 pt-2">
-                                            <div className="flex items-center gap-3">
-                                              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D9F8ED] text-[#08A878]">
-                                                <MessageCircle className="h-5 w-5" />
-                                              </div>
-
-                                              <div>
-                                                <h4 className="text-sm font-bold text-[#075E54]">
-                                                  {t.whatsapp.title}
-                                                </h4>
-
-                                                <p className="mt-0.5 text-[11px] text-gray-400">
-                                                  {t.whatsapp.description}
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </div>
-
-                                          <div className="max-h-[480px] overflow-y-auto">
-                                            {WHATSAPP_SOLUTIONS.map(
-                                              (solution) => (
-                                                <button
-                                                  key={solution.name}
-                                                  type="button"
-                                                  onClick={() =>
-                                                    handleWhatsAppSolution(
-                                                      solution.route
-                                                    )
-                                                  }
-                                                  className="group flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm text-gray-600 transition-colors hover:bg-green-50 hover:text-[#075E54]"
-                                                >
-                                                  <span>
-                                                    {solution.name}
-                                                  </span>
-
-                                                  <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-                                                </button>
-                                              )
-                                            )}
-                                          </div>
-                                        </div>
-                                      )}
-                                  </div>
-                                )
-                              )}
-                            </div>
-                          </div>
-
-                          {/* INDUSTRIES */}
-
-                          <div className="p-6">
-                            <div className="mb-5">
-                              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#08A878]">
-                                {getGroupText("Industries")}
-                              </p>
-
-                              <p className="mt-1 text-xs text-gray-400">
-                                {t.groupDescriptions.industries}
-                              </p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2">
-                              {link.dropdownGroups[1].items.map(
-                                (item) => (
-                                  <button
-                                    key={item}
-                                    type="button"
-                                    onClick={() =>
-                                      handleDropdownItem(
-                                        item,
-                                        link.name
-                                      )
-                                    }
-                                    className="group flex min-h-[72px] items-center gap-3 rounded-2xl p-3 text-left transition-all hover:bg-[#E7FBF3]"
-                                  >
-                                    <SolutionIcon item={item} />
-
-                                    <div className="min-w-0 flex-1">
-                                      <div className="flex items-center justify-between gap-2">
-                                        <span className="text-sm font-semibold text-gray-700 transition-colors group-hover:text-[#075E54]">
-                                          {getSolutionText(item)}
-                                        </span>
-
-                                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#08A878] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-                                      </div>
-
-                                      <p className="mt-1 line-clamp-2 text-[10px] leading-4 text-gray-400">
-                                        {getSolutionDescription(item)}
-                                      </p>
-                                    </div>
-                                  </button>
-                                )
-                              )}
+                                  )
+                                )}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                  {/* =================================================
-                      REGULAR DROPDOWN
-                  ================================================= */}
+                    {/* =================================================
+                        REGULAR DROPDOWN
+                    ================================================= */}
 
-                  {link.dropdown &&
-                    !link.dropdownGroups &&
-                    isActive && (
-                      <div className="absolute left-1/2 top-full mt-2 w-[285px] -translate-x-1/2 overflow-hidden rounded-2xl border border-[#E6ECE9] bg-white py-2 shadow-[0_18px_50px_rgba(7,94,84,0.16)]">
+                    {link.dropdown &&
+                      !link.dropdownGroups &&
+                      isActive && (
+                        <div className="absolute left-1/2 top-full mt-2 w-[285px] -translate-x-1/2 overflow-hidden rounded-2xl border border-[#E6ECE9] bg-white py-2 shadow-[0_18px_50px_rgba(7,94,84,0.16)]">
 
-                        {link.dropdown.map(
-                          (item) => (
-                            <button
-                              key={item}
-                              type="button"
-                              onClick={() =>
-                                handleDropdownItem(
-                                  item,
-                                  link.name
-                                )
-                              }
-                              className="group flex w-full items-center gap-3 px-3 py-2.5 text-left transition-all duration-200 hover:bg-[#F0FBF6]"
-                            >
+                          {link.dropdown.map(
+                            (
+                              item
+                            ) => (
+                              <button
+                                key={
+                                  item
+                                }
+                                type="button"
+                                onClick={() =>
+                                  handleDropdownItem(
+                                    item,
+                                    link.name
+                                  )
+                                }
+                                className="group flex w-full items-center gap-3 px-3 py-2.5 text-left transition-all duration-200 hover:bg-[#F0FBF6]"
+                              >
+                                <RegularIcon
+                                  item={
+                                    item
+                                  }
+                                />
 
-                              {/* ICON */}
+                                <div className="min-w-0 flex-1">
+                                  <span className="block text-[13px] font-semibold text-[#18201D] transition-colors group-hover:text-[#075E54]">
+                                    {getRegularText(
+                                      item
+                                    )}
+                                  </span>
+                                </div>
 
-                              <RegularIcon item={item} />
-
-                              {/* TEXT */}
-
-                              <div className="min-w-0 flex-1">
-                                <span className="block text-[13px] font-semibold text-[#18201D] transition-colors group-hover:text-[#075E54]">
-                                  {getRegularText(item)}
-                                </span>
-                              </div>
-
-                              {/* ARROW */}
-
-                              <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#08A878] opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
-
-                            </button>
-                          )
-                        )}
-
-                      </div>
-                    )}
-
-                </div>
-              );
-            })}
+                                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#08A878] opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
+                              </button>
+                            )
+                          )}
+                        </div>
+                      )}
+                  </div>
+                );
+              }
+            )}
           </nav>
 
           {/* ==================================================
@@ -2002,12 +2335,17 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => {
-                navigate("/login");
+                navigate(
+                  "/login"
+                );
                 closeMenus();
               }}
               className="whitespace-nowrap rounded-full border border-white/30 bg-white px-3.5 py-2 text-sm font-medium text-gray-700 transition-all hover:border-[#075E54] hover:text-[#075E54] hover:shadow-sm"
             >
-              {t.buttons.signIn}
+              {
+                t.buttons
+                  .signIn
+              }
             </button>
 
             {/* BOOK DEMO */}
@@ -2015,9 +2353,14 @@ export default function Navbar() {
             <Link
               href="/book-demo"
               className="group flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:scale-105 hover:bg-[#0e7c39] hover:shadow-md"
-                onClick={closeMenus}
+              onClick={
+                closeMenus
+              }
             >
-              {t.buttons.demo}
+              {
+                t.buttons
+                  .demo
+              }
 
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
@@ -2025,65 +2368,94 @@ export default function Navbar() {
             {/* LANGUAGE SWITCHER */}
 
             <div
-              ref={languageRef}
+              ref={
+                languageRef
+              }
               className="relative z-[100] shrink-0"
             >
               <button
                 type="button"
                 onClick={() => {
-                  setLanguageOpen((current) => !current);
-                  setActiveDropdown(null);
-                  setWhatsappOpen(false);
+                  setLanguageOpen(
+                    (current) =>
+                      !current
+                  );
+
+                  setActiveDropdown(
+                    null
+                  );
+
+                  setWhatsappOpen(
+                    false
+                  );
                 }}
                 className="flex min-w-[72px] shrink-0 items-center justify-center gap-1.5 rounded-full border border-white/20 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:text-green-200"
                 aria-label="Select language"
-                aria-expanded={languageOpen}
+                aria-expanded={
+                  languageOpen
+                }
               >
                 <Globe2 className="h-4 w-4 shrink-0" />
 
                 <span className="whitespace-nowrap">
-                 {language === "EN" ? "EN" : "TA"}
+                  {language ===
+                  "EN"
+                    ? "EN"
+                    : "TA"}
                 </span>
 
                 <ChevronDown
                   className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
-                    languageOpen ? "rotate-180" : ""
+                    languageOpen
+                      ? "rotate-180"
+                      : ""
                   }`}
                 />
-                </button>
+              </button>
 
-                {languageOpen && (
-                  <div className="absolute right-0 top-full mt-3 z-[9999] w-52 overflow-hidden rounded-2xl border border-gray-100 bg-white py-2 shadow-[0_15px_50px_rgba(0,0,0,0.18)]">
-
-                    {languages.map((lang) => (
+              {languageOpen && (
+                <div className="absolute right-0 top-full z-[9999] mt-3 w-52 overflow-hidden rounded-2xl border border-gray-100 bg-white py-2 shadow-[0_15px_50px_rgba(0,0,0,0.18)]">
+                  {languages.map(
+                    (lang) => (
                       <button
-                        key={lang.code}
+                        key={
+                          lang.code
+                        }
                         type="button"
-                        onClick={() => selectLanguage(lang.code)}
+                        onClick={() =>
+                          selectLanguage(
+                            lang.code
+                          )
+                        }
                         className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium transition-colors ${
-                          language === lang.code
+                          language ===
+                          lang.code
                             ? "bg-green-50 text-[#075E54]"
                             : "text-gray-700 hover:bg-green-50 hover:text-[#075E54]"
                         }`}
                       >
                         <span className="text-xl">
-                          {lang.flag}
+                          {
+                            lang.flag
+                          }
                         </span>
 
                         <span className="flex-1">
-                          {lang.name}
+                          {
+                            lang.name
+                          }
                         </span>
 
-                        {language === lang.code && (
+                        {language ===
+                          lang.code && (
                           <Check className="h-4 w-4 text-[#075E54]" />
                         )}
                       </button>
-                    ))}
-
-                  </div>
+                    )
+                  )}
+                </div>
               )}
             </div>
-
           </div>
 
           {/* ==================================================
@@ -2098,8 +2470,13 @@ export default function Navbar() {
                   !current
               );
 
-              setActiveDropdown(null);
-              setWhatsappOpen(false);
+              setActiveDropdown(
+                null
+              );
+
+              setWhatsappOpen(
+                false
+              );
             }}
             className="rounded-md p-2 text-white hover:bg-white/10 focus:outline-none md:hidden"
             aria-label={
@@ -2114,7 +2491,6 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             )}
           </button>
-
         </div>
 
         {/* ======================================================
@@ -2123,11 +2499,9 @@ export default function Navbar() {
 
         {mobileMenuOpen && (
           <div className="border-t border-white/10 bg-white shadow-lg md:hidden">
-
             <div className="max-h-[80vh] overflow-y-auto px-4 py-5">
 
               <div className="space-y-2">
-
                 {NAV_LINKS.map(
                   (link) => {
                     const hasDropdown =
@@ -2136,12 +2510,12 @@ export default function Navbar() {
 
                     return (
                       <div
-                        key={link.name}
+                        key={
+                          link.name
+                        }
                       >
-
                         {hasDropdown ? (
                           <>
-
                             <div className="flex items-center">
 
                               {link.name ===
@@ -2206,13 +2580,14 @@ export default function Navbar() {
                                 <div className="ml-4 space-y-5 border-l-2 border-gray-100 pl-5">
 
                                   {link.dropdownGroups.map(
-                                    (group) => (
+                                    (
+                                      group
+                                    ) => (
                                       <div
                                         key={
                                           group.title
                                         }
                                       >
-
                                         <h3 className="mb-2 px-2 text-xs font-bold uppercase tracking-wider text-[#075E54]">
                                           {getGroupText(
                                             group.title
@@ -2220,9 +2595,10 @@ export default function Navbar() {
                                         </h3>
 
                                         <div className="space-y-1">
-
                                           {group.items.map(
-                                            (item) => (
+                                            (
+                                              item
+                                            ) => (
                                               <button
                                                 key={
                                                   item
@@ -2236,7 +2612,6 @@ export default function Navbar() {
                                                 }
                                                 className="group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-gray-600 transition-colors hover:bg-green-50 hover:text-[#075E54]"
                                               >
-
                                                 {link.name ===
                                                 "Products" ? (
                                                   <ProductIcon
@@ -2253,9 +2628,7 @@ export default function Navbar() {
                                                 )}
 
                                                 <div className="min-w-0 flex-1">
-
                                                   <div className="flex items-center justify-between">
-
                                                     <span className="text-sm font-medium">
                                                       {link.name ===
                                                       "Products"
@@ -2268,7 +2641,6 @@ export default function Navbar() {
                                                     </span>
 
                                                     <ArrowRight className="h-3.5 w-3.5 text-[#08A878] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-
                                                   </div>
 
                                                   <p className="mt-0.5 text-[10px] leading-4 text-gray-400">
@@ -2281,19 +2653,14 @@ export default function Navbar() {
                                                           item
                                                         )}
                                                   </p>
-
                                                 </div>
-
                                               </button>
                                             )
                                           )}
-
                                         </div>
-
                                       </div>
                                     )
                                   )}
-
                                 </div>
                               )}
 
@@ -2304,9 +2671,10 @@ export default function Navbar() {
                               activeDropdown ===
                                 link.name && (
                                 <div className="ml-4 space-y-1 border-l-2 border-gray-100 pl-5">
-
                                   {link.dropdown.map(
-                                    (item) => (
+                                    (
+                                      item
+                                    ) => (
                                       <button
                                         key={
                                           item
@@ -2320,14 +2688,11 @@ export default function Navbar() {
                                         }
                                         className="group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-gray-600 transition-all hover:bg-green-50 hover:text-[#075E54]"
                                       >
-
-                                        {/* ICON */}
-
                                         <RegularIcon
-                                          item={item}
+                                          item={
+                                            item
+                                          }
                                         />
-
-                                        {/* TEXT */}
 
                                         <span className="flex-1 text-sm font-medium">
                                           {getRegularText(
@@ -2335,17 +2700,12 @@ export default function Navbar() {
                                           )}
                                         </span>
 
-                                        {/* ARROW */}
-
                                         <ArrowRight className="h-3.5 w-3.5 text-[#08A878] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-
                                       </button>
                                     )
                                   )}
-
                                 </div>
                               )}
-
                           </>
                         ) : (
                           <Link
@@ -2363,12 +2723,10 @@ export default function Navbar() {
                             )}
                           </Link>
                         )}
-
                       </div>
                     );
                   }
                 )}
-
               </div>
 
               {/* MOBILE BUTTONS */}
@@ -2385,7 +2743,10 @@ export default function Navbar() {
                   }}
                   className="w-full rounded-full border border-gray-200 px-4 py-2.5 text-center font-medium text-gray-700 transition-colors hover:border-[#075E54] hover:text-[#075E54]"
                 >
-                  {t.buttons.signIn}
+                  {
+                    t.buttons
+                      .signIn
+                  }
                 </button>
 
                 <Link
@@ -2395,7 +2756,10 @@ export default function Navbar() {
                     closeMenus
                   }
                 >
-                  {t.buttons.demo}
+                  {
+                    t.buttons
+                      .demo
+                  }
                 </Link>
 
                 {/* MOBILE LANGUAGE */}
@@ -2403,11 +2767,13 @@ export default function Navbar() {
                 <div className="mt-2 border-t border-gray-100 pt-4">
 
                   <p className="mb-2 px-2 text-xs font-bold uppercase tracking-wider text-gray-400">
-                    {t.buttons.language}
+                    {
+                      t.buttons
+                        .language
+                    }
                   </p>
 
                   <div className="grid grid-cols-2 gap-2">
-
                     {languages.map(
                       (lang) => (
                         <button
@@ -2427,24 +2793,25 @@ export default function Navbar() {
                               : "border-gray-200 bg-white text-gray-700 hover:bg-green-50"
                           }`}
                         >
-
                           <span>
-                            {lang.flag}
+                            {
+                              lang.flag
+                            }
                           </span>
 
                           <span>
-                            {lang.name}
+                            {
+                              lang.name
+                            }
                           </span>
 
                           {language ===
                             lang.code && (
                             <Check className="h-4 w-4" />
                           )}
-
                         </button>
                       )
                     )}
-
                   </div>
                 </div>
               </div>
@@ -2454,7 +2821,7 @@ export default function Navbar() {
       </header>
 
       {/* =========================================================
-          INDUSTRY POPUP
+          INDUSTRY POPUP ONLY
       ========================================================== */}
 
       {industryPopup && (
@@ -2464,7 +2831,6 @@ export default function Navbar() {
           aria-modal="true"
           aria-labelledby="industry-popup-title"
         >
-
           <div className="relative max-h-[92vh] w-full max-w-[620px] overflow-y-auto rounded-[22px] bg-[#f4f4f4] shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
 
             {/* CLOSE */}
@@ -2472,9 +2838,9 @@ export default function Navbar() {
             <button
               type="button"
               onClick={
-                goToSelectedIndustry
+                closeIndustryPopup
               }
-              aria-label="Close and open industry page"
+              aria-label="Close popup"
               className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-all hover:scale-105 hover:bg-gray-50 sm:right-4 sm:top-4 sm:h-10 sm:w-10"
             >
               <X className="h-5 w-5" />
@@ -2483,18 +2849,22 @@ export default function Navbar() {
             <div className="px-5 pb-6 pt-6 sm:px-8 sm:pb-7 sm:pt-7">
 
               <div className="pr-10 sm:pr-12">
-
                 <h2
                   id="industry-popup-title"
                   className="text-2xl font-semibold tracking-tight text-black sm:text-3xl"
                 >
-                  {t.popup.title}
+                  {
+                    t.popup
+                      .title
+                  }
                 </h2>
 
                 <p className="mt-2 max-w-xl text-sm leading-6 text-gray-800 sm:text-base sm:leading-7">
-                  {t.popup.description}
+                  {
+                    t.popup
+                      .description
+                  }
                 </p>
-
               </div>
 
               {/* INDUSTRY */}
@@ -2502,11 +2872,13 @@ export default function Navbar() {
               <div className="mt-5 sm:mt-6">
 
                 <label className="mb-1.5 block text-xs font-medium text-gray-500">
-                  {t.popup.industry}
+                  {
+                    t.popup
+                      .industry
+                  }
                 </label>
 
                 <div className="flex h-11 items-center justify-between rounded-xl border border-[#0aa99d] bg-white px-3 text-sm text-gray-700 sm:h-12 sm:px-4 sm:text-base">
-
                   <span>
                     {getSolutionText(
                       industryPopup
@@ -2514,7 +2886,6 @@ export default function Navbar() {
                   </span>
 
                   <ChevronDown className="h-4 w-4 text-gray-500" />
-
                 </div>
               </div>
 
@@ -2527,18 +2898,24 @@ export default function Navbar() {
                   value={
                     popupForm.companyName
                   }
-                  onChange={(event) =>
+                  onChange={(
+                    event
+                  ) =>
                     setPopupForm(
-                      (current) => ({
+                      (
+                        current
+                      ) => ({
                         ...current,
                         companyName:
-                          event.target
+                          event
+                            .target
                             .value,
                       })
                     )
                   }
                   placeholder={
-                    t.popup.company
+                    t.popup
+                      .company
                   }
                   className="h-11 rounded-xl border-0 bg-white px-3 text-sm text-gray-800 outline-none ring-1 ring-transparent placeholder:text-gray-500 focus:ring-[#0aa99d] sm:h-12 sm:px-4 sm:text-base"
                 />
@@ -2548,18 +2925,24 @@ export default function Navbar() {
                   value={
                     popupForm.name
                   }
-                  onChange={(event) =>
+                  onChange={(
+                    event
+                  ) =>
                     setPopupForm(
-                      (current) => ({
+                      (
+                        current
+                      ) => ({
                         ...current,
                         name:
-                          event.target
+                          event
+                            .target
                             .value,
                       })
                     )
                   }
                   placeholder={
-                    t.popup.name
+                    t.popup
+                      .name
                   }
                   className="h-11 rounded-xl border-0 bg-white px-3 text-sm text-gray-800 outline-none ring-1 ring-transparent placeholder:text-gray-500 focus:ring-[#0aa99d] sm:h-12 sm:px-4 sm:text-base"
                 />
@@ -2574,18 +2957,24 @@ export default function Navbar() {
                   value={
                     popupForm.email
                   }
-                  onChange={(event) =>
+                  onChange={(
+                    event
+                  ) =>
                     setPopupForm(
-                      (current) => ({
+                      (
+                        current
+                      ) => ({
                         ...current,
                         email:
-                          event.target
+                          event
+                            .target
                             .value,
                       })
                     )
                   }
                   placeholder={
-                    t.popup.email
+                    t.popup
+                      .email
                   }
                   className="h-11 rounded-xl border-0 bg-white px-3 text-sm text-gray-800 outline-none ring-1 ring-transparent placeholder:text-gray-500 focus:ring-[#0aa99d] sm:h-12 sm:px-4 sm:text-base"
                 />
@@ -2593,7 +2982,9 @@ export default function Navbar() {
                 <div className="flex gap-2">
 
                   <div className="flex h-11 w-[78px] shrink-0 items-center justify-center gap-1.5 rounded-xl bg-white text-sm text-gray-700 sm:h-12 sm:w-[84px] sm:text-base">
-                    <span>+91</span>
+                    <span>
+                      +91
+                    </span>
 
                     <ChevronDown className="h-4 w-4 text-gray-500" />
                   </div>
@@ -2603,18 +2994,24 @@ export default function Navbar() {
                     value={
                       popupForm.phone
                     }
-                    onChange={(event) =>
+                    onChange={(
+                      event
+                    ) =>
                       setPopupForm(
-                        (current) => ({
+                        (
+                          current
+                        ) => ({
                           ...current,
                           phone:
-                            event.target
+                            event
+                              .target
                               .value,
                         })
                       )
                     }
                     placeholder={
-                      t.popup.phone
+                      t.popup
+                        .phone
                     }
                     className="h-11 min-w-0 flex-1 rounded-xl border-0 bg-white px-3 text-sm text-gray-800 outline-none ring-1 ring-transparent placeholder:text-gray-500 focus:ring-[#0aa99d] sm:h-12 sm:px-4 sm:text-base"
                   />
@@ -2627,7 +3024,9 @@ export default function Navbar() {
                 type="button"
                 onClick={() =>
                   setPopupForm(
-                    (current) => ({
+                    (
+                      current
+                    ) => ({
                       ...current,
                       captchaChecked:
                         !current.captchaChecked,
@@ -2652,13 +3051,14 @@ export default function Navbar() {
                   </span>
 
                   <span className="text-sm text-gray-900 sm:text-base">
-                    {t.popup.robot}
+                    {
+                      t.popup
+                        .robot
+                    }
                   </span>
-
                 </div>
 
                 <div className="flex flex-col items-center text-gray-500">
-
                   <span className="text-4xl leading-none text-blue-500">
                     ↻
                   </span>
@@ -2666,7 +3066,6 @@ export default function Navbar() {
                   <span className="mt-1 text-xs">
                     reCAPTCHA
                   </span>
-
                 </div>
               </button>
 
@@ -2676,7 +3075,9 @@ export default function Navbar() {
                 type="button"
                 onClick={() =>
                   setPopupForm(
-                    (current) => ({
+                    (
+                      current
+                    ) => ({
                       ...current,
                       termsAccepted:
                         !current.termsAccepted,
@@ -2699,37 +3100,47 @@ export default function Navbar() {
                 </span>
 
                 <span className="text-sm text-gray-900 sm:text-base">
-                  {t.popup.terms}
+                  {
+                    t.popup
+                      .terms
+                  }
                 </span>
-
               </button>
 
               {/* BUTTONS */}
 
               <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
 
+                {/* CANCEL */}
+
                 <button
                   type="button"
                   onClick={
-                    goToSelectedIndustry
+                    closeIndustryPopup
                   }
                   className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
                 >
-                  {t.popup.cancel}
+                  {
+                    t.popup
+                      .cancel
+                  }
                 </button>
+
+                {/* SUBMIT */}
 
                 <button
                   type="button"
                   onClick={
-                    goToSelectedIndustry
+                    closeIndustryPopup
                   }
                   className="rounded-full bg-[#0aa99d] px-7 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#078f85] hover:shadow-md"
                 >
-                  {t.popup.submit}
+                  {
+                    t.popup
+                      .submit
+                  }
                 </button>
-
               </div>
-
             </div>
           </div>
         </div>

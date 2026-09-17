@@ -1,13 +1,11 @@
+import type { ElementType, ReactNode } from "react";
+
 import {
   ArrowRight,
-  BarChart3,
   Bot,
-  Check,
   CheckCircle2,
   ChevronRight,
   Clock3,
-  Code2,
-  ExternalLink,
   FileText,
   Link2,
   MessageCircle,
@@ -16,14 +14,26 @@ import {
   QrCode,
   Send,
   ShoppingCart,
-  Sparkles,
   Users,
   Workflow,
   Zap,
 } from "lucide-react";
+
 import { Link } from "wouter";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+/* =========================================================
+   OFFICIAL WHATSWARE BRAND LOGO
+   This is used everywhere WhatsWare branding appears.
+========================================================= */
+
+const WHATSWARE_LOGO = "/whatsware-logo.png";
+
+/* =========================================================
+   PRODUCT DETAIL PROPS
+========================================================= */
 
 interface ProductDetailProps {
   title: string;
@@ -35,20 +45,29 @@ interface ProductDetailProps {
 
 /* =========================================================
    PRODUCT MEDIA CONFIGURATION
-   Each product gets its own visual identity.
 ========================================================= */
 
 type ProductVisualConfig = {
   image?: string;
   video?: string;
   gif?: string;
-  icon: React.ElementType;
+
+  /*
+   Product/function icon only.
+   This is NOT used as the WhatsWare brand logo.
+  */
+  icon: ElementType;
+
   accent: string;
   lightAccent: string;
   label: string;
   visualTitle: string;
   visualDescription: string;
 };
+
+/* =========================================================
+   PRODUCT VISUAL CONFIG
+========================================================= */
 
 function getProductVisual(title: string): ProductVisualConfig {
   const value = title.toLowerCase();
@@ -221,11 +240,14 @@ function getProductVisual(title: string): ProductVisualConfig {
     };
   }
 
-  /* Default */
+  /* =======================================================
+     DEFAULT
+  ======================================================== */
+
   return {
     image: "/resources/whatsapp-automation.jpg",
     video: "/hero-video.mp4",
-    icon: Sparkles,
+    icon: MessageCircle,
     accent: "#159447",
     lightAccent: "#D9F8ED",
     label: "WhatsWare Product",
@@ -247,17 +269,19 @@ export default function ProductDetail({
   badge = "WhatsWare Product",
 }: ProductDetailProps) {
   const visual = getProductVisual(title);
-  const ProductIcon = visual.icon;
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#F8FBF9] text-[#12312C]">
       <Navbar />
 
       <main className="pt-20">
+
         {/* =====================================================
             HERO
         ====================================================== */}
+
         <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-28">
+
           {/* Soft background */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -left-48 top-0 h-[500px] w-[500px] rounded-full bg-[#D9F8ED] opacity-70 blur-3xl" />
@@ -268,8 +292,10 @@ export default function ProductDetail({
           </div>
 
           <div className="relative mx-auto max-w-7xl">
+
             {/* Breadcrumb */}
             <div className="mb-10 flex flex-wrap items-center gap-2 text-sm text-slate-500">
+
               <Link
                 href="/"
                 className="transition-colors hover:text-[#159447]"
@@ -294,17 +320,30 @@ export default function ProductDetail({
             </div>
 
             <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+
               {/* =================================================
-                  LEFT
+                  LEFT SIDE
               ================================================== */}
+
               <div>
-                {/* Badge */}
-                <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#BFEBDD] bg-white px-4 py-2 text-sm font-bold text-[#075E54] shadow-sm">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D9F8ED]">
-                    <Sparkles className="h-3.5 w-3.5 text-[#159447]" />
+
+                {/* =================================================
+                    WHATSWARE OFFICIAL LOGO BADGE
+                ================================================== */}
+
+                <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#BFEBDD] bg-white px-4 py-2 text-sm font-bold text-[#075E54] shadow-sm">
+
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D9F8ED] p-1">
+
+                    <img
+                      src={WHATSWARE_LOGO}
+                      alt="WhatsWare"
+                      className="h-7 w-7 object-contain"
+                    />
+
                   </span>
 
-                  {badge}
+                  <span>{badge}</span>
                 </div>
 
                 {/* Title */}
@@ -324,6 +363,7 @@ export default function ProductDetail({
 
                 {/* CTA */}
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
                   <Link
                     href="/book-demo"
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#075E54] px-7 py-4 font-bold text-white shadow-lg shadow-[#075E54]/20 transition duration-300 hover:-translate-y-1 hover:bg-[#064C44] hover:shadow-xl"
@@ -339,10 +379,12 @@ export default function ProductDetail({
                   >
                     Get Started
                   </Link>
+
                 </div>
 
                 {/* Trust */}
                 <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+
                   {[
                     "Easy to use",
                     "Built for teams",
@@ -356,17 +398,20 @@ export default function ProductDetail({
                       {item}
                     </div>
                   ))}
+
                 </div>
+
               </div>
 
               {/* =================================================
-                  RIGHT PRODUCT-SPECIFIC VISUAL
+                  RIGHT PRODUCT VISUAL
               ================================================== */}
+
               <ProductMedia
                 title={title}
                 visual={visual}
-                ProductIcon={ProductIcon}
               />
+
             </div>
           </div>
         </section>
@@ -374,9 +419,12 @@ export default function ProductDetail({
         {/* =====================================================
             PRODUCT HIGHLIGHTS
         ====================================================== */}
+
         <section className="px-4 pb-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
+
             <div className="grid overflow-hidden rounded-[2rem] border border-[#DDEBE4] bg-white shadow-[0_25px_70px_-35px_rgba(15,80,55,0.3)] sm:grid-cols-3">
+
               <Highlight
                 icon={<Zap className="h-5 w-5" />}
                 value="24/7"
@@ -396,6 +444,7 @@ export default function ProductDetail({
                 label="Business automation"
                 border
               />
+
             </div>
           </div>
         </section>
@@ -403,9 +452,13 @@ export default function ProductDetail({
         {/* =====================================================
             FEATURES
         ====================================================== */}
+
         <section className="bg-white px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+
           <div className="mx-auto max-w-7xl">
+
             <div className="mx-auto max-w-3xl text-center">
+
               <p className="text-sm font-black uppercase tracking-[0.2em] text-[#159447]">
                 Powerful capabilities
               </p>
@@ -418,9 +471,11 @@ export default function ProductDetail({
                 Powerful features designed to make customer engagement
                 simpler, faster and more effective.
               </p>
+
             </div>
 
             <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
               {features.map((feature, index) => (
                 <FeatureCard
                   key={`${feature}-${index}`}
@@ -428,6 +483,7 @@ export default function ProductDetail({
                   index={index}
                 />
               ))}
+
             </div>
           </div>
         </section>
@@ -435,16 +491,33 @@ export default function ProductDetail({
         {/* =====================================================
             PRODUCT EXPERIENCE
         ====================================================== */}
+
         <section className="relative overflow-hidden bg-[#F1F8F4] px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+
           <div className="pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px] rounded-full bg-[#D9F8ED] blur-3xl" />
 
           <div className="relative mx-auto max-w-7xl">
+
             <div className="grid items-center gap-14 lg:grid-cols-2">
+
               <WorkflowPreview />
 
               <div>
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#159447] shadow-sm">
-                  <Workflow className="h-4 w-4" />
+
+                {/* =================================================
+                    WHATSWARE LOGO INSTEAD OF RANDOM BRAND ICON
+                ================================================== */}
+
+                <div className="mb-5 inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#159447] shadow-sm">
+
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D9F8ED] p-0.5">
+                    <img
+                      src={WHATSWARE_LOGO}
+                      alt="WhatsWare"
+                      className="h-5 w-5 object-contain"
+                    />
+                  </span>
+
                   Connected experience
                 </div>
 
@@ -458,6 +531,7 @@ export default function ProductDetail({
                 </p>
 
                 <div className="mt-8 space-y-4">
+
                   {[
                     "Capture customer interest",
                     "Understand and qualify intent",
@@ -468,6 +542,7 @@ export default function ProductDetail({
                       key={item}
                       className="flex items-center gap-4 rounded-2xl border border-white bg-white/80 p-4 shadow-sm"
                     >
+
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D9F8ED] text-sm font-black text-[#159447]">
                         {index + 1}
                       </div>
@@ -477,10 +552,14 @@ export default function ProductDetail({
                       </span>
 
                       <CheckCircle2 className="ml-auto h-5 w-5 text-[#159447]" />
+
                     </div>
                   ))}
+
                 </div>
+
               </div>
+
             </div>
           </div>
         </section>
@@ -488,9 +567,22 @@ export default function ProductDetail({
         {/* =====================================================
             VISUAL MEDIA SHOWCASE
         ====================================================== */}
+
         <section className="bg-white px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+
           <div className="mx-auto max-w-6xl">
+
             <div className="mx-auto max-w-3xl text-center">
+
+              {/* Official logo instead of Sparkles */}
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D9F8ED] p-2">
+                <img
+                  src={WHATSWARE_LOGO}
+                  alt="WhatsWare"
+                  className="h-9 w-9 object-contain"
+                />
+              </div>
+
               <p className="text-sm font-black uppercase tracking-[0.2em] text-[#159447]">
                 See it in action
               </p>
@@ -503,23 +595,41 @@ export default function ProductDetail({
                 A visual experience designed around the way modern businesses
                 communicate with their customers.
               </p>
+
             </div>
 
-            <MediaShowcase visual={visual} title={title} />
+            <MediaShowcase
+              visual={visual}
+              title={title}
+            />
+
           </div>
         </section>
 
         {/* =====================================================
             FINAL CTA
         ====================================================== */}
+
         <section className="relative overflow-hidden bg-[#075E54] px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+
           <div className="pointer-events-none absolute -left-40 -top-40 h-[450px] w-[450px] rounded-full bg-[#159447] opacity-30 blur-3xl" />
 
           <div className="pointer-events-none absolute -bottom-40 -right-40 h-[450px] w-[450px] rounded-full bg-emerald-300 opacity-20 blur-3xl" />
 
           <div className="relative mx-auto max-w-5xl text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur">
-              <Sparkles className="h-8 w-8" />
+
+            {/* =================================================
+                OFFICIAL WHATSWARE LOGO
+            ================================================== */}
+
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10 p-3 backdrop-blur">
+
+              <img
+                src={WHATSWARE_LOGO}
+                alt="WhatsWare"
+                className="h-14 w-14 object-contain"
+              />
+
             </div>
 
             <h2 className="mt-8 text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -532,11 +642,13 @@ export default function ProductDetail({
             </p>
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+
               <Link
                 href="/book-demo"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-bold text-[#075E54] shadow-xl transition duration-300 hover:-translate-y-1 hover:bg-[#F4FBF7]"
               >
                 Book a Demo
+
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
 
@@ -546,12 +658,19 @@ export default function ProductDetail({
               >
                 Get Started
               </Link>
+
             </div>
           </div>
         </section>
+
       </main>
 
+      {/* =====================================================
+          FOOTER
+      ====================================================== */}
+
       <Footer />
+
     </div>
   );
 }
@@ -563,20 +682,22 @@ export default function ProductDetail({
 function ProductMedia({
   title,
   visual,
-  ProductIcon,
 }: {
   title: string;
   visual: ProductVisualConfig;
-  ProductIcon: React.ElementType;
 }) {
   return (
     <div className="relative mx-auto w-full max-w-2xl">
+
       <div className="absolute -inset-8 rounded-[3rem] bg-[#D9F8ED] opacity-70 blur-3xl" />
 
       <div className="relative overflow-hidden rounded-[2rem] border border-[#D9E8E1] bg-white p-2 shadow-[0_40px_100px_-35px_rgba(12,75,52,0.4)]">
+
         <div className="relative overflow-hidden rounded-[1.5rem] bg-[#10251F]">
+
           {/* Top browser bar */}
           <div className="relative z-10 flex items-center justify-between border-b border-white/10 px-5 py-4">
+
             <div className="flex gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
@@ -588,10 +709,12 @@ function ProductMedia({
             </div>
 
             <div className="h-5 w-12 rounded bg-white/5" />
+
           </div>
 
           {/* Main visual */}
           <div className="relative min-h-[430px] overflow-hidden p-4 sm:min-h-[500px] sm:p-6">
+
             {/* Actual image */}
             {visual.image && (
               <img
@@ -605,25 +728,56 @@ function ProductMedia({
             <div className="absolute inset-0 bg-gradient-to-br from-[#10251F]/95 via-[#10251F]/90 to-[#075E54]/80" />
 
             <div className="relative z-10 h-full">
-              {/* Header */}
+
+              {/* =================================================
+                  WHATSWARE HEADER
+                  OFFICIAL LOGO - NO RANDOM BOT/SPARKLE ICON
+              ================================================== */}
+
               <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-[10px] font-medium text-emerald-200/60">
-                    WhatsWare
-                  </p>
 
-                  <p className="mt-1 text-lg font-black text-white">
-                    {visual.visualTitle}
-                  </p>
+                <div className="flex items-center gap-3">
+
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 p-1.5 backdrop-blur">
+
+                    <img
+                      src={WHATSWARE_LOGO}
+                      alt="WhatsWare"
+                      className="h-8 w-8 object-contain"
+                    />
+
+                  </div>
+
+                  <div>
+
+                    <p className="text-[10px] font-medium text-emerald-200/60">
+                      WhatsWare
+                    </p>
+
+                    <p className="mt-1 text-lg font-black text-white">
+                      {visual.visualTitle}
+                    </p>
+
+                  </div>
+
                 </div>
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-emerald-300 backdrop-blur">
-                  <ProductIcon className="h-5 w-5" />
+                {/* Official WhatsWare logo instead of ProductIcon */}
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 p-2 backdrop-blur">
+
+                  <img
+                    src={WHATSWARE_LOGO}
+                    alt="WhatsWare"
+                    className="h-8 w-8 object-contain"
+                  />
+
                 </div>
+
               </div>
 
               {/* Media */}
               <div className="relative mt-7 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.05] shadow-2xl">
+
                 {visual.video ? (
                   <video
                     src={visual.video}
@@ -646,7 +800,7 @@ function ProductMedia({
                     className="h-[245px] w-full object-cover sm:h-[285px]"
                   />
                 ) : (
-                  <GenericProductVisual icon={ProductIcon} />
+                  <GenericProductVisual />
                 )}
 
                 {/* Media overlay */}
@@ -658,11 +812,14 @@ function ProductMedia({
                     <Play className="ml-0.5 h-4 w-4 fill-current" />
                   </div>
                 )}
+
               </div>
 
               {/* Bottom information */}
               <div className="mt-5 grid grid-cols-2 gap-3">
+
                 <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur">
+
                   <p className="text-[9px] text-white/40">
                     Product capability
                   </p>
@@ -670,9 +827,11 @@ function ProductMedia({
                   <p className="mt-2 text-sm font-black text-white">
                     {visual.label}
                   </p>
+
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur">
+
                   <p className="text-[9px] text-white/40">
                     Experience
                   </p>
@@ -680,21 +839,37 @@ function ProductMedia({
                   <p className="mt-2 text-sm font-black text-emerald-300">
                     Connected & intelligent
                   </p>
+
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating card */}
+      {/* =====================================================
+          FLOATING WHATSWARE CARD
+          OFFICIAL LOGO
+      ====================================================== */}
+
       <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-[#DCEAE4] bg-white p-4 shadow-2xl sm:block">
+
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D9F8ED] text-[#159447]">
-            <CheckCircle2 className="h-5 w-5" />
+
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D9F8ED] p-1.5">
+
+            <img
+              src={WHATSWARE_LOGO}
+              alt="WhatsWare"
+              className="h-8 w-8 object-contain"
+            />
+
           </div>
 
           <div>
+
             <p className="text-[9px] text-slate-400">
               WhatsWare
             </p>
@@ -702,18 +877,33 @@ function ProductMedia({
             <p className="mt-1 text-xs font-black text-[#12312C]">
               Built for growth
             </p>
+
           </div>
+
         </div>
       </div>
 
-      {/* Floating label */}
+      {/* =====================================================
+          FLOATING WHATSWARE LABEL
+          OFFICIAL LOGO
+      ====================================================== */}
+
       <div className="absolute -right-3 -top-5 hidden rounded-2xl border border-[#DCEAE4] bg-white p-4 shadow-2xl sm:block">
+
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#075E54] text-white">
-            <Sparkles className="h-4 w-4" />
+
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#075E54] p-1">
+
+            <img
+              src={WHATSWARE_LOGO}
+              alt="WhatsWare"
+              className="h-7 w-7 object-contain"
+            />
+
           </div>
 
           <div>
+
             <p className="text-[9px] text-slate-400">
               Smart platform
             </p>
@@ -721,27 +911,37 @@ function ProductMedia({
             <p className="mt-1 text-xs font-black text-[#12312C]">
               Ready to automate
             </p>
+
           </div>
+
         </div>
       </div>
+
     </div>
   );
 }
 
 /* =========================================================
    GENERIC VISUAL
+
+   Uses official WhatsWare logo instead of a random
+   product/bot/sparkle icon.
 ========================================================= */
 
-function GenericProductVisual({
-  icon: Icon,
-}: {
-  icon: React.ElementType;
-}) {
+function GenericProductVisual() {
   return (
     <div className="flex h-[245px] items-center justify-center bg-[#0C1916] sm:h-[285px]">
-      <div className="flex h-24 w-24 items-center justify-center rounded-[2rem] bg-[#159447]/20 text-[#65E7A1]">
-        <Icon className="h-12 w-12" />
+
+      <div className="flex h-24 w-24 items-center justify-center rounded-[2rem] bg-[#159447]/20 p-5">
+
+        <img
+          src={WHATSWARE_LOGO}
+          alt="WhatsWare"
+          className="h-full w-full object-contain"
+        />
+
       </div>
+
     </div>
   );
 }
@@ -756,7 +956,7 @@ function Highlight({
   label,
   border = false,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   value: string;
   label: string;
   border?: boolean;
@@ -769,11 +969,13 @@ function Highlight({
           : ""
       }`}
     >
+
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#D9F8ED] text-[#159447]">
         {icon}
       </div>
 
       <div>
+
         <p className="text-xl font-black text-[#12312C]">
           {value}
         </p>
@@ -781,7 +983,9 @@ function Highlight({
         <p className="mt-1 text-xs text-slate-500">
           {label}
         </p>
+
       </div>
+
     </div>
   );
 }
@@ -799,12 +1003,14 @@ function FeatureCard({
 }) {
   return (
     <div className="group relative overflow-hidden rounded-[1.5rem] border border-[#E1ECE7] bg-[#F8FBF9] p-6 transition duration-300 hover:-translate-y-2 hover:border-[#BFEBDD] hover:bg-white hover:shadow-[0_25px_60px_-30px_rgba(21,148,71,0.4)] sm:p-7">
+
       {/* Number */}
       <div className="absolute right-5 top-3 text-6xl font-black text-[#EAF5EF] transition group-hover:text-[#D9F8ED]">
         {String(index + 1).padStart(2, "0")}
       </div>
 
       <div className="relative">
+
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D9F8ED] text-[#159447] transition duration-300 group-hover:bg-[#159447] group-hover:text-white">
           <CheckCircle2 className="h-6 w-6" />
         </div>
@@ -819,9 +1025,13 @@ function FeatureCard({
         </p>
 
         <div className="mt-5 flex items-center gap-2 text-sm font-bold text-[#159447]">
+
           Included in WhatsWare
+
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+
         </div>
+
       </div>
     </div>
   );
@@ -857,38 +1067,62 @@ function WorkflowPreview() {
 
   return (
     <div className="relative">
+
       <div className="absolute -inset-5 rounded-[2.5rem] bg-[#D9F8ED]/60 blur-3xl" />
 
       <div className="relative rounded-[2rem] border border-[#DDEBE4] bg-white p-5 shadow-[0_30px_70px_-30px_rgba(21,148,71,0.3)] sm:p-7">
+
         <div className="mb-6 flex items-center justify-between">
+
           <div>
-            <p className="text-sm font-black text-[#12312C]">
-              Customer journey
-            </p>
+
+            <div className="flex items-center gap-2">
+
+              <img
+                src={WHATSWARE_LOGO}
+                alt="WhatsWare"
+                className="h-5 w-5 object-contain"
+              />
+
+              <p className="text-sm font-black text-[#12312C]">
+                Customer journey
+              </p>
+
+            </div>
 
             <p className="mt-1 text-[10px] text-slate-400">
               Connected workflow
             </p>
+
           </div>
 
           <span className="flex items-center gap-1.5 rounded-full bg-[#D9F8ED] px-3 py-1.5 text-[10px] font-bold text-[#159447]">
+
             <span className="h-1.5 w-1.5 rounded-full bg-[#159447]" />
+
             Active
+
           </span>
+
         </div>
 
         <div className="space-y-3">
+
           {steps.map((step, index) => {
+
             const Icon = step.icon;
 
             return (
               <div key={step.title}>
+
                 <div className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-[#F8FBF9] p-4 transition hover:border-[#BFEBDD] hover:bg-white">
+
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#D9F8ED] text-[#159447]">
                     <Icon className="h-5 w-5" />
                   </div>
 
                   <div className="min-w-0 flex-1">
+
                     <p className="text-sm font-black text-[#12312C]">
                       {step.title}
                     </p>
@@ -896,18 +1130,23 @@ function WorkflowPreview() {
                     <p className="mt-1 text-[10px] text-slate-400">
                       {step.text}
                     </p>
+
                   </div>
 
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#159447]" />
+
                 </div>
 
                 {index < steps.length - 1 && (
                   <div className="ml-[35px] h-4 border-l-2 border-dashed border-[#BFEBDD]" />
                 )}
+
               </div>
             );
           })}
+
         </div>
+
       </div>
     </div>
   );
@@ -926,8 +1165,11 @@ function MediaShowcase({
 }) {
   return (
     <div className="mt-14">
+
       <div className="relative overflow-hidden rounded-[2rem] border border-[#DCEAE4] bg-[#10251F] p-2 shadow-[0_35px_90px_-35px_rgba(12,75,52,0.4)]">
+
         <div className="relative overflow-hidden rounded-[1.5rem]">
+
           {/* Background */}
           {visual.image && (
             <img
@@ -940,11 +1182,29 @@ function MediaShowcase({
           <div className="absolute inset-0 bg-gradient-to-br from-[#10251F] via-[#10251F]/95 to-[#075E54]" />
 
           <div className="relative grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:p-14">
+
             {/* Text */}
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold text-emerald-200">
-                <Sparkles className="h-4 w-4" />
+
+              {/* =================================================
+                  OFFICIAL WHATSWARE LOGO
+                  INSTEAD OF SPARKLES
+              ================================================== */}
+
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold text-emerald-200">
+
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 p-1">
+
+                  <img
+                    src={WHATSWARE_LOGO}
+                    alt="WhatsWare"
+                    className="h-4 w-4 object-contain"
+                  />
+
+                </span>
+
                 {visual.label}
+
               </div>
 
               <h3 className="mt-6 text-3xl font-black tracking-tight text-white sm:text-4xl">
@@ -956,6 +1216,7 @@ function MediaShowcase({
               </p>
 
               <div className="mt-7 space-y-3">
+
                 {[
                   "Simple customer experience",
                   "Powerful business automation",
@@ -969,11 +1230,14 @@ function MediaShowcase({
                     {item}
                   </div>
                 ))}
+
               </div>
+
             </div>
 
             {/* Visual */}
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/20 shadow-2xl">
+
               {visual.video ? (
                 <video
                   src={visual.video}
@@ -996,16 +1260,21 @@ function MediaShowcase({
                   className="aspect-video w-full object-cover"
                 />
               ) : (
-                <GenericProductVisual icon={visual.icon} />
+                <GenericProductVisual />
               )}
 
               {visual.video && (
                 <div className="absolute bottom-5 left-5 flex items-center gap-2 rounded-full bg-black/40 px-4 py-2 text-xs font-bold text-white backdrop-blur">
+
                   <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-300" />
+
                   Live product preview
+
                 </div>
               )}
+
             </div>
+
           </div>
         </div>
       </div>

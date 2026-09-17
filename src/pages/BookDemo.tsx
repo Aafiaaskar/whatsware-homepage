@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import AIAgentShowcase from "@/components/AIAgentShowcase";
 import Footer from "@/components/Footer";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageCircle, QrCode } from "lucide-react";
 
 export default function BookDemo() {
   const [submitted, setSubmitted] = useState(false);
@@ -33,15 +33,19 @@ export default function BookDemo() {
     <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================= */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#f4fff8] via-white to-white px-5 pb-20 pt-32 sm:px-8 lg:pb-28">
         <div className="pointer-events-none absolute left-1/2 top-0 h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-[#159447]/10 blur-[120px]" />
 
-        <div className="relative mx-auto max-w-6xl">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            
-            {/* LEFT */}
-            <div>
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.05fr]">
+
+            {/* =====================================================
+                LEFT CONTENT
+            ===================================================== */}
+            <div className="pt-4">
               <div className="mb-5 inline-flex rounded-full border border-[#159447]/20 bg-white px-4 py-2 text-sm font-semibold text-[#159447] shadow-sm">
                 Book a Demo
               </div>
@@ -76,9 +80,50 @@ export default function BookDemo() {
                   </div>
                 ))}
               </div>
+
+              {/* ===================================================
+                  WHATSAPP QR CODE CARD
+              =================================================== */}
+              <div className="mt-10 max-w-md rounded-3xl border border-[#159447]/15 bg-white p-5 shadow-lg shadow-[#159447]/5">
+                <div className="flex items-center gap-4">
+
+                  {/* QR */}
+                  <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white p-2 shadow-sm">
+                    <img
+                      src="/Whatsware%20QR.jpeg"
+                      alt="WhatsWare WhatsApp QR Code"
+                      className="h-full w-full rounded-xl object-contain"
+                    />
+                  </div>
+
+                  {/* TEXT */}
+                  <div>
+                    <div className="mb-2 flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#159447]/10">
+                        <MessageCircle className="h-4 w-4 text-[#159447]" />
+                      </div>
+
+                      <h3 className="font-bold text-gray-950">
+                        Connect With WhatsWare
+                      </h3>
+                    </div>
+
+                    <p className="text-sm leading-6 text-gray-600">
+                      Scan the QR code to start a conversation with our team
+                      directly on WhatsApp.
+                    </p>
+
+                    <p className="mt-2 text-xs font-semibold text-[#159447]">
+                      Scan • Connect • Get Started
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* FORM */}
+            {/* =====================================================
+                FORM
+            ===================================================== */}
             <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8">
               {!submitted ? (
                 <>
@@ -92,6 +137,8 @@ export default function BookDemo() {
                   </p>
 
                   <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+
+                    {/* INDUSTRY */}
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-gray-700">
                         Industry
@@ -112,7 +159,9 @@ export default function BookDemo() {
                         <option value="Restaurant & Food">
                           Restaurant & Food
                         </option>
-                        <option value="Spas & Salons">Spas & Salons</option>
+                        <option value="Spas & Salons">
+                          Spas & Salons
+                        </option>
                         <option value="Health & Wellness">
                           Health & Wellness
                         </option>
@@ -123,6 +172,7 @@ export default function BookDemo() {
                       </select>
                     </div>
 
+                    {/* COMPANY */}
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-gray-700">
                         Company Name
@@ -139,6 +189,7 @@ export default function BookDemo() {
                       />
                     </div>
 
+                    {/* NAME */}
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-gray-700">
                         Name
@@ -155,6 +206,7 @@ export default function BookDemo() {
                       />
                     </div>
 
+                    {/* EMAIL */}
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-gray-700">
                         Email Address
@@ -171,6 +223,7 @@ export default function BookDemo() {
                       />
                     </div>
 
+                    {/* PHONE */}
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-gray-700">
                         Phone Number
@@ -187,29 +240,40 @@ export default function BookDemo() {
                       />
                     </div>
 
+                    {/* TERMS */}
                     <label className="flex items-start gap-3 text-sm text-gray-600">
                       <input
                         type="checkbox"
                         required
                         className="mt-1 h-4 w-4 accent-[#159447]"
                       />
+
                       <span>
                         I agree to the Terms & Conditions
                       </span>
                     </label>
 
+                    {/* SUBMIT */}
                     <button
                       type="submit"
                       className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#159447] px-6 py-3.5 font-semibold text-white transition hover:bg-[#0e7c39] hover:shadow-lg"
                     >
                       Book My Demo
+
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
                   </form>
                 </>
               ) : (
+
+                /* =================================================
+                   SUCCESS STATE
+                ================================================= */
                 <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
-                  <CheckCircle2 className="h-16 w-16 text-[#159447]" />
+
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#159447]/10">
+                    <CheckCircle2 className="h-12 w-12 text-[#159447]" />
+                  </div>
 
                   <h2 className="mt-6 text-3xl font-bold text-gray-950">
                     Thank You!
@@ -219,6 +283,28 @@ export default function BookDemo() {
                     Your demo request has been submitted. Our team will be in
                     touch with you within 48 hours.
                   </p>
+
+                  {/* QR AFTER SUBMISSION */}
+                  <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                    <div className="flex items-center gap-4">
+
+                      <img
+                        src="/Whatsware%20QR.jpeg"
+                        alt="WhatsWare WhatsApp QR Code"
+                        className="h-24 w-24 rounded-xl object-contain"
+                      />
+
+                      <div className="text-left">
+                        <p className="font-semibold text-gray-950">
+                          Want to reach us faster?
+                        </p>
+
+                        <p className="mt-1 text-sm text-gray-600">
+                          Scan the QR code and chat with WhatsWare on WhatsApp.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -226,7 +312,14 @@ export default function BookDemo() {
         </div>
       </section>
 
+      {/* =========================================================
+          AI AGENT SHOWCASE
+      ========================================================= */}
       <AIAgentShowcase />
+
+      {/* =========================================================
+          FOOTER
+      ========================================================= */}
       <Footer />
     </div>
   );

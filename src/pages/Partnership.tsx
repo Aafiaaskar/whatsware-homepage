@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PartnershipPopup from "@/components/PartnershipPopup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -625,6 +625,17 @@ const partnershipContent = {
 
 export default function Partnership() {
   const { language } = useLanguage();
+  const [showPartnershipPopup, setShowPartnershipPopup] = useState(false);
+
+useEffect(() => {
+  const timer = window.setTimeout(() => {
+    setShowPartnershipPopup(true);
+  }, 5000);
+
+  return () => {
+    window.clearTimeout(timer);
+  };
+}, []);
 
   const t =
     partnershipContent[language] || partnershipContent.EN;
@@ -883,8 +894,12 @@ export default function Partnership() {
 
                 <div className="flex h-52 w-52 flex-col items-center justify-center rounded-[2rem] border border-[#D5EBDD] bg-white shadow-2xl md:h-60 md:w-60">
 
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#159447] text-white shadow-lg">
-                    <Handshake size={38} />
+                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-[#D5EBDD]">
+                    <img
+                      src="/Weofy logo.jpeg"
+                      alt="Weofy"
+                      className="h-full w-full object-contain"
+                    />
                   </div>
 
                   <h3 className="mt-5 text-xl font-bold">
@@ -1811,7 +1826,7 @@ export default function Partnership() {
           PARTNERSHIP POPUP
       ====================================================== */}
 
-      <PartnershipPopup />
+      {showPartnershipPopup && <PartnershipPopup />}
 
       <Footer />
 

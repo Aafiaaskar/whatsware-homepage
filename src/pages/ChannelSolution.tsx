@@ -1,5 +1,4 @@
 import { Link, useRoute } from "wouter";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import {
@@ -7,6 +6,7 @@ import {
   ArrowLeft,
   Check,
   MessageCircle,
+  Instagram,
   Bot,
   Users,
   Workflow,
@@ -24,7 +24,6 @@ import {
   ShieldCheck,
   Layers3,
   BrainCircuit,
-  Rocket,
   Building2,
   Plane,
   Utensils,
@@ -33,6 +32,13 @@ import {
   GraduationCap,
   Car,
   LampDesk,
+  QrCode,
+  FileText,
+  Link2,
+  CreditCard,
+  MessageSquare,
+  ChevronRight,
+  CheckCircle2,
 } from "lucide-react";
 
 /* ============================================================
@@ -46,16 +52,20 @@ const channelData = {
     icon: MessageCircle,
     accent: "#159447",
     soft: "#E8F7EE",
+
     heroTitle: "Turn WhatsApp into",
     heroAccent: "your growth engine.",
+
     description:
       "Connect with customers on WhatsApp, automate conversations, generate leads, provide support, and drive sales from one powerful platform.",
+
     heroPoints: [
       "Business messaging",
       "AI-powered conversations",
       "Automated customer journeys",
       "Sales and support",
     ],
+
     benefits: [
       {
         icon: MessageCircle,
@@ -88,6 +98,7 @@ const channelData = {
         text: "Automate repetitive conversations, follow-ups, reminders, and workflows.",
       },
     ],
+
     workflow: [
       {
         icon: MessageCircle,
@@ -114,6 +125,7 @@ const channelData = {
         text: "Turn conversations into leads, sales, bookings, support resolutions, or repeat customers.",
       },
     ],
+
     features: [
       "WhatsApp Business messaging",
       "AI customer conversations",
@@ -132,16 +144,20 @@ const channelData = {
     icon: Bot,
     accent: "#7B4DFF",
     soft: "#F0EBFF",
+
     heroTitle: "AI that talks.",
     heroAccent: "AI that gets things done.",
+
     description:
       "Deploy intelligent AI agents that understand customer intent, answer questions, qualify leads, and automate customer journeys around the clock.",
+
     heroPoints: [
       "24/7 AI assistance",
       "Natural conversations",
       "Intelligent lead qualification",
       "Automated support",
     ],
+
     benefits: [
       {
         icon: Bot,
@@ -174,6 +190,7 @@ const channelData = {
         text: "Understand what customers are asking and identify opportunities for improvement.",
       },
     ],
+
     workflow: [
       {
         icon: MessageCircle,
@@ -200,6 +217,7 @@ const channelData = {
         text: "The conversation moves toward conversion, support resolution, or another business goal.",
       },
     ],
+
     features: [
       "AI customer agents",
       "Natural language conversations",
@@ -218,16 +236,20 @@ const channelData = {
     icon: Users,
     accent: "#0F766E",
     soft: "#E5F5F3",
+
     heroTitle: "One inbox.",
     heroAccent: "One team. Better support.",
+
     description:
       "Bring customer conversations into one shared workspace so your team can collaborate, assign conversations, and respond faster.",
+
     heroPoints: [
       "Shared customer inbox",
       "Team collaboration",
       "Conversation assignment",
       "Faster customer support",
     ],
+
     benefits: [
       {
         icon: Users,
@@ -260,6 +282,7 @@ const channelData = {
         text: "Understand team performance and customer conversation activity.",
       },
     ],
+
     workflow: [
       {
         icon: MessageCircle,
@@ -286,6 +309,7 @@ const channelData = {
         text: "The team completes the conversation while maintaining the full customer context.",
       },
     ],
+
     features: [
       "Shared team inbox",
       "Conversation assignment",
@@ -304,16 +328,20 @@ const channelData = {
     icon: Workflow,
     accent: "#E5A000",
     soft: "#FFF5D9",
+
     heroTitle: "Automate the work.",
     heroAccent: "Focus on the growth.",
+
     description:
       "Build automated customer journeys that handle repetitive tasks, follow-ups, notifications, lead qualification, and support workflows.",
+
     heroPoints: [
       "Visual workflows",
       "Automated follow-ups",
       "Trigger-based actions",
       "Always-on automation",
     ],
+
     benefits: [
       {
         icon: Workflow,
@@ -346,6 +374,7 @@ const channelData = {
         text: "Automate repetitive processes without requiring manual intervention.",
       },
     ],
+
     workflow: [
       {
         icon: Send,
@@ -372,6 +401,7 @@ const channelData = {
         text: "The customer automatically moves to the next stage of their journey.",
       },
     ],
+
     features: [
       "Visual workflow builder",
       "Automated replies",
@@ -384,108 +414,26 @@ const channelData = {
     ],
   },
 
-  "crm-sales": {
-    name: "CRM & Sales",
-    eyebrow: "Sales Automation",
-    icon: Target,
-    accent: "#2563EB",
-    soft: "#EAF2FF",
-    heroTitle: "Turn conversations",
-    heroAccent: "into sales opportunities.",
-    description:
-      "Capture leads, qualify prospects, manage conversations, automate follow-ups, and help your sales team close more opportunities.",
-    heroPoints: [
-      "Lead capture",
-      "Lead qualification",
-      "Sales follow-ups",
-      "Opportunity management",
-    ],
-    benefits: [
-      {
-        icon: Target,
-        title: "Lead Capture",
-        text: "Capture leads automatically from conversations, campaigns, and digital touchpoints.",
-      },
-      {
-        icon: Bot,
-        title: "Lead Qualification",
-        text: "Use AI and automation to identify prospects that are ready for your sales team.",
-      },
-      {
-        icon: Users,
-        title: "Sales Team Workspace",
-        text: "Give your sales team the customer context they need to close conversations faster.",
-      },
-      {
-        icon: Send,
-        title: "Follow-up Automation",
-        text: "Automatically follow up with prospects so valuable opportunities don't go cold.",
-      },
-      {
-        icon: BarChart3,
-        title: "Sales Insights",
-        text: "Track conversations and understand where prospects are in the sales journey.",
-      },
-      {
-        icon: Zap,
-        title: "Faster Conversions",
-        text: "Reduce manual work and move qualified prospects toward the next action faster.",
-      },
-    ],
-    workflow: [
-      {
-        icon: MessageCircle,
-        number: "01",
-        title: "Lead enters",
-        text: "A prospect starts a conversation through WhatsApp, website, or another channel.",
-      },
-      {
-        icon: Bot,
-        number: "02",
-        title: "Lead is qualified",
-        text: "AI and automation collect information and understand the prospect's needs.",
-      },
-      {
-        icon: Target,
-        number: "03",
-        title: "Sales takes over",
-        text: "Qualified opportunities are routed to the appropriate sales team member.",
-      },
-      {
-        icon: Rocket,
-        number: "04",
-        title: "Opportunity converts",
-        text: "Automated follow-ups and sales conversations help move the opportunity forward.",
-      },
-    ],
-    features: [
-      "Lead capture",
-      "Lead qualification",
-      "Sales conversations",
-      "Automated follow-ups",
-      "Lead routing",
-      "Opportunity tracking",
-      "Sales analytics",
-      "CRM workflows",
-    ],
-  },
-
   marketing: {
     name: "Marketing",
     eyebrow: "Marketing & Engagement",
     icon: Megaphone,
     accent: "#DB2777",
     soft: "#FCEAF3",
+
     heroTitle: "Reach customers.",
     heroAccent: "At the right moment.",
+
     description:
       "Create personalized campaigns, broadcasts, promotions, and re-engagement journeys that turn customer conversations into business growth.",
+
     heroPoints: [
       "Campaign management",
       "Broadcast messaging",
       "Personalized engagement",
       "Customer re-engagement",
     ],
+
     benefits: [
       {
         icon: Megaphone,
@@ -518,6 +466,7 @@ const channelData = {
         text: "Understand campaign performance and improve your customer engagement.",
       },
     ],
+
     workflow: [
       {
         icon: Users,
@@ -544,6 +493,7 @@ const channelData = {
         text: "Review campaign performance and improve future customer journeys.",
       },
     ],
+
     features: [
       "Campaign management",
       "Broadcast messaging",
@@ -562,16 +512,20 @@ const channelData = {
     icon: Globe2,
     accent: "#0891B2",
     soft: "#E5F7FA",
+
     heroTitle: "Turn website visitors",
     heroAccent: "into conversations.",
+
     description:
       "Connect your website visitors with intelligent conversations, instant answers, lead capture, and automated customer journeys.",
+
     heroPoints: [
       "Visitor engagement",
       "Instant answers",
       "Lead capture",
       "AI-powered website conversations",
     ],
+
     benefits: [
       {
         icon: Globe2,
@@ -604,6 +558,7 @@ const channelData = {
         text: "Understand what visitors are asking and where they need help.",
       },
     ],
+
     workflow: [
       {
         icon: Globe2,
@@ -630,6 +585,7 @@ const channelData = {
         text: "Qualified visitors can be captured and moved into the next stage of the customer journey.",
       },
     ],
+
     features: [
       "Website chat",
       "AI website assistant",
@@ -648,16 +604,20 @@ const channelData = {
     icon: Plug,
     accent: "#A97155",
     soft: "#F5E9E1",
+
     heroTitle: "Connect your tools.",
     heroAccent: "Keep everything moving.",
+
     description:
       "Connect WhatsWare with the tools your business already uses and create a connected customer journey without disconnected systems.",
+
     heroPoints: [
       "CRM integrations",
       "Business tools",
       "APIs and webhooks",
       "Connected workflows",
     ],
+
     benefits: [
       {
         icon: Plug,
@@ -690,6 +650,7 @@ const channelData = {
         text: "Keep your customer journeys connected across the tools your team depends on.",
       },
     ],
+
     workflow: [
       {
         icon: Plug,
@@ -716,6 +677,7 @@ const channelData = {
         text: "Create a more connected customer journey across your business systems.",
       },
     ],
+
     features: [
       "CRM integrations",
       "API integrations",
@@ -730,7 +692,7 @@ const channelData = {
 };
 
 /* ============================================================
-   INDUSTRY DATA
+   INDUSTRIES
 ============================================================ */
 
 const industryData = [
@@ -791,20 +753,101 @@ const industryData = [
 ];
 
 /* ============================================================
+   WHATSAPP PRODUCT DATA
+============================================================ */
+
+const whatsappProducts = [
+  {
+    name: "WhatsApp AI Agents",
+    description:
+      "Deploy intelligent AI agents that answer customers, qualify leads and automate conversations 24/7.",
+    icon: Bot,
+    href: "/products/whatsapp-ai-agents",
+  },
+  {
+    name: "WhatsApp Automation",
+    description:
+      "Automate replies, customer journeys, notifications, reminders and repetitive conversations.",
+    icon: Workflow,
+    href: "/products/whatsapp-automation",
+  },
+  {
+    name: "WhatsApp Broadcast",
+    description:
+      "Reach your customers with targeted campaigns, updates, offers and personalized broadcasts.",
+    icon: Megaphone,
+    href: "/products/whatsapp-broadcast",
+  },
+  {
+    name: "WhatsApp Chatbots",
+    description:
+      "Build automated WhatsApp conversations that answer questions and guide customers.",
+    icon: MessageSquare,
+    href: "/products/whatsapp-chatbots",
+  },
+  {
+    name: "WhatsApp Chat Widget",
+    description:
+      "Turn website visitors into WhatsApp conversations with an easy-to-use chat widget.",
+    icon: Globe2,
+    href: "/products/whatsapp-chat-widget",
+  },
+  {
+    name: "WhatsApp Forms",
+    description:
+      "Collect customer information and leads directly through WhatsApp conversations.",
+    icon: FileText,
+    href: "/products/whatsapp-forms",
+  },
+  {
+    name: "WhatsApp Link Generator",
+    description:
+      "Create WhatsApp links that let customers instantly start conversations with your business.",
+    icon: Link2,
+    href: "/products/whatsapp-link-generator",
+  },
+  {
+    name: "WhatsApp Payments",
+    description:
+      "Make it easier for customers to complete payment journeys through WhatsApp.",
+    icon: CreditCard,
+    href: "/products/whatsapp-payments",
+  },
+  {
+    name: "WhatsApp QR Code",
+    description:
+      "Create QR codes that instantly connect customers to your WhatsApp business.",
+    icon: QrCode,
+    href: "/products/whatsapp-qr-code",
+  },
+  {
+    name: "WhatsApp Sales",
+    description:
+      "Turn WhatsApp conversations into qualified opportunities and sales.",
+    icon: Target,
+    href: "/products/whatsapp-sales",
+  },
+  {
+    name: "WhatsApp Solution",
+    description:
+      "Explore the complete WhatsApp customer engagement solution from WhatsWare.",
+    icon: MessageCircle,
+    href: "/solutions/whatsapp/solution",
+  },
+  {
+    name: "Workflow Builder",
+    description:
+      "Create visual workflows that automate customer journeys and business processes.",
+    icon: Workflow,
+    href: "/products/workflow-builder",
+  },
+];
+
+/* ============================================================
    COMPONENT
 ============================================================ */
 
 export default function ChannelSolution() {
-  /*
-   * IMPORTANT:
-   * Support BOTH:
-   *
-   * /solutions/channel/:channel
-   * /solutions/channels/:channel
-   *
-   * This was one of the reasons the old version appeared unchanged.
-   */
-
   const [singularMatch, singularParams] = useRoute(
     "/solutions/channel/:channel",
   );
@@ -826,6 +869,8 @@ export default function ChannelSolution() {
 
   const ChannelIcon = channel.icon;
 
+  const isWhatsApp = channelKey === "whatsapp";
+
   return (
     <div className="min-h-screen bg-[#F9F6EF] text-[#173C32]">
       <main>
@@ -834,26 +879,60 @@ export default function ChannelSolution() {
         ====================================================== */}
 
         <section className="relative overflow-hidden bg-[#F9F6EF] pb-20 pt-32 lg:pb-28 lg:pt-40">
+          {/* Background decoration */}
+
           <div
-            className="pointer-events-none absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full blur-3xl"
+            className="pointer-events-none absolute -right-48 -top-48 h-[38rem] w-[38rem] rounded-full blur-3xl"
             style={{
-              backgroundColor: `${channel.accent}18`,
+              backgroundColor: `${channel.accent}14`,
             }}
           />
 
-          <div className="pointer-events-none absolute -left-40 top-96 h-80 w-80 rounded-full bg-[#B7CDBB]/25 blur-3xl" />
+          <div
+            className="pointer-events-none absolute left-[8%] top-[45%] h-72 w-72 rounded-full blur-3xl"
+            style={{
+              backgroundColor: `${channel.accent}08`,
+            }}
+          />
+
+          <div className="pointer-events-none absolute -left-40 top-96 h-80 w-80 rounded-full bg-[#B7CDBB]/20 blur-3xl" />
+
+          {/* Decorative grid */}
+
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-64 opacity-[0.035] [background-image:linear-gradient(#173C32_1px,transparent_1px),linear-gradient(90deg,#173C32_1px,transparent_1px)] [background-size:48px_48px]" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
             <Link
               href="/solutions"
-              className="group mb-10 inline-flex items-center gap-2 rounded-full border border-[#D7CDC1] bg-white/80 px-4 py-2 text-sm font-semibold text-[#53655E] shadow-sm backdrop-blur transition-all hover:-translate-x-1"
+              className="group mb-10 inline-flex items-center gap-2 rounded-full border border-[#D7CDC1] bg-white/85 px-4 py-2 text-sm font-semibold text-[#53655E] shadow-sm backdrop-blur transition-all duration-300 hover:-translate-x-1 hover:border-[#159447]/30 hover:text-[#159447]"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Solutions
             </Link>
 
-            <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+              {/* LEFT HERO */}
+
               <div>
+                {isWhatsApp && (
+                  <div className="mb-7 flex items-center gap-3">
+                    <div className="flex h-12 items-center rounded-2xl border border-[#E5DED3] bg-white px-4 shadow-sm">
+                      <img
+                        src="/whatsware-logo.png"
+                        alt="WhatsWare"
+                        className="h-7 w-auto object-contain"
+                      />
+                    </div>
+
+                    <div className="h-8 w-px bg-[#D7CDC1]" />
+
+                    <div className="flex items-center gap-2 text-sm font-semibold text-[#687871]">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#25D366] shadow-[0_0_0_4px_rgba(37,211,102,0.12)]" />
+                      WhatsApp Business Platform
+                    </div>
+                  </div>
+                )}
+
                 <div
                   className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold shadow-sm"
                   style={{
@@ -866,11 +945,11 @@ export default function ChannelSolution() {
                   {channel.eyebrow}
                 </div>
 
-                <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-[#173C32] sm:text-5xl lg:text-7xl">
+                <h1 className="max-w-4xl text-4xl font-bold leading-[1.06] tracking-tight text-[#173C32] sm:text-5xl lg:text-7xl">
                   {channel.heroTitle}
 
                   <span
-                    className="mt-2 block"
+                    className="mt-3 block"
                     style={{
                       color: channel.accent,
                     }}
@@ -911,162 +990,443 @@ export default function ChannelSolution() {
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/pricing"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#173C32] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#285B4D]"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#173C32] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#285B4D] hover:shadow-xl"
                   >
                     View Pricing
+
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
 
                   <Link
                     href="/integrations"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D7CDC1] bg-white px-7 py-3.5 text-sm font-semibold text-[#173C32] transition-all duration-300 hover:-translate-y-1"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full border border-[#D7CDC1] bg-white px-7 py-3.5 text-sm font-semibold text-[#173C32] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#159447]/30 hover:text-[#159447]"
                   >
                     Explore Integrations
+                    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
+
+                {isWhatsApp && (
+                  <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-semibold text-[#7B8982]">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#159447]" />
+                      Built for business messaging
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#159447]" />
+                      AI-ready workflows
+                    </div>
+                  </div>
+                )}
               </div>
 
-              <div className="relative">
+              {/* HERO VISUAL */}
+
+              <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
                 <div
-                  className="absolute inset-0 rounded-[2rem] blur-2xl"
+                  className="absolute inset-6 rounded-[2.5rem] blur-3xl"
                   style={{
-                    backgroundColor: `${channel.accent}10`,
+                    backgroundColor: `${channel.accent}15`,
                   }}
                 />
 
-                <div className="relative overflow-hidden rounded-[2rem] border border-[#E5DED3] bg-white p-7 shadow-2xl sm:p-9">
-                  <div
-                    className="absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl"
-                    style={{
-                      backgroundColor: `${channel.accent}18`,
-                    }}
-                  />
+                <div className="relative">
+                  {/* Main card */}
 
-                  <div className="relative">
-                    <div className="flex items-center justify-between">
-                      <div
-                        className="flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-lg"
-                        style={{
-                          backgroundColor: channel.accent,
-                        }}
-                      >
-                        <ChannelIcon className="h-8 w-8" />
-                      </div>
+                  <div className="relative overflow-hidden rounded-[2rem] border border-[#E5DED3] bg-white p-5 shadow-[0_30px_80px_rgba(23,60,50,0.13)] sm:p-7">
+                    <div
+                      className="absolute -right-28 -top-28 h-72 w-72 rounded-full blur-3xl"
+                      style={{
+                        backgroundColor: `${channel.accent}15`,
+                      }}
+                    />
 
-                      <div className="flex items-center gap-1 rounded-full bg-[#F5F0E8] px-3 py-1.5 text-xs font-semibold text-[#7B8982]">
-                        <Clock3 className="h-3.5 w-3.5" />
-                        Always On
-                      </div>
-                    </div>
+                    <div className="relative">
+                      {/* Card header */}
 
-                    <div className="mt-8">
-                      <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#8A7566]">
-                        WhatsWare
-                      </div>
-
-                      <h2 className="mt-2 text-3xl font-bold text-[#173C32]">
-                        {channel.name}
-                      </h2>
-
-                      <p className="mt-3 text-sm leading-6 text-[#687871]">
-                        A smarter way to manage this part of your customer
-                        journey.
-                      </p>
-                    </div>
-
-                    <div className="mt-7 space-y-3">
-                      {[
-                        {
-                          icon: ChannelIcon,
-                          title: `${channel.name} Active`,
-                          text: "Customer journey connected",
-                        },
-                        {
-                          icon: Bot,
-                          title: "AI Assistance",
-                          text: "Intelligent automation available",
-                        },
-                        {
-                          icon: BarChart3,
-                          title: "Business Insights",
-                          text: "Track conversations and outcomes",
-                        },
-                      ].map((item) => {
-                        const Icon = item.icon;
-
-                        return (
+                      <div className="flex items-center justify-between border-b border-[#EEE8DF] pb-5">
+                        <div className="flex items-center gap-3">
                           <div
-                            key={item.title}
-                            className="rounded-2xl border border-[#E8E1D8] bg-[#FFFDF8] p-4"
+                            className="flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg"
+                            style={{
+                              backgroundColor: channel.accent,
+                            }}
                           >
-                            <div className="flex items-center gap-3">
-                              <div
-                                className="flex h-10 w-10 items-center justify-center rounded-xl"
-                                style={{
-                                  backgroundColor: channel.soft,
-                                  color: channel.accent,
-                                }}
-                              >
-                                <Icon className="h-5 w-5" />
-                              </div>
+                            <ChannelIcon className="h-6 w-6" />
+                          </div>
 
-                              <div className="flex-1">
-                                <div className="text-sm font-semibold text-[#173C32]">
-                                  {item.title}
-                                </div>
+                          <div>
+                            <div className="text-sm font-bold text-[#173C32]">
+                              {channel.name}
+                            </div>
 
-                                <div className="mt-1 text-xs text-[#7B8982]">
-                                  {item.text}
-                                </div>
-                              </div>
-
-                              <span
-                                className="h-2.5 w-2.5 rounded-full"
-                                style={{
-                                  backgroundColor: channel.accent,
-                                }}
-                              />
+                            <div className="mt-0.5 flex items-center gap-1.5 text-xs text-[#7B8982]">
+                              <span className="h-2 w-2 rounded-full bg-[#25D366]" />
+                              Connected
                             </div>
                           </div>
-                        );
-                      })}
+                        </div>
+
+                        <div className="flex items-center gap-1 rounded-full bg-[#F5F0E8] px-3 py-1.5 text-xs font-semibold text-[#7B8982]">
+                          <Clock3 className="h-3.5 w-3.5" />
+                          Always On
+                        </div>
+                      </div>
+
+                      {/* WhatsApp conversation preview */}
+
+                      {isWhatsApp ? (
+                        <div className="relative mt-6 overflow-hidden rounded-[1.5rem] border border-[#E6E2D9] bg-[#F3F7F3]">
+                          {/* Fake chat header */}
+
+                          <div className="flex items-center gap-3 border-b border-[#DDE7DE] bg-white px-4 py-3.5">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#159447] text-white">
+                              <img
+                                src="/whatsware-logo.png"
+                                alt="WhatsWare"
+                                className="h-6 w-6 object-contain brightness-0 invert"
+                              />
+                            </div>
+
+                            <div className="flex-1">
+                              <div className="text-sm font-bold text-[#173C32]">
+                                WhatsWare Assistant
+                              </div>
+                              <div className="text-[11px] text-[#7B8982]">
+                                AI-powered customer conversations
+                              </div>
+                            </div>
+
+                            <div className="rounded-full bg-[#E8F7EE] px-2.5 py-1 text-[10px] font-bold text-[#159447]">
+                              ONLINE
+                            </div>
+                          </div>
+
+                          {/* Chat area */}
+
+                          <div className="space-y-3 p-4 sm:p-5">
+                            <div className="flex justify-start">
+                              <div className="max-w-[78%] rounded-2xl rounded-tl-md bg-white px-4 py-3 shadow-sm">
+                                <p className="text-xs leading-5 text-[#53655E]">
+                                  Hi! 👋 I&apos;d like to know more about your
+                                  services.
+                                </p>
+                                <div className="mt-1 text-[9px] text-[#9AA59F]">
+                                  10:42 AM
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex justify-end">
+                              <div className="max-w-[78%] rounded-2xl rounded-tr-md bg-[#DDF8E7] px-4 py-3 shadow-sm">
+                                <p className="text-xs leading-5 text-[#285B4D]">
+                                  Absolutely! I can help you with that. What
+                                  are you looking to automate?
+                                </p>
+                                <div className="mt-1 text-right text-[9px] text-[#6F9180]">
+                                  10:42 AM ✓✓
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex justify-start">
+                              <div className="max-w-[82%] rounded-2xl rounded-tl-md bg-white px-4 py-3 shadow-sm">
+                                <p className="text-xs leading-5 text-[#53655E]">
+                                  I want to automate leads and customer
+                                  support.
+                                </p>
+                                <div className="mt-1 text-[9px] text-[#9AA59F]">
+                                  10:43 AM
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex justify-end">
+                              <div className="max-w-[82%] rounded-2xl rounded-tr-md bg-[#159447] px-4 py-3 text-white shadow-md">
+                                <p className="text-xs leading-5">
+                                  Perfect. WhatsWare can automate both. 🚀
+                                </p>
+                                <div className="mt-1 text-right text-[9px] text-white/60">
+                                  10:43 AM ✓✓
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Bottom status */}
+
+                          <div className="border-t border-[#DDE7DE] bg-white px-4 py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#E8F7EE]">
+                                  <Bot className="h-3.5 w-3.5 text-[#159447]" />
+                                </div>
+                                <span className="text-[11px] font-semibold text-[#687871]">
+                                  AI is handling the conversation
+                                </span>
+                              </div>
+
+                              <div className="flex items-center gap-1">
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#159447]" />
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#159447]/60" />
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#159447]/30" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="mt-7">
+                            <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#8A7566]">
+                              WhatsWare
+                            </div>
+
+                            <h2 className="mt-2 text-3xl font-bold text-[#173C32]">
+                              {channel.name}
+                            </h2>
+
+                            <p className="mt-3 text-sm leading-6 text-[#687871]">
+                              A smarter way to manage this part of your
+                              customer journey.
+                            </p>
+                          </div>
+
+                          <div className="mt-7 space-y-3">
+                            {[
+                              {
+                                icon: ChannelIcon,
+                                title: `${channel.name} Active`,
+                                text: "Customer journey connected",
+                              },
+                              {
+                                icon: Bot,
+                                title: "AI Assistance",
+                                text: "Intelligent automation available",
+                              },
+                              {
+                                icon: BarChart3,
+                                title: "Business Insights",
+                                text: "Track conversations and outcomes",
+                              },
+                            ].map((item) => {
+                              const Icon = item.icon;
+
+                              return (
+                                <div
+                                  key={item.title}
+                                  className="rounded-2xl border border-[#E8E1D8] bg-[#FFFDF8] p-4"
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div
+                                      className="flex h-10 w-10 items-center justify-center rounded-xl"
+                                      style={{
+                                        backgroundColor: channel.soft,
+                                        color: channel.accent,
+                                      }}
+                                    >
+                                      <Icon className="h-5 w-5" />
+                                    </div>
+
+                                    <div className="flex-1">
+                                      <div className="text-sm font-semibold text-[#173C32]">
+                                        {item.title}
+                                      </div>
+
+                                      <div className="mt-1 text-xs text-[#7B8982]">
+                                        {item.text}
+                                      </div>
+                                    </div>
+
+                                    <span
+                                      className="h-2.5 w-2.5 rounded-full"
+                                      style={{
+                                        backgroundColor: channel.accent,
+                                      }}
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Floating AI badge */}
+
+                  <div className="absolute -bottom-5 -left-4 hidden rounded-2xl border border-[#E5DED3] bg-white p-3 shadow-xl sm:block">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F7EE] text-[#159447]">
+                        <BrainCircuit className="h-5 w-5" />
+                      </div>
+
+                      <div>
+                        <div className="text-xs font-bold text-[#173C32]">
+                          AI Powered
+                        </div>
+                        <div className="mt-0.5 text-[10px] text-[#7B8982]">
+                          Intelligent conversations
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating automation badge */}
+
+                  <div className="absolute -right-4 top-24 hidden rounded-2xl border border-[#E5DED3] bg-white p-3 shadow-xl sm:block">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F8F2] text-[#159447]">
+                        <Zap className="h-5 w-5" />
+                      </div>
+
+                      <div>
+                        <div className="text-xs font-bold text-[#173C32]">
+                          Automated
+                        </div>
+                        <div className="mt-0.5 text-[10px] text-[#7B8982]">
+                          Workflows running
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-16 grid overflow-hidden rounded-3xl border border-[#E5DED3] bg-white shadow-xl sm:grid-cols-3">
-              {[
-                ["24/7", "Always Available"],
-                ["AI", "Intelligent Assistance"],
-                ["1", "Connected Platform"],
-              ].map(([value, label], index) => (
-                <div
-                  key={label}
-                  className={`px-6 py-7 text-center ${
-                    index !== 2
-                      ? "border-b border-[#E5DED3] sm:border-b-0 sm:border-r"
-                      : ""
-                  }`}
-                >
-                  <div
-                    className="text-3xl font-bold"
-                    style={{
-                      color: channel.accent,
-                    }}
-                  >
-                    {value}
-                  </div>
+            {/* HERO STATS */}
 
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#7B8982]">
-                    {label}
+            <div className="mt-20 overflow-hidden rounded-3xl border border-[#E5DED3] bg-white shadow-xl">
+              <div className="grid sm:grid-cols-3">
+                {[
+                  ["24/7", "Always Available"],
+                  ["AI", "Intelligent Assistance"],
+                  ["1", "Connected Platform"],
+                ].map(([value, label], index) => (
+                  <div
+                    key={label}
+                    className={`relative px-6 py-8 text-center ${
+                      index !== 2
+                        ? "border-b border-[#E5DED3] sm:border-b-0 sm:border-r"
+                        : ""
+                    }`}
+                  >
+                    <div
+                      className="text-3xl font-bold"
+                      style={{
+                        color: channel.accent,
+                      }}
+                    >
+                      {value}
+                    </div>
+
+                    <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#7B8982]">
+                      {label}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
+
+        {/* =====================================================
+            WHATSAPP PRODUCTS
+        ====================================================== */}
+
+        {isWhatsApp && (
+          <section className="relative overflow-hidden bg-white py-24">
+            <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#159447]/10 blur-3xl" />
+
+            <div className="pointer-events-none absolute -right-32 bottom-20 h-72 w-72 rounded-full bg-[#25D366]/10 blur-3xl" />
+
+            <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[60%] -translate-x-1/2 bg-[#159447]/[0.035] blur-3xl" />
+
+            <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-3xl text-center">
+                <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#159447]/20 bg-[#E8F7EE] px-4 py-2 text-sm font-bold text-[#159447]">
+                  <img
+                    src="/whatsware-logo.png"
+                    alt="WhatsWare"
+                    className="h-5 w-auto object-contain"
+                  />
+
+                  <span className="h-4 w-px bg-[#159447]/20" />
+
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Solutions
+                </div>
+
+                <h2 className="mt-6 text-3xl font-bold tracking-tight text-[#173C32] sm:text-5xl">
+                  Everything you need to{" "}
+                  <span className="text-[#159447]">
+                    grow on WhatsApp.
+                  </span>
+                </h2>
+
+                <p className="mt-5 text-lg leading-8 text-[#687871]">
+                  Explore every WhatsApp product available in WhatsWare.
+                  Choose a solution below to build smarter customer
+                  conversations.
+                </p>
+              </div>
+
+              {/* PRODUCT CARDS */}
+
+              <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {whatsappProducts.map((product, index) => {
+                  const ProductIcon = product.icon;
+
+                  return (
+                    <Link
+                      key={product.name}
+                      href={product.href}
+                      className="group relative overflow-hidden rounded-3xl border border-[#E5DED3] bg-[#FFFDF8] p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#159447]/30 hover:shadow-2xl"
+                    >
+                      {/* Number */}
+
+                      <div className="absolute right-5 top-5 text-xs font-bold text-[#C9D0CB] transition-colors group-hover:text-[#159447]/40">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+
+                      {/* Hover glow */}
+
+                      <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#159447]/10 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+
+                      <div className="relative">
+                        <div className="flex items-start justify-between">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E8F7EE] text-[#159447] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#159447] group-hover:text-white">
+                            <ProductIcon className="h-6 w-6" />
+                          </div>
+
+                          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E5DED3] bg-white text-[#8A978F] transition-all duration-300 group-hover:border-[#159447] group-hover:bg-[#159447] group-hover:text-white">
+                            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                          </div>
+                        </div>
+
+                        <div className="mt-6">
+                          <h3 className="text-xl font-bold text-[#173C32] transition-colors group-hover:text-[#159447]">
+                            {product.name}
+                          </h3>
+
+                          <p className="mt-3 text-sm leading-6 text-[#687871]">
+                            {product.description}
+                          </p>
+                        </div>
+
+                        <div className="mt-6 flex items-center gap-2 text-sm font-bold text-[#159447]">
+                          Explore solution
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* =====================================================
             BENEFITS
@@ -1104,7 +1464,7 @@ export default function ChannelSolution() {
                 return (
                   <div
                     key={benefit.title}
-                    className="group rounded-3xl border border-[#E5DED3] bg-[#FFFDF8] p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                    className="group rounded-3xl border border-[#E5DED3] bg-[#FFFDF8] p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#159447]/20 hover:shadow-xl"
                   >
                     <div
                       className="flex h-14 w-14 items-center justify-center rounded-2xl"
@@ -1169,10 +1529,13 @@ export default function ChannelSolution() {
                   <Link
                     key={industry.name}
                     href={industry.href}
-                    className="group flex items-center gap-4 rounded-2xl border border-[#E5DED3] bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    className="group flex items-center gap-4 rounded-2xl border border-[#E5DED3] bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#159447]/20 hover:shadow-lg"
                   >
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#DDF8EF] text-[#08A88A] transition-all duration-300 group-hover:scale-105">
-                      <Icon className="h-6 w-6" strokeWidth={2.2} />
+                      <Icon
+                        className="h-6 w-6"
+                        strokeWidth={2.2}
+                      />
                     </div>
 
                     <div className="min-w-0 flex-1">
@@ -1227,11 +1590,33 @@ export default function ChannelSolution() {
                   continuous customer experience.
                 </p>
 
+                {isWhatsApp && (
+                  <div className="mt-7 flex items-center gap-3 rounded-2xl border border-[#DCE9DF] bg-white p-4 shadow-sm">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E8F7EE]">
+                      <img
+                        src="/whatsware-logo.png"
+                        alt="WhatsWare"
+                        className="h-7 w-auto object-contain"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="text-sm font-bold text-[#173C32]">
+                        WhatsWare
+                      </div>
+                      <div className="text-xs text-[#7B8982]">
+                        Conversations → automation → outcomes
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <Link
                   href="/pricing"
                   className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#173C32] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-1 hover:bg-[#285B4D]"
                 >
                   Get started
+
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -1243,7 +1628,7 @@ export default function ChannelSolution() {
                   return (
                     <div
                       key={step.number}
-                      className="group relative overflow-hidden rounded-3xl border border-[#E5DED3] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7"
+                      className="group relative overflow-hidden rounded-3xl border border-[#E5DED3] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#159447]/20 hover:shadow-xl sm:p-7"
                     >
                       <div
                         className="absolute -right-16 -top-16 h-32 w-32 rounded-full opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
@@ -1254,7 +1639,7 @@ export default function ChannelSolution() {
 
                       <div className="relative flex gap-5">
                         <div
-                          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white"
+                          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white shadow-md"
                           style={{
                             backgroundColor: channel.accent,
                           }}
@@ -1262,8 +1647,8 @@ export default function ChannelSolution() {
                           <Icon className="h-6 w-6" />
                         </div>
 
-                        <div>
-                          <div className="flex items-center gap-3">
+                        <div className="flex-1">
+                          <div className="flex flex-wrap items-center gap-3">
                             <span
                               className="text-xs font-bold tracking-widest"
                               style={{
@@ -1297,20 +1682,42 @@ export default function ChannelSolution() {
 
         <section className="bg-white py-24">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="overflow-hidden rounded-[2rem] bg-[#173C32] p-8 text-white shadow-2xl sm:p-12 lg:p-14">
-              <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#173C32] p-8 text-white shadow-2xl sm:p-12 lg:p-14">
+              {/* Background effects */}
+
+              <div
+                className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full blur-3xl"
+                style={{
+                  backgroundColor: `${channel.accent}18`,
+                }}
+              />
+
+              <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+
+              <div className="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div>
-                  <div
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl text-white"
-                    style={{
-                      backgroundColor: channel.accent,
-                    }}
-                  >
-                    <ChannelIcon className="h-7 w-7" />
-                  </div>
+                  {isWhatsApp ? (
+                    <div className="flex h-14 w-fit items-center rounded-2xl bg-white px-5 shadow-lg">
+                      <img
+                        src="/whatsware-logo.png"
+                        alt="WhatsWare"
+                        className="h-8 w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl text-white"
+                      style={{
+                        backgroundColor: channel.accent,
+                      }}
+                    >
+                      <ChannelIcon className="h-7 w-7" />
+                    </div>
+                  )}
 
                   <h2 className="mt-7 text-3xl font-bold sm:text-4xl">
                     Built for your workflow.
+
                     <span className="block text-white/50">
                       Ready for your growth.
                     </span>
@@ -1323,9 +1730,10 @@ export default function ChannelSolution() {
 
                   <Link
                     href="/pricing"
-                    className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#173C32] transition-all hover:-translate-y-1"
+                    className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#173C32] transition-all hover:-translate-y-1 hover:shadow-lg"
                   >
                     Explore plans
+
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -1334,7 +1742,7 @@ export default function ChannelSolution() {
                   {channel.features.map((feature) => (
                     <div
                       key={feature}
-                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition-all hover:bg-white/10"
+                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition-all hover:border-white/20 hover:bg-white/10"
                     >
                       <div
                         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
@@ -1357,6 +1765,18 @@ export default function ChannelSolution() {
                   ))}
                 </div>
               </div>
+
+              {/* Logo watermark */}
+
+              {isWhatsApp && (
+                <div className="pointer-events-none absolute bottom-5 right-7 opacity-[0.035]">
+                  <img
+                    src="/whatsware-logo.png"
+                    alt=""
+                    className="w-52 brightness-0 invert"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -1378,14 +1798,24 @@ export default function ChannelSolution() {
               <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#B7CDBB]/25 blur-3xl" />
 
               <div className="relative">
-                <div
-                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-lg"
-                  style={{
-                    backgroundColor: channel.accent,
-                  }}
-                >
-                  <ChannelIcon className="h-8 w-8" />
-                </div>
+                {isWhatsApp ? (
+                  <div className="mx-auto flex h-16 w-fit items-center rounded-2xl border border-[#E5DED3] bg-white px-6 shadow-lg">
+                    <img
+                      src="/whatsware-logo.png"
+                      alt="WhatsWare"
+                      className="h-9 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-lg"
+                    style={{
+                      backgroundColor: channel.accent,
+                    }}
+                  >
+                    <ChannelIcon className="h-8 w-8" />
+                  </div>
+                )}
 
                 <h2 className="mx-auto mt-7 max-w-3xl text-3xl font-bold text-[#173C32] sm:text-5xl">
                   Ready to make {channel.name} work harder for your business?
@@ -1401,12 +1831,13 @@ export default function ChannelSolution() {
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#173C32] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-[#285B4D]"
                   >
                     View Pricing
+
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
 
                   <Link
                     href="/solutions"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D7CDC1] bg-white px-7 py-3.5 text-sm font-semibold text-[#173C32] transition-all hover:-translate-y-1"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D7CDC1] bg-white px-7 py-3.5 text-sm font-semibold text-[#173C32] transition-all hover:-translate-y-1 hover:border-[#159447]/30 hover:text-[#159447]"
                   >
                     All Solutions
                   </Link>

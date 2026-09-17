@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIAgentShowcase from "@/components/AIAgentShowcase";
+
 import {
   ArrowRight,
   BarChart3,
@@ -20,6 +21,28 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+
+/* =========================================================
+   WHATSWARE OFFICIAL LOGO
+   ========================================================= */
+
+function WhatsWareLogo({
+  className = "h-6 w-6",
+}: {
+  className?: string;
+}) {
+  return (
+    <img
+      src="/whatsware-logo.png"
+      alt="WhatsWare"
+      className={`${className} object-contain`}
+    />
+  );
+}
+
+/* =========================================================
+   METRICS
+   ========================================================= */
 
 const metrics = [
   {
@@ -48,6 +71,10 @@ const metrics = [
   },
 ];
 
+/* =========================================================
+   AI INSIGHTS
+   ========================================================= */
+
 const insights = [
   {
     icon: TrendingUp,
@@ -66,6 +93,10 @@ const insights = [
   },
 ];
 
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 export default function Analytics() {
   return (
     <div className="min-h-screen overflow-hidden bg-white text-slate-900">
@@ -74,22 +105,31 @@ export default function Analytics() {
       {/* =========================================================
           HERO
       ========================================================== */}
+
       <section className="relative overflow-hidden pt-28 lg:pt-36">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-48 top-20 h-[500px] w-[500px] rounded-full bg-emerald-100/70 blur-3xl" />
+
           <div className="absolute -right-48 top-0 h-[600px] w-[600px] rounded-full bg-green-100/60 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Breadcrumb */}
+
           <div className="mb-8 flex items-center gap-2 text-sm text-slate-500">
-            <Link href="/" className="hover:text-[#159447]">
+            <Link
+              href="/"
+              className="transition hover:text-[#159447]"
+            >
               Home
             </Link>
 
             <ChevronRight className="h-4 w-4" />
 
-            <Link href="/products" className="hover:text-[#159447]">
+            <Link
+              href="/products"
+              className="transition hover:text-[#159447]"
+            >
               Products
             </Link>
 
@@ -101,11 +141,19 @@ export default function Analytics() {
           </div>
 
           <div className="grid items-center gap-16 lg:grid-cols-2">
-            {/* LEFT */}
+            {/* =====================================================
+                LEFT
+            ====================================================== */}
+
             <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-bold text-[#159447]">
-                <BarChart3 className="h-4 w-4" />
-                Business Intelligence
+              {/* WhatsWare branding badge */}
+
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-bold text-[#159447]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white p-1 shadow-sm">
+                  <WhatsWareLogo className="h-5 w-5" />
+                </span>
+
+                <span>WhatsWare Analytics</span>
               </div>
 
               <h1 className="max-w-3xl text-5xl font-black tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">
@@ -125,6 +173,7 @@ export default function Analytics() {
                 <Link href="/signup">
                   <button className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#159447] px-7 py-4 font-bold text-white shadow-xl shadow-emerald-200 transition hover:-translate-y-1 hover:bg-[#117c3b] sm:w-auto">
                     Explore Analytics
+
                     <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
                   </button>
                 </Link>
@@ -142,27 +191,43 @@ export default function Analytics() {
                   "AI-powered insights",
                   "Custom reports",
                 ].map((item) => (
-                  <span key={item} className="flex items-center gap-2">
+                  <span
+                    key={item}
+                    className="flex items-center gap-2"
+                  >
                     <CheckCircle2 className="h-4 w-4 text-[#159447]" />
+
                     {item}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* RIGHT DASHBOARD */}
+            {/* =====================================================
+                RIGHT DASHBOARD
+            ====================================================== */}
+
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_35px_90px_-25px_rgba(15,23,42,0.3)]">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-                  <div>
-                    <p className="text-sm font-black">
-                      Business Overview
-                    </p>
 
-                    <p className="mt-0.5 text-[10px] text-slate-400">
-                      Last 30 days
-                    </p>
+                <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+                  <div className="flex items-center gap-3">
+                    {/* Official logo */}
+
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 p-1.5">
+                      <WhatsWareLogo className="h-7 w-7" />
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-black">
+                        Business Overview
+                      </p>
+
+                      <p className="mt-0.5 text-[10px] text-slate-400">
+                        Last 30 days
+                      </p>
+                    </div>
                   </div>
 
                   <div className="rounded-lg border border-slate-200 px-3 py-2 text-[10px] font-semibold text-slate-500">
@@ -172,6 +237,7 @@ export default function Analytics() {
 
                 <div className="space-y-5 bg-slate-50 p-5">
                   {/* Mini metrics */}
+
                   <div className="grid grid-cols-2 gap-3">
                     {metrics.slice(0, 4).map((metric) => {
                       const Icon = metric.icon;
@@ -204,6 +270,7 @@ export default function Analytics() {
                   </div>
 
                   {/* Chart */}
+
                   <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
                     <div className="flex items-center justify-between">
                       <div>
@@ -224,6 +291,7 @@ export default function Analytics() {
 
                     <div className="relative mt-5 h-36">
                       {/* Grid lines */}
+
                       <div className="absolute inset-0 flex flex-col justify-between">
                         {[1, 2, 3, 4].map((line) => (
                           <div
@@ -234,6 +302,7 @@ export default function Analytics() {
                       </div>
 
                       {/* Bars */}
+
                       <div className="absolute inset-0 flex items-end justify-between gap-2 px-1">
                         {[
                           38,
@@ -266,10 +335,12 @@ export default function Analytics() {
                   </div>
 
                   {/* Bottom analytics */}
+
                   <div className="grid grid-cols-2 gap-3">
                     <div className="rounded-2xl border border-slate-100 bg-white p-4">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-emerald-500" />
+
                         <span className="text-[9px] text-slate-400">
                           AI Resolved
                         </span>
@@ -283,6 +354,7 @@ export default function Analytics() {
                     <div className="rounded-2xl border border-slate-100 bg-white p-4">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-blue-500" />
+
                         <span className="text-[9px] text-slate-400">
                           Conversion
                         </span>
@@ -296,16 +368,19 @@ export default function Analytics() {
                 </div>
               </div>
 
-              {/* Floating insight */}
+              {/* Floating AI insight */}
+
               <div className="absolute -bottom-7 -left-5 hidden rounded-2xl border border-emerald-100 bg-white p-4 shadow-2xl sm:block">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-white">
-                    <Sparkles className="h-5 w-5" />
+                  {/* Official logo instead of Sparkles */}
+
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 p-1.5 ring-1 ring-emerald-100">
+                    <WhatsWareLogo className="h-7 w-7" />
                   </div>
 
                   <div>
                     <p className="text-[9px] text-slate-400">
-                      AI Insight
+                      WhatsWare AI Insight
                     </p>
 
                     <p className="text-xs font-bold text-slate-800">
@@ -322,6 +397,7 @@ export default function Analytics() {
       {/* =========================================================
           METRICS
       ========================================================== */}
+
       <section className="py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -340,7 +416,7 @@ export default function Analytics() {
           </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((metric) => {
+            {metrics.map((metric, index) => {
               const Icon = metric.icon;
 
               return (
@@ -371,7 +447,7 @@ export default function Analytics() {
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#159447] to-lime-400"
                       style={{
-                        width: `${65 + Math.random() * 30}%`,
+                        width: `${65 + (index * 7 + 5)}%`,
                       }}
                     />
                   </div>
@@ -385,17 +461,21 @@ export default function Analytics() {
       {/* =========================================================
           REPORTING SECTION
       ========================================================== */}
+
       <section className="bg-slate-950 py-28 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             {/* Dashboard */}
+
             <div className="order-2 lg:order-1">
               <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-4 shadow-2xl backdrop-blur-xl">
                 <div className="overflow-hidden rounded-2xl bg-[#0b1220]">
                   <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-400/10 text-emerald-400">
-                        <LineChart className="h-5 w-5" />
+                      {/* Official WhatsWare logo */}
+
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white p-1.5">
+                        <WhatsWareLogo className="h-6 w-6" />
                       </div>
 
                       <div>
@@ -478,6 +558,7 @@ export default function Analytics() {
             </div>
 
             {/* Text */}
+
             <div className="order-1 lg:order-2">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300">
                 <BarChart3 className="h-4 w-4" />
@@ -518,12 +599,18 @@ export default function Analytics() {
       {/* =========================================================
           AI INSIGHTS
       ========================================================== */}
+
       <section className="py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <div className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
-                <Sparkles className="h-4 w-4" />
+              {/* WhatsWare logo instead of Sparkles */}
+
+              <div className="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-[#159447]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 p-1">
+                  <WhatsWareLogo className="h-5 w-5" />
+                </span>
+
                 AI Insights
               </div>
 
@@ -539,6 +626,7 @@ export default function Analytics() {
               <Link href="/products/ai-agents">
                 <button className="group mt-8 flex items-center gap-2 font-bold text-[#159447]">
                   Explore AI Agents
+
                   <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
                 </button>
               </Link>
@@ -579,6 +667,7 @@ export default function Analytics() {
       {/* =========================================================
           FEATURES GRID
       ========================================================== */}
+
       <section className="bg-slate-50 py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -652,12 +741,15 @@ export default function Analytics() {
       {/* =========================================================
           CTA
       ========================================================== */}
+
       <section className="relative overflow-hidden py-32">
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-100/70 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#159447] text-white shadow-xl shadow-emerald-200">
-            <BarChart3 className="h-8 w-8" />
+          {/* Official WhatsWare logo */}
+
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-xl ring-1 ring-emerald-100">
+            <WhatsWareLogo className="h-12 w-12" />
           </div>
 
           <h2 className="mt-8 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">
@@ -673,6 +765,7 @@ export default function Analytics() {
             <Link href="/signup">
               <button className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#159447] px-8 py-4 font-bold text-white shadow-xl shadow-emerald-200 transition hover:-translate-y-1 hover:bg-[#117c3b] sm:w-auto">
                 Start for Free
+
                 <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
               </button>
             </Link>
@@ -685,8 +778,17 @@ export default function Analytics() {
           </div>
         </div>
       </section>
-      
+
+      {/* =========================================================
+          AI AGENT SHOWCASE
+      ========================================================== */}
+
       <AIAgentShowcase />
+
+      {/* =========================================================
+          FOOTER
+      ========================================================== */}
+
       <Footer />
     </div>
   );
